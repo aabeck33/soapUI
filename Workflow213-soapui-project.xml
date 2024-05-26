@@ -1,0 +1,1515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="926f0f97-c25e-4b4d-ac96-274fd5548ecc" activeEnvironment="Default" name="Workflow213" soapui-version="5.7.1" abortOnError="false" runType="SEQUENTIAL" resourceRoot="" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="dd82d6ac-2571-41ea-8ff7-b500fba4258e" wsaVersion="NONE" name="WorkflowBinding" type="wsdl" bindingName="{urn:workflow}WorkflowBinding" soapVersion="1_1" anonymous="optional" definition="https://sesuitedev.uniaoquimica.com.br/se/ws/wf_ws.php?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://sesuitedev.uniaoquimica.com.br/se/ws/wf_ws.php?wsdl"><con:part><con:url>https://sesuitedev.uniaoquimica.com.br/se/ws/wf_ws.php?wsdl</con:url><con:content><![CDATA[<definitions targetNamespace="urn:workflow" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:workflow" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="urn:workflow">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/"/>
+      <xsd:complexType name="attributeData">
+        <xsd:all>
+          <xsd:element name="EntityAttributeID" type="xsd:string"/>
+          <xsd:element name="EntityAttributeValue" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="attributeFileData">
+        <xsd:all>
+          <xsd:element name="EntityAttributeID" type="xsd:string"/>
+          <xsd:element name="FileName" type="xsd:string"/>
+          <xsd:element name="FileContent" type="xsd:base64Binary"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="relationshipAttributeData">
+        <xsd:all>
+          <xsd:element name="RelationshipAttributeID" type="xsd:string"/>
+          <xsd:element name="RelationshipAttributeValue" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="relationshipArray">
+        <xsd:sequence>
+          <xsd:element name="RelationshipID" type="xsd:string"/>
+          <xsd:element name="RelationshipAttribute" type="tns:relationshipAttributeData" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="entityAttributeArray">
+        <xsd:sequence>
+          <xsd:element name="EntityAttribute" type="tns:attributeData" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="entityAttributeFileArray">
+        <xsd:sequence>
+          <xsd:element name="EntityAttributeFile" type="tns:attributeFileData" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="relationshipListArray">
+        <xsd:sequence>
+          <xsd:element name="Relationship" type="tns:relationshipArray" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="attributeValueData">
+        <xsd:all>
+          <xsd:element name="AttributeValue" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="attributeArray">
+        <xsd:sequence>
+          <xsd:element name="AttributeID" type="xsd:string"/>
+          <xsd:element name="AttributeValueList" type="tns:attributeValueData" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AttributeListArray">
+        <xsd:sequence>
+          <xsd:element name="Attribute" type="tns:attributeArray" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EntityRecordArray">
+        <xsd:sequence>
+          <xsd:element name="EntityAttributeList" type="tns:entityAttributeArray" minOccurs="0" maxOccurs="1"/>
+          <xsd:element name="RelationshipList" type="tns:relationshipListArray" minOccurs="0" maxOccurs="1"/>
+          <xsd:element name="EntityAttributeFileList" type="tns:entityAttributeFileArray" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EntityRecordListArray">
+        <xsd:sequence>
+          <xsd:element name="EntityRecord" type="tns:EntityRecordArray" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EntityListArray">
+        <xsd:sequence>
+          <xsd:element name="Entity" type="tns:EntityArray" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EntityArray">
+        <xsd:sequence>
+          <xsd:element name="EntityID" type="xsd:string"/>
+          <xsd:element name="EntityAttributeList" type="tns:entityAttributeArray" minOccurs="0" maxOccurs="1"/>
+          <xsd:element name="RelationshipList" type="tns:RelationshipAttributeListArray" minOccurs="0" maxOccurs="1"/>
+          <xsd:element name="EntityAttributeFileList" type="tns:entityAttributeFileArray" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RelationshipAttributeListArray">
+        <xsd:sequence>
+          <xsd:element name="Relationship" type="tns:RelationshipArrayList" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RelationshipArrayList">
+        <xsd:sequence>
+          <xsd:element name="RelationshipID" type="xsd:string"/>
+          <xsd:element name="RelationshipAttributeList" type="tns:RelationshipListAttributeData" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RelationshipListAttributeData">
+        <xsd:sequence>
+          <xsd:element name="RelationshipAttribute" type="tns:relationshipAttributeData" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RecordData">
+        <xsd:all>
+          <xsd:element name="RecordKey" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RecordListArray">
+        <xsd:sequence>
+          <xsd:element name="Record" type="tns:RecordData" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ValueItemData">
+        <xsd:all>
+          <xsd:element name="ItemName" type="xsd:string"/>
+          <xsd:element name="ItemValue" type="xsd:float"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ValueItemArray">
+        <xsd:sequence>
+          <xsd:element name="ValueItem" type="tns:ValueItemData" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequesterAsUser">
+        <xsd:all>
+          <xsd:element name="UserID" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RequesterAsCustomer">
+        <xsd:all>
+          <xsd:element name="CustomerID" type="xsd:string"/>
+          <xsd:element name="Contact" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="Requester">
+        <xsd:sequence>
+          <xsd:element name="User" type="tns:RequesterAsUser"/>
+          <xsd:element name="Customer" type="tns:RequesterAsCustomer"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="accessExceptionData">
+        <xsd:all>
+          <xsd:element name="UserID" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="accessExceptionArray">
+        <xsd:sequence>
+          <xsd:element name="AccessException" type="tns:accessExceptionData" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="recordDetailData">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:integer"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="RecordKey" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="recordDetailArray">
+        <xsd:sequence>
+          <xsd:element name="RecordDetail" type="tns:recordDetailData" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="newWorkflowRequestType">
+        <xsd:all>
+          <xsd:element name="ProcessID" type="xsd:string"/>
+          <xsd:element name="WorkflowTitle" type="xsd:string"/>
+          <xsd:element name="UserID" type="xsd:string" minOccurs="0"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newWorkflowResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:integer"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="RecordKey" type="xsd:string"/>
+          <xsd:element name="RecordID" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newWorkflowEditDataRequestType">
+        <xsd:all>
+          <xsd:element name="ProcessID" type="xsd:string"/>
+          <xsd:element name="WorkflowTitle" type="xsd:string"/>
+          <xsd:element name="UserID" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="Requester" type="tns:Requester" minOccurs="0"/>
+          <xsd:element name="EntityList" type="tns:EntityListArray" minOccurs="0"/>
+          <xsd:element name="AttributeList" type="tns:AttributeListArray" minOccurs="0"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newWorkflowEditDataResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:integer"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="RecordKey" type="xsd:string"/>
+          <xsd:element name="RecordID" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newWorkflowTypeEditDataRequestType">
+        <xsd:all>
+          <xsd:element name="WorkflowTypeID" type="xsd:boolean"/>
+          <xsd:element name="WorkflowTitle" type="xsd:string"/>
+          <xsd:element name="UserID" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="Requester" type="tns:Requester" minOccurs="0"/>
+          <xsd:element name="EntityList" type="tns:EntityListArray" minOccurs="0"/>
+          <xsd:element name="AttributeList" type="tns:AttributeListArray" minOccurs="0"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newWorkflowTypeEditDataResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:integer"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="RecordKey" type="xsd:string"/>
+          <xsd:element name="RecordID" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editWorkflowDataRequestType">
+        <xsd:all>
+          <xsd:element name="WorkflowID" type="xsd:string"/>
+          <xsd:element name="UserID" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="Requester" type="tns:Requester" minOccurs="0"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editWorkflowDataResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:integer"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editEntityRecordRequestType">
+        <xsd:all>
+          <xsd:element name="WorkflowID" type="xsd:string"/>
+          <xsd:element name="EntityID" type="xsd:string"/>
+          <xsd:element name="EntityAttributeList" type="tns:entityAttributeArray" minOccurs="0"/>
+          <xsd:element name="RelationshipList" type="tns:relationshipListArray" minOccurs="0"/>
+          <xsd:element name="EntityAttributeFileList" type="tns:entityAttributeFileArray" minOccurs="0"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editEntityRecordResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:integer"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newChildEntityRecordRequestType">
+        <xsd:all>
+          <xsd:element name="WorkflowID" type="xsd:string"/>
+          <xsd:element name="MainEntityID" type="xsd:string"/>
+          <xsd:element name="ChildRelationshipID" type="xsd:string"/>
+          <xsd:element name="EntityAttributeList" type="tns:entityAttributeArray" minOccurs="0"/>
+          <xsd:element name="RelationshipList" type="tns:relationshipListArray" minOccurs="0"/>
+          <xsd:element name="EntityAttributeFileList" type="tns:entityAttributeFileArray" minOccurs="0"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newChildEntityRecordResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:integer"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="RecordKey" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newChildEntityRecordListRequestType">
+        <xsd:all>
+          <xsd:element name="WorkflowID" type="xsd:string"/>
+          <xsd:element name="MainEntityID" type="xsd:string"/>
+          <xsd:element name="ChildRelationshipID" type="xsd:string"/>
+          <xsd:element name="EntityRecordList" type="tns:EntityRecordListArray"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newChildEntityRecordListResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:integer"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="RecordList" type="tns:RecordListArray"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editChildEntityRecordRequestType">
+        <xsd:all>
+          <xsd:element name="WorkflowID" type="xsd:string"/>
+          <xsd:element name="MainEntityID" type="xsd:string"/>
+          <xsd:element name="ChildRelationshipID" type="xsd:string"/>
+          <xsd:element name="ChildRecordOID" type="xsd:string"/>
+          <xsd:element name="EntityAttributeList" type="tns:entityAttributeArray" minOccurs="0"/>
+          <xsd:element name="RelationshipList" type="tns:relationshipListArray" minOccurs="0"/>
+          <xsd:element name="EntityAttributeFileList" type="tns:entityAttributeFileArray" minOccurs="0"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editChildEntityRecordResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:integer"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="deleteChildEntityRecordRequestType">
+        <xsd:all>
+          <xsd:element name="WorkflowID" type="xsd:string"/>
+          <xsd:element name="MainEntityID" type="xsd:string"/>
+          <xsd:element name="ChildRelationshipID" type="xsd:string"/>
+          <xsd:element name="ChildRecordOID" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="deleteChildEntityRecordResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:integer"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="clearChildEntityRecordRequestType">
+        <xsd:all>
+          <xsd:element name="WorkflowID" type="xsd:string"/>
+          <xsd:element name="MainEntityID" type="xsd:string"/>
+          <xsd:element name="ChildRelationshipID" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="clearChildEntityRecordResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:integer"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editAttributeValueRequestType">
+        <xsd:all>
+          <xsd:element name="WorkflowID" type="xsd:string"/>
+          <xsd:element name="AttributeList" type="tns:AttributeListArray" minOccurs="0"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editAttributeValueResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:integer"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newAttachmentRequestType">
+        <xsd:all>
+          <xsd:element name="WorkflowID" type="xsd:string"/>
+          <xsd:element name="ActivityID" type="xsd:string"/>
+          <xsd:element name="FileName" type="xsd:string"/>
+          <xsd:element name="FileContent" type="xsd:base64Binary"/>
+          <xsd:element name="UserID" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="AttachmentID" type="xsd:string"/>
+          <xsd:element name="AttachmentName" type="xsd:string"/>
+          <xsd:element name="Summary" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newAttachmentResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:integer"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="RecordKey" type="xsd:string"/>
+          <xsd:element name="RecordID" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newAssocDocumentRequestType">
+        <xsd:all>
+          <xsd:element name="WorkflowID" type="xsd:string"/>
+          <xsd:element name="ActivityID" type="xsd:string"/>
+          <xsd:element name="DocumentID" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newAssocDocumentResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:integer"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="assocWorkflowData">
+        <xsd:all>
+          <xsd:element name="AssocWorkflowID" type="xsd:string"/>
+          <xsd:element name="AssocWorkflowType" type="xsd:integer"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="assocWorkflowArray">
+        <xsd:sequence>
+          <xsd:element name="AssocWorkflow" type="tns:assocWorkflowData" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="newAssocWorkflowRequestType">
+        <xsd:all>
+          <xsd:element name="WorkflowID" type="xsd:string"/>
+          <xsd:element name="AssocWorkflowList" type="tns:assocWorkflowArray"/>
+          <xsd:element name="ActivityID" type="xsd:string"/>
+          <xsd:element name="ActivityOrder" type="xsd:integer" minOccurs="0"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newAssocWorkflowResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:integer"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="RecordList" type="tns:RecordListArray"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="executeSystemActivityRequestType">
+        <xsd:all>
+          <xsd:element name="WorkflowID" type="xsd:string"/>
+          <xsd:element name="ActivityID" type="xsd:string"/>
+          <xsd:element name="ActivityOrder" type="xsd:integer" minOccurs="0"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="executeSystemActivityResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:integer"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="executeActivityRequestType">
+        <xsd:all>
+          <xsd:element name="WorkflowID" type="xsd:string"/>
+          <xsd:element name="ActivityID" type="xsd:string"/>
+          <xsd:element name="ActionSequence" type="xsd:integer"/>
+          <xsd:element name="UserID" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ActivityOrder" type="xsd:integer" minOccurs="0"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="executeActivityResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:integer"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newAccessExceptionRequestType">
+        <xsd:all>
+          <xsd:element name="WorkflowID" type="xsd:string"/>
+          <xsd:element name="AccessExceptionList" type="tns:accessExceptionArray"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newAccessExceptionResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:integer"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="RecordDetailList" type="tns:recordDetailArray"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cancelWorkflowRequestType">
+        <xsd:all>
+          <xsd:element name="WorkflowID" type="xsd:string"/>
+          <xsd:element name="Explanation" type="xsd:string"/>
+          <xsd:element name="UserID" type="xsd:string" minOccurs="0"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cancelWorkflowResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:integer"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="getWorkflowRequestType">
+        <xsd:all>
+          <xsd:element name="WorkflowID" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="getWorkflowResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:integer"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="Title" type="xsd:string"/>
+          <xsd:element name="ProcessID" type="xsd:string"/>
+          <xsd:element name="InstanceStatus" type="xsd:string"/>
+          <xsd:element name="WorkflowStatus" type="xsd:string"/>
+          <xsd:element name="StarterUser" type="xsd:string"/>
+          <xsd:element name="StarterExternalUser" type="xsd:string"/>
+          <xsd:element name="StartDate" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:element name="newWorkflow" type="tns:newWorkflowRequestType"/>
+      <xsd:element name="newWorkflowResponse" type="tns:newWorkflowResponseType"/>
+      <xsd:element name="newWorkflowEditData" type="tns:newWorkflowEditDataRequestType"/>
+      <xsd:element name="newWorkflowEditDataResponse" type="tns:newWorkflowEditDataResponseType"/>
+      <xsd:element name="newWorkflowTypeEditData" type="tns:newWorkflowTypeEditDataRequestType"/>
+      <xsd:element name="newWorkflowTypeEditDataResponse" type="tns:newWorkflowTypeEditDataResponseType"/>
+      <xsd:element name="editWorkflowData" type="tns:editWorkflowDataRequestType"/>
+      <xsd:element name="editWorkflowDataResponse" type="tns:editWorkflowDataResponseType"/>
+      <xsd:element name="editEntityRecord" type="tns:editEntityRecordRequestType"/>
+      <xsd:element name="editEntityRecordResponse" type="tns:editEntityRecordResponseType"/>
+      <xsd:element name="newChildEntityRecord" type="tns:newChildEntityRecordRequestType"/>
+      <xsd:element name="newChildEntityRecordResponse" type="tns:newChildEntityRecordResponseType"/>
+      <xsd:element name="newChildEntityRecordList" type="tns:newChildEntityRecordListRequestType"/>
+      <xsd:element name="newChildEntityRecordListResponse" type="tns:newChildEntityRecordListResponseType"/>
+      <xsd:element name="editChildEntityRecord" type="tns:editChildEntityRecordRequestType"/>
+      <xsd:element name="editChildEntityRecordResponse" type="tns:editChildEntityRecordResponseType"/>
+      <xsd:element name="deleteChildEntityRecord" type="tns:deleteChildEntityRecordRequestType"/>
+      <xsd:element name="deleteChildEntityRecordResponse" type="tns:deleteChildEntityRecordResponseType"/>
+      <xsd:element name="clearChildEntityRecord" type="tns:clearChildEntityRecordRequestType"/>
+      <xsd:element name="clearChildEntityRecordResponse" type="tns:clearChildEntityRecordResponseType"/>
+      <xsd:element name="editAttributeValue" type="tns:editAttributeValueRequestType"/>
+      <xsd:element name="editAttributeValueResponse" type="tns:editAttributeValueResponseType"/>
+      <xsd:element name="newAttachment" type="tns:newAttachmentRequestType"/>
+      <xsd:element name="newAttachmentResponse" type="tns:newAttachmentResponseType"/>
+      <xsd:element name="newAssocDocument" type="tns:newAssocDocumentRequestType"/>
+      <xsd:element name="newAssocDocumentResponse" type="tns:newAssocDocumentResponseType"/>
+      <xsd:element name="newAssocWorkflow" type="tns:newAssocWorkflowRequestType"/>
+      <xsd:element name="newAssocWorkflowResponse" type="tns:newAssocWorkflowResponseType"/>
+      <xsd:element name="executeSystemActivity" type="tns:executeSystemActivityRequestType"/>
+      <xsd:element name="executeSystemActivityResponse" type="tns:executeSystemActivityResponseType"/>
+      <xsd:element name="executeActivity" type="tns:executeActivityRequestType"/>
+      <xsd:element name="executeActivityResponse" type="tns:executeActivityResponseType"/>
+      <xsd:element name="newAccessException" type="tns:newAccessExceptionRequestType"/>
+      <xsd:element name="newAccessExceptionResponse" type="tns:newAccessExceptionResponseType"/>
+      <xsd:element name="cancelWorkflow" type="tns:cancelWorkflowRequestType"/>
+      <xsd:element name="cancelWorkflowResponse" type="tns:cancelWorkflowResponseType"/>
+      <xsd:element name="getWorkflow" type="tns:getWorkflowRequestType"/>
+      <xsd:element name="getWorkflowResponse" type="tns:getWorkflowResponseType"/>
+    </xsd:schema>
+  </types>
+  <message name="newWorkflowRequest">
+    <part name="parameters" element="tns:newWorkflow"/>
+  </message>
+  <message name="newWorkflowResponse">
+    <part name="parameters" element="tns:newWorkflowResponse"/>
+  </message>
+  <message name="newWorkflowEditDataRequest">
+    <part name="parameters" element="tns:newWorkflowEditData"/>
+  </message>
+  <message name="newWorkflowEditDataResponse">
+    <part name="parameters" element="tns:newWorkflowEditDataResponse"/>
+  </message>
+  <message name="newWorkflowTypeEditDataRequest">
+    <part name="parameters" element="tns:newWorkflowTypeEditData"/>
+  </message>
+  <message name="newWorkflowTypeEditDataResponse">
+    <part name="parameters" element="tns:newWorkflowTypeEditDataResponse"/>
+  </message>
+  <message name="editWorkflowDataRequest">
+    <part name="parameters" element="tns:editWorkflowData"/>
+  </message>
+  <message name="editWorkflowDataResponse">
+    <part name="parameters" element="tns:editWorkflowDataResponse"/>
+  </message>
+  <message name="editEntityRecordRequest">
+    <part name="parameters" element="tns:editEntityRecord"/>
+  </message>
+  <message name="editEntityRecordResponse">
+    <part name="parameters" element="tns:editEntityRecordResponse"/>
+  </message>
+  <message name="newChildEntityRecordRequest">
+    <part name="parameters" element="tns:newChildEntityRecord"/>
+  </message>
+  <message name="newChildEntityRecordResponse">
+    <part name="parameters" element="tns:newChildEntityRecordResponse"/>
+  </message>
+  <message name="newChildEntityRecordListRequest">
+    <part name="parameters" element="tns:newChildEntityRecordList"/>
+  </message>
+  <message name="newChildEntityRecordListResponse">
+    <part name="parameters" element="tns:newChildEntityRecordListResponse"/>
+  </message>
+  <message name="editChildEntityRecordRequest">
+    <part name="parameters" element="tns:editChildEntityRecord"/>
+  </message>
+  <message name="editChildEntityRecordResponse">
+    <part name="parameters" element="tns:editChildEntityRecordResponse"/>
+  </message>
+  <message name="deleteChildEntityRecordRequest">
+    <part name="parameters" element="tns:deleteChildEntityRecord"/>
+  </message>
+  <message name="deleteChildEntityRecordResponse">
+    <part name="parameters" element="tns:deleteChildEntityRecordResponse"/>
+  </message>
+  <message name="clearChildEntityRecordRequest">
+    <part name="parameters" element="tns:clearChildEntityRecord"/>
+  </message>
+  <message name="clearChildEntityRecordResponse">
+    <part name="parameters" element="tns:clearChildEntityRecordResponse"/>
+  </message>
+  <message name="editAttributeValueRequest">
+    <part name="parameters" element="tns:editAttributeValue"/>
+  </message>
+  <message name="editAttributeValueResponse">
+    <part name="parameters" element="tns:editAttributeValueResponse"/>
+  </message>
+  <message name="newAttachmentRequest">
+    <part name="parameters" element="tns:newAttachment"/>
+  </message>
+  <message name="newAttachmentResponse">
+    <part name="parameters" element="tns:newAttachmentResponse"/>
+  </message>
+  <message name="newAssocDocumentRequest">
+    <part name="parameters" element="tns:newAssocDocument"/>
+  </message>
+  <message name="newAssocDocumentResponse">
+    <part name="parameters" element="tns:newAssocDocumentResponse"/>
+  </message>
+  <message name="newAssocWorkflowRequest">
+    <part name="parameters" element="tns:newAssocWorkflow"/>
+  </message>
+  <message name="newAssocWorkflowResponse">
+    <part name="parameters" element="tns:newAssocWorkflowResponse"/>
+  </message>
+  <message name="executeSystemActivityRequest">
+    <part name="parameters" element="tns:executeSystemActivity"/>
+  </message>
+  <message name="executeSystemActivityResponse">
+    <part name="parameters" element="tns:executeSystemActivityResponse"/>
+  </message>
+  <message name="executeActivityRequest">
+    <part name="parameters" element="tns:executeActivity"/>
+  </message>
+  <message name="executeActivityResponse">
+    <part name="parameters" element="tns:executeActivityResponse"/>
+  </message>
+  <message name="newAccessExceptionRequest">
+    <part name="parameters" element="tns:newAccessException"/>
+  </message>
+  <message name="newAccessExceptionResponse">
+    <part name="parameters" element="tns:newAccessExceptionResponse"/>
+  </message>
+  <message name="cancelWorkflowRequest">
+    <part name="parameters" element="tns:cancelWorkflow"/>
+  </message>
+  <message name="cancelWorkflowResponse">
+    <part name="parameters" element="tns:cancelWorkflowResponse"/>
+  </message>
+  <message name="getWorkflowRequest">
+    <part name="parameters" element="tns:getWorkflow"/>
+  </message>
+  <message name="getWorkflowResponse">
+    <part name="parameters" element="tns:getWorkflowResponse"/>
+  </message>
+  <portType name="WorkflowPortType">
+    <operation name="newWorkflow">
+      <documentation>Inicia um workflow;   
+
+                 Parâmetros: 
+                     ProcessID*: Identificador do processo;   WorkflowTitle*: Título do workflow;   UserID: Matrícula do usuário;   
+
+                 * Requerido;  
+                
+
+                  Retorno: 
+                     Status: Situação da execução do método. Seu valor pode ser:   SUCCESS: Método executado com sucesso;    FAILURE: Ocorreu uma falha na execução do método;   Code: Código do retorno do método;   Detail: Detalhe do retorno do método;   RecordKey: Código do registro incluído pelo método;   RecordID: Identificador do registro incluído pelo método;</documentation>
+      <input message="tns:newWorkflowRequest"/>
+      <output message="tns:newWorkflowResponse"/>
+    </operation>
+    <operation name="newWorkflowEditData">
+      <documentation><![CDATA[Inicia um workflow e altera seus dados;   
+
+                 Parâmetros: 
+                     ProcessID*: Identificador do processo;   WorkflowTitle*: Título do workflow;   UserID: Matrícula do usuário;   <Requester>  <User>   UserID: Matrícula do usuário solicitante;   </User>  <Customer>   CustomerID: Identificador do cliente;    Contact: Contato solicitante;   </Customer>  </Requester>  <EntityList>  <Entity>   EntityID: Identificador da tabela de formulário;    <EntityAttributeList>   <EntityAttribute>     EntityAttributeID: Identificador do campo da tabela de formulário;      EntityAttributeValue: Valor do campo da tabela de formulário**;     </EntityAttribute>   </EntityAttributeList>   <RelationshipList>   <Relationship>     RelationshipID: Identificador do relacionamento;      <RelationshipAttributeList>      <RelationshipAttribute>       RelationshipAttributeID: Identificador do campo da tabela de formulário relacionada;        RelationshipAttributeValue: Valor do campo da tabela de formulário relacionada**;       </RelationshipAttribute>     </RelationshipAttributeList>    </Relationship>   </RelationshipList>   <EntityAttributeFileList>   <EntityAttributeFile>     EntityAttributeID: Identificador do campo da tabela de formulário;      FileName: Nome do arquivo (inclui sua extensão);      FileContent: Conteúdo binário do arquivo;     </EntityAttributeFile>   </EntityAttributeFileList>  </Entity>  </EntityList>  <AttributeList>  <Attribute>   AttributeID: Identificador do atributo;    <AttributeValueList>    AttributeValue: Valor do atributo*** ;    </AttributeValueList>  </Attribute>  </AttributeList>  
+
+                 * Requerido;  
+                 ** Observações de acordo com o tipo do campo da tabela de formulário:   Número: dígitos numéricos sem separador de milhar e decimal;    Decimal: dígitos numéricos sem separador de milhar e com ponto (.) como separador decimal;    Data: YYYY-MM-DD   Hora: HH:MM   Boolean: 0 ou 1;   *** Observações de acordo com o tipo do atributo:   Numérico: dígitos numéricos sem separador de milhar e com ponto (.) como separador decimal;    Moeda: dígitos numéricos sem separador de milhar e com ponto (.) como separador decimal;    Data: YYYY-MM-DD   Hora: HHHH:MM 
+
+                  Retorno: 
+                     Status: Situação da execução do método. Seu valor pode ser:   SUCCESS: Método executado com sucesso;    FAILURE: Ocorreu uma falha na execução do método;   Code: Código do retorno do método;   Detail: Detalhe do retorno do método;   RecordKey: Código do registro incluído pelo método;   RecordID: Identificador do registro incluído pelo método;]]]]>><![CDATA[</documentation>
+      <input message="tns:newWorkflowEditDataRequest"/>
+      <output message="tns:newWorkflowEditDataResponse"/>
+    </operation>
+    <operation name="newWorkflowTypeEditData">
+      <documentation><![CDATA[Inicia um workflow e altera seus dados;   
+
+                 Parâmetros: 
+                     WorkflowTypeID*: Identificador do tipo de workflow;   WorkflowTitle*: Título do workflow;   UserID: Matrícula do usuário;   <Requester>  <User>   UserID: Matrícula do usuário solicitante;   </User>  <Customer>   CustomerID: Identificador do cliente;    Contact: Contato solicitante;   </Customer>  </Requester>  <EntityList>  <Entity>   EntityID: Identificador da tabela de formulário;    <EntityAttributeList>   <EntityAttribute>     EntityAttributeID: Identificador do campo da tabela de formulário;      EntityAttributeValue: Valor do campo da tabela de formulário**;     </EntityAttribute>   </EntityAttributeList>   <RelationshipList>   <Relationship>     RelationshipID: Identificador do relacionamento;      <RelationshipAttributeList>      <RelationshipAttribute>       RelationshipAttributeID: Identificador do campo da tabela de formulário relacionada;        RelationshipAttributeValue: Valor do campo da tabela de formulário relacionada**;       </RelationshipAttribute>     </RelationshipAttributeList>    </Relationship>   </RelationshipList>   <EntityAttributeFileList>   <EntityAttributeFile>     EntityAttributeID: Identificador do campo da tabela de formulário;      FileName: Nome do arquivo (inclui sua extensão);      FileContent: Conteúdo binário do arquivo;     </EntityAttributeFile>   </EntityAttributeFileList>  </Entity>  </EntityList>  <AttributeList>  <Attribute>   AttributeID*: Identificador do atributo;    <AttributeValueList>    AttributeValue: Valor do atributo ;    </AttributeValueList>  </Attribute>  </AttributeList>  
+
+                 * Requerido;  
+                 ** Observações de acordo com o tipo do atributo:   Numérico: dígitos numéricos sem separador de milhar e com ponto (.) como separador decimal;    Moeda: dígitos numéricos sem separador de milhar e com ponto (.) como separador decimal;    Data: YYYY-MM-DD   Hora: HHHH:MM 
+
+                  Retorno: 
+                     Status: Situação da execução do método. Seu valor pode ser:   SUCCESS: Método executado com sucesso;    FAILURE: Ocorreu uma falha na execução do método;   Code: Código do retorno do método;   Detail: Detalhe do retorno do método;   RecordKey: Código do registro incluído pelo método;   RecordID: Identificador do registro incluído pelo método;]]]]>><![CDATA[</documentation>
+      <input message="tns:newWorkflowTypeEditDataRequest"/>
+      <output message="tns:newWorkflowTypeEditDataResponse"/>
+    </operation>
+    <operation name="editWorkflowData">
+      <documentation><![CDATA[Altera os dados do workflow;   
+
+                 Parâmetros: 
+                     WorkflowID*: Identificador do workflow;   UserID: Matrícula do usuário;   <Requester>  <User>   UserID: Matrícula do usuário solicitante;   </User>  <Customer>   CustomerID: Identificador do cliente;    Contact: Contato solicitante;   </Customer>  </Requester>  
+
+                 * Requerido;  
+                
+
+                  Retorno: 
+                     Status: Situação da execução do método. Seu valor pode ser:   SUCCESS: Método executado com sucesso;    FAILURE: Ocorreu uma falha na execução do método;   Code: Código do retorno do método;   Detail: Detalhe do retorno do método;]]]]>><![CDATA[</documentation>
+      <input message="tns:editWorkflowDataRequest"/>
+      <output message="tns:editWorkflowDataResponse"/>
+    </operation>
+    <operation name="editEntityRecord">
+      <documentation><![CDATA[Altera um registro da tabela de formulário do workflow;   
+
+                 Parâmetros: 
+                     WorkflowID*: Identificador do workflow;   EntityID*: Identificador da tabela de formulário;   <EntityAttributeList>  <EntityAttribute>   EntityAttributeID: Identificador do campo da tabela de formulário;    EntityAttributeValue: Valor do campo da tabela de formulário**;   </EntityAttribute>  </EntityAttributeList>  <RelationshipList>  <Relationship>   RelationshipID: Identificador do relacionamento;    <RelationshipAttribute>    RelationshipAttributeID: Identificador do campo da tabela de formulário relacionada;     RelationshipAttributeValue: Valor do campo da tabela de formulário relacionada**;    </RelationshipAttribute>  </Relationship>  </RelationshipList>  <EntityAttributeFileList>  <EntityAttributeFile>   EntityAttributeID: Identificador do campo da tabela de formulário;    FileName: Nome do arquivo (inclui sua extensão);    FileContent: Conteúdo binário do arquivo;   </EntityAttributeFile>  </EntityAttributeFileList>  
+
+                 * Requerido;  
+                 ** Observações de acordo com o tipo do atributo:   Número: dígitos numéricos sem separador de milhar e decimal;    Decimal: dígitos numéricos sem separador de milhar e com ponto (.) como separador decimal;    Data: YYYY-MM-DD   Hora: HH:MM   Boolean: 0 ou 1;  
+
+                  Retorno: 
+                     Status: Situação da execução do método. Seu valor pode ser:   SUCCESS: Método executado com sucesso;    FAILURE: Ocorreu uma falha na execução do método;   Code: Código do retorno do método;   Detail: Detalhe do retorno do método;]]]]>><![CDATA[</documentation>
+      <input message="tns:editEntityRecordRequest"/>
+      <output message="tns:editEntityRecordResponse"/>
+    </operation>
+    <operation name="newChildEntityRecord">
+      <documentation><![CDATA[Inclui um registro na tabela de formulário descendente do workflow;   
+
+                 Parâmetros: 
+                     WorkflowID*: Identificador do workflow;   MainEntityID*: Identificador da tabela de formulário principal;   ChildRelationshipID*: Identificador do relacionamento da tabela de formulário descendente;   <EntityAttributeList>  <EntityAttribute>   EntityAttributeID: Identificador do campo da tabela de formulário;    EntityAttributeValue: Valor do campo da tabela de formulário**;   </EntityAttribute>  </EntityAttributeList>  <RelationshipList>  <Relationship>   RelationshipID: Identificador do relacionamento;    <RelationshipAttribute>    RelationshipAttributeID: Identificador do campo da tabela de formulário relacionada;     RelationshipAttributeValue: Valor do campo da tabela de formulário relacionada**;    </RelationshipAttribute>  </Relationship>  </RelationshipList>  <EntityAttributeFileList>  <EntityAttributeFile>   EntityAttributeID: Identificador do campo da tabela de formulário;    FileName: Nome do arquivo (inclui sua extensão);    FileContent: Conteúdo binário do arquivo;   </EntityAttributeFile>  </EntityAttributeFileList>  
+
+                 * Requerido;  
+                 ** Observações de acordo com o tipo do atributo:   Número: dígitos numéricos sem separador de milhar e decimal;    Decimal: dígitos numéricos sem separador de milhar e com ponto (.) como separador decimal;    Data: YYYY-MM-DD   Hora: HH:MM   Boolean: 0 ou 1;  
+
+                  Retorno: 
+                     Status: Situação da execução do método. Seu valor pode ser:   SUCCESS: Método executado com sucesso;    FAILURE: Ocorreu uma falha na execução do método;   Code: Código do retorno do método;   Detail: Detalhe do retorno do método;   RecordKey: Código do registro incluído pelo método;]]]]>><![CDATA[</documentation>
+      <input message="tns:newChildEntityRecordRequest"/>
+      <output message="tns:newChildEntityRecordResponse"/>
+    </operation>
+    <operation name="newChildEntityRecordList">
+      <documentation><![CDATA[Inclui um ou mais registros na tabela de formulário descendente do workflow;   
+
+                 Parâmetros: 
+                     WorkflowID*: Identificador do workflow;   MainEntityID*: Identificador da tabela de formulário principal;   ChildRelationshipID*: Identificador do relacionamento da tabela de formulário descendente;   <EntityRecordList>  <EntityRecord>   <EntityAttributeList>   <EntityAttribute>     EntityAttributeID: Identificador do campo da tabela de formulário;      EntityAttributeValue: Valor do campo da tabela de formulário**;     </EntityAttribute>   </EntityAttributeList>   <RelationshipList>   <Relationship>     RelationshipID: Identificador do relacionamento;      <RelationshipAttribute>      RelationshipAttributeID: Identificador do campo da tabela de formulário relacionada;       RelationshipAttributeValue: Valor do campo da tabela de formulário relacionada**;      </RelationshipAttribute>    </Relationship>   </RelationshipList>   <EntityAttributeFileListList>   <EntityAttributeFile>     EntityAttributeID: Identificador do campo da tabela de formulário;      FileName: Nome do arquivo (inclui sua extensão);      FileContent: Conteúdo binário do arquivo;     </EntityAttributeFile>   </EntityAttributeFileListList>  </EntityRecord>  </EntityRecordList>  
+
+                 * Requerido;  
+                 ** Observações de acordo com o tipo do atributo:   Número: dígitos numéricos sem separador de milhar e decimal;    Decimal: dígitos numéricos sem separador de milhar e com ponto (.) como separador decimal;    Data: YYYY-MM-DD   Hora: HH:MM   Boolean: 0 ou 1;  
+
+                  Retorno: 
+                     Status: Situação da execução do método. Seu valor pode ser:   SUCCESS: Método executado com sucesso;    FAILURE: Ocorreu uma falha na execução do método;   Code: Código do retorno do método;   Detail: Detalhe do retorno do método;   <RecordList>  <Record>   RecordKey: Código do registro incluído pelo método;   </Record>  </RecordList>]]]]>><![CDATA[</documentation>
+      <input message="tns:newChildEntityRecordListRequest"/>
+      <output message="tns:newChildEntityRecordListResponse"/>
+    </operation>
+    <operation name="editChildEntityRecord">
+      <documentation><![CDATA[Altera um registro da tabela de formulário descendente do workflow;   
+
+                 Parâmetros: 
+                     WorkflowID*: Identificador do workflow;   MainEntityID*: Identificador da tabela de formulário principal;   ChildRelationshipID*: Identificador do relacionamento da tabela de formulário descendente;   ChildRecordOID*: Código do registro relacionado da tabela de formulário descendente;   <EntityAttributeList>  <EntityAttribute>   EntityAttributeID: Identificador do campo da tabela de formulário;    EntityAttributeValue: Valor do campo da tabela de formulário**;   </EntityAttribute>  </EntityAttributeList>  <RelationshipList>  <Relationship>   RelationshipID: Identificador do relacionamento;    <RelationshipAttribute>    RelationshipAttributeID: Identificador do campo da tabela de formulário relacionada;     RelationshipAttributeValue: Valor do campo da tabela de formulário relacionada**;    </RelationshipAttribute>  </Relationship>  </RelationshipList>  <EntityAttributeFileList>  <EntityAttributeFile>   EntityAttributeID: Identificador do campo da tabela de formulário;    FileName: Nome do arquivo (inclui sua extensão);    FileContent: Conteúdo binário do arquivo;   </EntityAttributeFile>  </EntityAttributeFileList>  
+
+                 * Requerido;  
+                 ** Observações de acordo com o tipo do atributo:   Número: dígitos numéricos sem separador de milhar e decimal;    Decimal: dígitos numéricos sem separador de milhar e com ponto (.) como separador decimal;    Data: YYYY-MM-DD   Hora: HH:MM   Boolean: 0 ou 1;  
+
+                  Retorno: 
+                     Status: Situação da execução do método. Seu valor pode ser:   SUCCESS: Método executado com sucesso;    FAILURE: Ocorreu uma falha na execução do método;   Code: Código do retorno do método;   Detail: Detalhe do retorno do método;]]]]>><![CDATA[</documentation>
+      <input message="tns:editChildEntityRecordRequest"/>
+      <output message="tns:editChildEntityRecordResponse"/>
+    </operation>
+    <operation name="deleteChildEntityRecord">
+      <documentation>Exclui um registro da tabela de formulário descendente do workflow;   
+
+                 Parâmetros: 
+                     WorkflowID*: Identificador do workflow;   MainEntityID*: Identificador da tabela de formulário principal;   ChildRelationshipID*: Identificador do relacionamento da tabela de formulário descendente;   ChildRecordOID*: Código do registro relacionado da tabela de formulário descendente;   
+
+                 * Requerido;  
+                
+
+                  Retorno: 
+                     Status: Situação da execução do método. Seu valor pode ser:   SUCCESS: Método executado com sucesso;    FAILURE: Ocorreu uma falha na execução do método;   Code: Código do retorno do método;   Detail: Detalhe do retorno do método;</documentation>
+      <input message="tns:deleteChildEntityRecordRequest"/>
+      <output message="tns:deleteChildEntityRecordResponse"/>
+    </operation>
+    <operation name="clearChildEntityRecord">
+      <documentation>Exclui todos registros relacionados da tabela de formulário descendente do workflow;   
+
+                 Parâmetros: 
+                     WorkflowID*: Identificador do workflow;   MainEntityID*: Identificador da tabela de formulário principal;   ChildRelationshipID*: Identificador do relacionamento da tabela de formulário descendente;   
+
+                 * Requerido;  
+                
+
+                  Retorno: 
+                     Status: Situação da execução do método. Seu valor pode ser:   SUCCESS: Método executado com sucesso;    FAILURE: Ocorreu uma falha na execução do método;   Code: Código do retorno do método;   Detail: Detalhe do retorno do método;</documentation>
+      <input message="tns:clearChildEntityRecordRequest"/>
+      <output message="tns:clearChildEntityRecordResponse"/>
+    </operation>
+    <operation name="editAttributeValue">
+      <documentation><![CDATA[Altera o valor dos atributos de um workflow;   
+
+                 Parâmetros: 
+                     WorkflowID*: Identificador do workflow;   <AttributeList>  <Attribute>   AttributeID*: Identificador do atributo;    <AttributeValueList>    AttributeValue: Valor do atributo ;    </AttributeValueList>  </Attribute>  </AttributeList>  
+
+                 * Requerido;  
+                 ** Observações de acordo com o tipo do atributo:   Numérico: dígitos numéricos sem separador de milhar e com ponto (.) como separador decimal;    Moeda: dígitos numéricos sem separador de milhar e com ponto (.) como separador decimal;    Data: YYYY-MM-DD   Hora: HHHH:MM 
+
+                  Retorno: 
+                     Status: Situação da execução do método. Seu valor pode ser:   SUCCESS: Método executado com sucesso;    FAILURE: Ocorreu uma falha na execução do método;   Code: Código do retorno do método;   Detail: Detalhe do retorno do método;]]]]>><![CDATA[</documentation>
+      <input message="tns:editAttributeValueRequest"/>
+      <output message="tns:editAttributeValueResponse"/>
+    </operation>
+    <operation name="newAttachment">
+      <documentation>Anexa um arquivo a uma atividade do workflow;   
+
+                 Parâmetros: 
+                     WorkflowID*: Identificador do workflow;   ActivityID*: Identificador da atividade;   FileName*: Nome do arquivo (inclui sua extensão);   FileContent*: Conteúdo binário do arquivo;   UserID: Matrícula do usuário;   AttachmentID: Desde a versão 2.0.10 este parâmetro tornou-se obsoleto. Na importação, deixe-o em branco.;   AttachmentName: Nome do anexo;   Summary: Resumo;   
+
+                 * Requerido;  
+                
+
+                  Retorno: 
+                     Status: Situação da execução do método. Seu valor pode ser:   SUCCESS: Método executado com sucesso;    FAILURE: Ocorreu uma falha na execução do método;   Code: Código do retorno do método;   Detail: Detalhe do retorno do método;   RecordKey: Código do registro incluído pelo método;   RecordID: Identificador do registro incluído pelo método;</documentation>
+      <input message="tns:newAttachmentRequest"/>
+      <output message="tns:newAttachmentResponse"/>
+    </operation>
+    <operation name="newAssocDocument">
+      <documentation>Associa um documento do SE Documento a uma atividade do workflow;   
+
+                 Parâmetros: 
+                     WorkflowID*: Identificador do workflow;   ActivityID*: Identificador da atividade;   DocumentID*: Identificador do documento;   
+
+                 * Requerido;  
+                
+
+                  Retorno: 
+                     Status: Situação da execução do método. Seu valor pode ser:   SUCCESS: Método executado com sucesso;    FAILURE: Ocorreu uma falha na execução do método;   Code: Código do retorno do método;   Detail: Detalhe do retorno do método;</documentation>
+      <input message="tns:newAssocDocumentRequest"/>
+      <output message="tns:newAssocDocumentResponse"/>
+    </operation>
+    <operation name="newAssocWorkflow">
+      <documentation><![CDATA[Associa um ou mais workflows a um outro workflow;   
+
+                 Parâmetros: 
+                     WorkflowID*: Identificador do workflow;   <AssocWorkflowList>  <AssocWorkflow>   AssocWorkflowID*: Identificador do workflow associado;    AssocWorkflowType: Tipo da associação**;   </AssocWorkflow>  </AssocWorkflowList>  ActivityID: Identificador da atividade;   ActivityOrder: Número da ordem da atividade;   
+
+                 * Requerido;  
+                 ** Tipo da associação:   1: Bloqueante;    Qualquer outro valor: Não bloqueante;  
+
+                  Retorno: 
+                     Status: Situação da execução do método. Seu valor pode ser:   SUCCESS: Método executado com sucesso;    FAILURE: Ocorreu uma falha na execução do método;   Code: Código do retorno do método;   Detail: Detalhe do retorno do método;   <RecordList>  <Record>   RecordKey: Código do registro incluído pelo método;   </Record>  </RecordList>]]]]>><![CDATA[</documentation>
+      <input message="tns:newAssocWorkflowRequest"/>
+      <output message="tns:newAssocWorkflowResponse"/>
+    </operation>
+    <operation name="executeSystemActivity">
+      <documentation>Executa uma atividade de sistema assíncrona do workflow;   
+
+                 Parâmetros: 
+                     WorkflowID*: Identificador do workflow;   ActivityID*: Identificador da atividade;   ActivityOrder: Número da ordem da atividade;   
+
+                 * Requerido;  
+                
+
+                  Retorno: 
+                     Status: Situação da execução do método. Seu valor pode ser:   SUCCESS: Método executado com sucesso;    FAILURE: Ocorreu uma falha na execução do método;   Code: Código do retorno do método;   Detail: Detalhe do retorno do método;</documentation>
+      <input message="tns:executeSystemActivityRequest"/>
+      <output message="tns:executeSystemActivityResponse"/>
+    </operation>
+    <operation name="executeActivity">
+      <documentation>Executa uma atividade de usuário ou decisão do workflow;   
+
+                 Parâmetros: 
+                     WorkflowID*: Identificador do workflow;   ActivityID*: Identificador da atividade;   ActionSequence*: Número de sequência da ação;   UserID: Matrícula do usuário;   ActivityOrder: Número da ordem da atividade;   
+
+                 * Requerido;  
+                
+
+                  Retorno: 
+                     Status: Situação da execução do método. Seu valor pode ser:   SUCCESS: Método executado com sucesso;    FAILURE: Ocorreu uma falha na execução do método;   Code: Código do retorno do método;   Detail: Detalhe do retorno do método;</documentation>
+      <input message="tns:executeActivityRequest"/>
+      <output message="tns:executeActivityResponse"/>
+    </operation>
+    <operation name="newAccessException">
+      <documentation><![CDATA[Inclui uma ou mais exceções de acesso do workflow;   
+
+                 Parâmetros: 
+                     WorkflowID*: Identificador do workflow;   <AccessExceptionList>  <AccessException>   UserID: Matrícula do usuário;   </AccessException>  </AccessExceptionList>  
+
+                 * Requerido;  
+                
+
+                  Retorno: 
+                     Status: Situação da execução do método. Seu valor pode ser:   SUCCESS: Método executado com sucesso;    FAILURE: Ocorreu uma falha na execução do método;   Code: Código do retorno do método;   Detail: Detalhe do retorno do método;   <RecordDetailList>  <RecordDetail>   Status: Situação do processamento do registro. Seu valor pode ser:;     SUCCESS: Registro processado com sucesso;     FAILURE: Ocorreu uma falha no processamento do registro;    Code: Código do processamento do registro;    Detail: Detalhe do processamento do registro;    RecordKey: Código do registro incluído;   </RecordDetail>  </RecordDetailList>]]]]>><![CDATA[</documentation>
+      <input message="tns:newAccessExceptionRequest"/>
+      <output message="tns:newAccessExceptionResponse"/>
+    </operation>
+    <operation name="cancelWorkflow">
+      <documentation>Cancela um workflow;   
+
+                 Parâmetros: 
+                     WorkflowID*: Identificador do workflow;   Explanation*: Justificativa;   UserID: Matrícula do usuário;   
+
+                 * Requerido;  
+                
+
+                  Retorno: 
+                     Status: Situação da execução do método. Seu valor pode ser:   SUCCESS: Método executado com sucesso;    FAILURE: Ocorreu uma falha na execução do método;   Code: Código do retorno do método;   Detail: Detalhe do retorno do método;</documentation>
+      <input message="tns:cancelWorkflowRequest"/>
+      <output message="tns:cancelWorkflowResponse"/>
+    </operation>
+    <operation name="getWorkflow">
+      <documentation>Dados da instância;   
+
+                 Parâmetros: 
+                     WorkflowID*: Identificador do workflow;   
+
+                 * Requerido;  
+                
+
+                  Retorno: 
+                     Status: Situação da execução do método. Seu valor pode ser:   SUCCESS: Método executado com sucesso;    FAILURE: Ocorreu uma falha na execução do método;   Code: Código do retorno do método;   Detail: Detalhe do retorno do método;   Title: Título da instância;   ProcessID: Identificador do processo;   InstanceStatus: Situação da instância;   WorkflowStatus: Situação dinâmica do workflow (Identificador - Nome);   StarterUser: Matrícula do usuário iniciador da instância;   StarterExternalUser: E-mail do usuário externo iniciador da instância;   StartDate: Data e hora de início da instância (formato: AAAA-MM-DD hh:mm:ss);</documentation>
+      <input message="tns:getWorkflowRequest"/>
+      <output message="tns:getWorkflowResponse"/>
+    </operation>
+  </portType>
+  <binding name="WorkflowBinding" type="tns:WorkflowPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="newWorkflow">
+      <soap:operation soapAction="urn:workflow#newWorkflow" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </output>
+    </operation>
+    <operation name="newWorkflowEditData">
+      <soap:operation soapAction="urn:workflow#newWorkflowEditData" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </output>
+    </operation>
+    <operation name="newWorkflowTypeEditData">
+      <soap:operation soapAction="urn:workflow#newWorkflowTypeEditData" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </output>
+    </operation>
+    <operation name="editWorkflowData">
+      <soap:operation soapAction="urn:workflow#editWorkflowData" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </output>
+    </operation>
+    <operation name="editEntityRecord">
+      <soap:operation soapAction="urn:workflow#editEntityRecord" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </output>
+    </operation>
+    <operation name="newChildEntityRecord">
+      <soap:operation soapAction="urn:workflow#newChildEntityRecord" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </output>
+    </operation>
+    <operation name="newChildEntityRecordList">
+      <soap:operation soapAction="urn:workflow#newChildEntityRecordList" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </output>
+    </operation>
+    <operation name="editChildEntityRecord">
+      <soap:operation soapAction="urn:workflow#editChildEntityRecord" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </output>
+    </operation>
+    <operation name="deleteChildEntityRecord">
+      <soap:operation soapAction="urn:workflow#deleteChildEntityRecord" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </output>
+    </operation>
+    <operation name="clearChildEntityRecord">
+      <soap:operation soapAction="urn:workflow#clearChildEntityRecord" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </output>
+    </operation>
+    <operation name="editAttributeValue">
+      <soap:operation soapAction="urn:workflow#editAttributeValue" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </output>
+    </operation>
+    <operation name="newAttachment">
+      <soap:operation soapAction="urn:workflow#newAttachment" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </output>
+    </operation>
+    <operation name="newAssocDocument">
+      <soap:operation soapAction="urn:workflow#newAssocDocument" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </output>
+    </operation>
+    <operation name="newAssocWorkflow">
+      <soap:operation soapAction="urn:workflow#newAssocWorkflow" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </output>
+    </operation>
+    <operation name="executeSystemActivity">
+      <soap:operation soapAction="urn:workflow#executeSystemActivity" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </output>
+    </operation>
+    <operation name="executeActivity">
+      <soap:operation soapAction="urn:workflow#executeActivity" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </output>
+    </operation>
+    <operation name="newAccessException">
+      <soap:operation soapAction="urn:workflow#newAccessException" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </output>
+    </operation>
+    <operation name="cancelWorkflow">
+      <soap:operation soapAction="urn:workflow#cancelWorkflow" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </output>
+    </operation>
+    <operation name="getWorkflow">
+      <soap:operation soapAction="urn:workflow#getWorkflow" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:workflow"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="Workflow">
+    <port name="WorkflowPort" binding="tns:WorkflowBinding">
+      <soap:address location="https://sesuitedev.uniaoquimica.com.br/apigateway/se/ws/wf_ws.php"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://sesuitedev.uniaoquimica.com.br/apigateway/se/ws/wf_ws.php</con:endpoint></con:endpoints><con:operation id="328ae4fd-5402-4284-8564-9d5ac95d455e" isOneWay="false" action="urn:workflow#cancelWorkflow" name="cancelWorkflow" bindingOperationName="cancelWorkflow" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e7322a2c-0c10-48c9-a78d-017298d5c73a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuitedev.uniaoquimica.com.br/apigateway/se/ws/wf_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:workflow">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:cancelWorkflow>\r
+         <!--You may enter the following 3 items in any order-->\r
+         <urn:WorkflowID>?</urn:WorkflowID>\r
+         <urn:Explanation>?</urn:Explanation>\r
+         <!--Optional:-->\r
+         <urn:UserID>?</urn:UserID>\r
+      </urn:cancelWorkflow>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:workflow#cancelWorkflow"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="19df3822-ff36-4e56-bb59-453cd408ae59" isOneWay="false" action="urn:workflow#clearChildEntityRecord" name="clearChildEntityRecord" bindingOperationName="clearChildEntityRecord" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e2c316c1-8b68-4c01-9381-6b2a3f1780bd" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuitedev.uniaoquimica.com.br/apigateway/se/ws/wf_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:workflow">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:clearChildEntityRecord>\r
+         <!--You may enter the following 3 items in any order-->\r
+         <urn:WorkflowID>?</urn:WorkflowID>\r
+         <urn:MainEntityID>?</urn:MainEntityID>\r
+         <urn:ChildRelationshipID>?</urn:ChildRelationshipID>\r
+      </urn:clearChildEntityRecord>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:workflow#clearChildEntityRecord"/></con:call></con:operation><con:operation id="07b33213-f814-45dd-9db5-595e77e260bd" isOneWay="false" action="urn:workflow#deleteChildEntityRecord" name="deleteChildEntityRecord" bindingOperationName="deleteChildEntityRecord" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0a6d1de4-6261-4a59-b997-640264772f60" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuitedev.uniaoquimica.com.br/apigateway/se/ws/wf_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:workflow">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:deleteChildEntityRecord>\r
+         <!--You may enter the following 4 items in any order-->\r
+         <urn:WorkflowID>?</urn:WorkflowID>\r
+         <urn:MainEntityID>?</urn:MainEntityID>\r
+         <urn:ChildRelationshipID>?</urn:ChildRelationshipID>\r
+         <urn:ChildRecordOID>?</urn:ChildRecordOID>\r
+      </urn:deleteChildEntityRecord>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:workflow#deleteChildEntityRecord"/></con:call></con:operation><con:operation id="7313331f-5d61-447c-affa-278cca961187" isOneWay="false" action="urn:workflow#editAttributeValue" name="editAttributeValue" bindingOperationName="editAttributeValue" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7f3b82a5-897b-42b6-84ae-1d44feb96d2f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuitedev.uniaoquimica.com.br/apigateway/se/ws/wf_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:workflow">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:editAttributeValue>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <urn:WorkflowID>?</urn:WorkflowID>\r
+         <!--Optional:-->\r
+         <urn:AttributeList>\r
+            <!--1 or more repetitions:-->\r
+            <urn:Attribute>\r
+               <urn:AttributeID>?</urn:AttributeID>\r
+               <!--Zero or more repetitions:-->\r
+               <urn:AttributeValueList>\r
+                  <urn:AttributeValue>?</urn:AttributeValue>\r
+               </urn:AttributeValueList>\r
+            </urn:Attribute>\r
+         </urn:AttributeList>\r
+      </urn:editAttributeValue>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:workflow#editAttributeValue"/></con:call></con:operation><con:operation id="ce163867-aa79-4f7f-92de-41e1ab8760d5" isOneWay="false" action="urn:workflow#editChildEntityRecord" name="editChildEntityRecord" bindingOperationName="editChildEntityRecord" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0b275b23-0cc5-4f3a-8191-b07dc9c907c8" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuitedev.uniaoquimica.com.br/apigateway/se/ws/wf_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:workflow">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:editChildEntityRecord>\r
+         <!--You may enter the following 7 items in any order-->\r
+         <urn:WorkflowID>?</urn:WorkflowID>\r
+         <urn:MainEntityID>?</urn:MainEntityID>\r
+         <urn:ChildRelationshipID>?</urn:ChildRelationshipID>\r
+         <urn:ChildRecordOID>?</urn:ChildRecordOID>\r
+         <!--Optional:-->\r
+         <urn:EntityAttributeList>\r
+            <!--Zero or more repetitions:-->\r
+            <urn:EntityAttribute>\r
+               <!--You may enter the following 2 items in any order-->\r
+               <urn:EntityAttributeID>?</urn:EntityAttributeID>\r
+               <urn:EntityAttributeValue>?</urn:EntityAttributeValue>\r
+            </urn:EntityAttribute>\r
+         </urn:EntityAttributeList>\r
+         <!--Optional:-->\r
+         <urn:RelationshipList>\r
+            <!--Zero or more repetitions:-->\r
+            <urn:Relationship>\r
+               <urn:RelationshipID>?</urn:RelationshipID>\r
+               <!--1 or more repetitions:-->\r
+               <urn:RelationshipAttribute>\r
+                  <!--You may enter the following 2 items in any order-->\r
+                  <urn:RelationshipAttributeID>?</urn:RelationshipAttributeID>\r
+                  <urn:RelationshipAttributeValue>?</urn:RelationshipAttributeValue>\r
+               </urn:RelationshipAttribute>\r
+            </urn:Relationship>\r
+         </urn:RelationshipList>\r
+         <!--Optional:-->\r
+         <urn:EntityAttributeFileList>\r
+            <!--Zero or more repetitions:-->\r
+            <urn:EntityAttributeFile>\r
+               <!--You may enter the following 3 items in any order-->\r
+               <urn:EntityAttributeID>?</urn:EntityAttributeID>\r
+               <urn:FileName>?</urn:FileName>\r
+               <urn:FileContent>cid:699807759089</urn:FileContent>\r
+            </urn:EntityAttributeFile>\r
+         </urn:EntityAttributeFileList>\r
+      </urn:editChildEntityRecord>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:workflow#editChildEntityRecord"/></con:call></con:operation><con:operation id="e01d009e-001f-48ec-9903-f02c5eaadbbd" isOneWay="false" action="urn:workflow#editEntityRecord" name="editEntityRecord" bindingOperationName="editEntityRecord" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8cd9c778-1e8f-4666-8433-df7203ab17cf" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuitedev.uniaoquimica.com.br/apigateway/se/ws/wf_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:workflow">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:editEntityRecord>\r
+         <!--You may enter the following 5 items in any order-->\r
+         <urn:WorkflowID>?</urn:WorkflowID>\r
+         <urn:EntityID>?</urn:EntityID>\r
+         <!--Optional:-->\r
+         <urn:EntityAttributeList>\r
+            <!--Zero or more repetitions:-->\r
+            <urn:EntityAttribute>\r
+               <!--You may enter the following 2 items in any order-->\r
+               <urn:EntityAttributeID>?</urn:EntityAttributeID>\r
+               <urn:EntityAttributeValue>?</urn:EntityAttributeValue>\r
+            </urn:EntityAttribute>\r
+         </urn:EntityAttributeList>\r
+         <!--Optional:-->\r
+         <urn:RelationshipList>\r
+            <!--Zero or more repetitions:-->\r
+            <urn:Relationship>\r
+               <urn:RelationshipID>?</urn:RelationshipID>\r
+               <!--1 or more repetitions:-->\r
+               <urn:RelationshipAttribute>\r
+                  <!--You may enter the following 2 items in any order-->\r
+                  <urn:RelationshipAttributeID>?</urn:RelationshipAttributeID>\r
+                  <urn:RelationshipAttributeValue>?</urn:RelationshipAttributeValue>\r
+               </urn:RelationshipAttribute>\r
+            </urn:Relationship>\r
+         </urn:RelationshipList>\r
+         <!--Optional:-->\r
+         <urn:EntityAttributeFileList>\r
+            <!--Zero or more repetitions:-->\r
+            <urn:EntityAttributeFile>\r
+               <!--You may enter the following 3 items in any order-->\r
+               <urn:EntityAttributeID>?</urn:EntityAttributeID>\r
+               <urn:FileName>?</urn:FileName>\r
+               <urn:FileContent>cid:1153649055251</urn:FileContent>\r
+            </urn:EntityAttributeFile>\r
+         </urn:EntityAttributeFileList>\r
+      </urn:editEntityRecord>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:workflow#editEntityRecord"/></con:call></con:operation><con:operation id="d9a96a38-e3b6-41d5-9992-2227a6cdf9a2" isOneWay="false" action="urn:workflow#editWorkflowData" name="editWorkflowData" bindingOperationName="editWorkflowData" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8d5260a4-bf31-467f-acb2-2d4974d61c51" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuitedev.uniaoquimica.com.br/apigateway/se/ws/wf_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:workflow">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:editWorkflowData>\r
+         <!--You may enter the following 3 items in any order-->\r
+         <urn:WorkflowID>?</urn:WorkflowID>\r
+         <!--Optional:-->\r
+         <urn:UserID>?</urn:UserID>\r
+         <!--Optional:-->\r
+         <urn:Requester>\r
+            <urn:User>\r
+               <urn:UserID>?</urn:UserID>\r
+            </urn:User>\r
+            <urn:Customer>\r
+               <!--You may enter the following 2 items in any order-->\r
+               <urn:CustomerID>?</urn:CustomerID>\r
+               <urn:Contact>?</urn:Contact>\r
+            </urn:Customer>\r
+         </urn:Requester>\r
+      </urn:editWorkflowData>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:workflow#editWorkflowData"/></con:call></con:operation><con:operation id="957f6983-9b29-4880-8327-35ac63b24425" isOneWay="false" action="urn:workflow#executeActivity" name="executeActivity" bindingOperationName="executeActivity" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="18d15f7c-a65f-41d7-8e09-7fcce2d7afe2" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuitedev.uniaoquimica.com.br/apigateway/se/ws/wf_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:workflow">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:executeActivity>\r
+         <!--You may enter the following 5 items in any order-->\r
+         <urn:WorkflowID>?</urn:WorkflowID>\r
+         <urn:ActivityID>?</urn:ActivityID>\r
+         <urn:ActionSequence>?</urn:ActionSequence>\r
+         <!--Optional:-->\r
+         <urn:UserID>?</urn:UserID>\r
+         <!--Optional:-->\r
+         <urn:ActivityOrder>?</urn:ActivityOrder>\r
+      </urn:executeActivity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>wservice</con:username><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:workflow#executeActivity"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="67f54d61-32f9-4cbb-86fb-d219c7a61fc3" isOneWay="false" action="urn:workflow#executeSystemActivity" name="executeSystemActivity" bindingOperationName="executeSystemActivity" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e2e4089e-f784-483c-bcfd-bd722a36427d" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuitedev.uniaoquimica.com.br/apigateway/se/ws/wf_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:workflow">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:executeSystemActivity>\r
+         <!--You may enter the following 3 items in any order-->\r
+         <urn:WorkflowID>?</urn:WorkflowID>\r
+         <urn:ActivityID>?</urn:ActivityID>\r
+         <!--Optional:-->\r
+         <urn:ActivityOrder>?</urn:ActivityOrder>\r
+      </urn:executeSystemActivity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:workflow#executeSystemActivity"/></con:call></con:operation><con:operation id="06a9c5c2-7ab7-4388-a329-3847ac1ab595" isOneWay="false" action="urn:workflow#getWorkflow" name="getWorkflow" bindingOperationName="getWorkflow" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="94bd994d-c571-40f1-91cf-ba1dbe1e730b" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjA1NjA5NjUsImV4cCI6MTc2NzIyNTU0MCwiaWRsb2dpbiI6IndzZXJ2aWNlIiwicmF0ZWxpbWl0IjoxMjAsInF1b3RhbGltaXQiOjEwMDAwMH0.8kfE0gjtlPPb9JtKtODiS2ns0cbC48KrLiidldAraw8" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/wf_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:workflow">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:getWorkflow>\r
+         <urn:WorkflowID>202367112</urn:WorkflowID>\r
+      </urn:getWorkflow>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username/><con:password/><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:workflow#getWorkflow"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="570b784a-c4aa-4da6-a60a-15f89bbf13c7" isOneWay="false" action="urn:workflow#newAccessException" name="newAccessException" bindingOperationName="newAccessException" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="72ffea93-64c7-4c63-a58e-c4dbd721ddb8" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuitedev.uniaoquimica.com.br/apigateway/se/ws/wf_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:workflow">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:newAccessException>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <urn:WorkflowID>?</urn:WorkflowID>\r
+         <urn:AccessExceptionList>\r
+            <!--1 or more repetitions:-->\r
+            <urn:AccessException>\r
+               <urn:UserID>?</urn:UserID>\r
+            </urn:AccessException>\r
+         </urn:AccessExceptionList>\r
+      </urn:newAccessException>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:workflow#newAccessException"/></con:call></con:operation><con:operation id="7ea5cbdd-04f8-499c-a248-ce366d33d9c4" isOneWay="false" action="urn:workflow#newAssocDocument" name="newAssocDocument" bindingOperationName="newAssocDocument" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="aafe5541-0d27-4b46-b5a8-592291b124c6" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuitedev.uniaoquimica.com.br/apigateway/se/ws/wf_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:workflow">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:newAssocDocument>\r
+         <!--You may enter the following 3 items in any order-->\r
+         <urn:WorkflowID>?</urn:WorkflowID>\r
+         <urn:ActivityID>?</urn:ActivityID>\r
+         <urn:DocumentID>?</urn:DocumentID>\r
+      </urn:newAssocDocument>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:workflow#newAssocDocument"/></con:call></con:operation><con:operation id="3dc12a97-6b7e-4736-a393-f0e48924eb0f" isOneWay="false" action="urn:workflow#newAssocWorkflow" name="newAssocWorkflow" bindingOperationName="newAssocWorkflow" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="519d1bee-bdf2-49d7-bd14-a9acc6631ba5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuitedev.uniaoquimica.com.br/apigateway/se/ws/wf_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:workflow">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:newAssocWorkflow>\r
+         <!--You may enter the following 4 items in any order-->\r
+         <urn:WorkflowID>?</urn:WorkflowID>\r
+         <urn:AssocWorkflowList>\r
+            <!--1 or more repetitions:-->\r
+            <urn:AssocWorkflow>\r
+               <!--You may enter the following 2 items in any order-->\r
+               <urn:AssocWorkflowID>?</urn:AssocWorkflowID>\r
+               <urn:AssocWorkflowType>?</urn:AssocWorkflowType>\r
+            </urn:AssocWorkflow>\r
+         </urn:AssocWorkflowList>\r
+         <urn:ActivityID>?</urn:ActivityID>\r
+         <!--Optional:-->\r
+         <urn:ActivityOrder>?</urn:ActivityOrder>\r
+      </urn:newAssocWorkflow>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:workflow#newAssocWorkflow"/></con:call></con:operation><con:operation id="97a44bfb-a25d-4303-aa38-20c35e05dace" isOneWay="false" action="urn:workflow#newAttachment" name="newAttachment" bindingOperationName="newAttachment" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7d8963d5-26ed-4934-9314-1ce61732f056" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuitedev.uniaoquimica.com.br/apigateway/se/ws/wf_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:workflow">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:newAttachment>\r
+         <!--You may enter the following 8 items in any order-->\r
+         <urn:WorkflowID>?</urn:WorkflowID>\r
+         <urn:ActivityID>?</urn:ActivityID>\r
+         <urn:FileName>?</urn:FileName>\r
+         <urn:FileContent>cid:824359200024</urn:FileContent>\r
+         <!--Optional:-->\r
+         <urn:UserID>?</urn:UserID>\r
+         <urn:AttachmentID>?</urn:AttachmentID>\r
+         <urn:AttachmentName>?</urn:AttachmentName>\r
+         <urn:Summary>?</urn:Summary>\r
+      </urn:newAttachment>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:workflow#newAttachment"/></con:call></con:operation><con:operation id="27eb4db4-0b7d-47db-88f6-904ee9ebb828" isOneWay="false" action="urn:workflow#newChildEntityRecord" name="newChildEntityRecord" bindingOperationName="newChildEntityRecord" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4be8783b-f7b4-453e-b0c3-8d338cca9ed9" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuitedev.uniaoquimica.com.br/apigateway/se/ws/wf_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:workflow">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:newChildEntityRecord>\r
+         <!--You may enter the following 6 items in any order-->\r
+         <urn:WorkflowID>?</urn:WorkflowID>\r
+         <urn:MainEntityID>?</urn:MainEntityID>\r
+         <urn:ChildRelationshipID>?</urn:ChildRelationshipID>\r
+         <!--Optional:-->\r
+         <urn:EntityAttributeList>\r
+            <!--Zero or more repetitions:-->\r
+            <urn:EntityAttribute>\r
+               <!--You may enter the following 2 items in any order-->\r
+               <urn:EntityAttributeID>?</urn:EntityAttributeID>\r
+               <urn:EntityAttributeValue>?</urn:EntityAttributeValue>\r
+            </urn:EntityAttribute>\r
+         </urn:EntityAttributeList>\r
+         <!--Optional:-->\r
+         <urn:RelationshipList>\r
+            <!--Zero or more repetitions:-->\r
+            <urn:Relationship>\r
+               <urn:RelationshipID>?</urn:RelationshipID>\r
+               <!--1 or more repetitions:-->\r
+               <urn:RelationshipAttribute>\r
+                  <!--You may enter the following 2 items in any order-->\r
+                  <urn:RelationshipAttributeID>?</urn:RelationshipAttributeID>\r
+                  <urn:RelationshipAttributeValue>?</urn:RelationshipAttributeValue>\r
+               </urn:RelationshipAttribute>\r
+            </urn:Relationship>\r
+         </urn:RelationshipList>\r
+         <!--Optional:-->\r
+         <urn:EntityAttributeFileList>\r
+            <!--Zero or more repetitions:-->\r
+            <urn:EntityAttributeFile>\r
+               <!--You may enter the following 3 items in any order-->\r
+               <urn:EntityAttributeID>?</urn:EntityAttributeID>\r
+               <urn:FileName>?</urn:FileName>\r
+               <urn:FileContent>cid:1286111994642</urn:FileContent>\r
+            </urn:EntityAttributeFile>\r
+         </urn:EntityAttributeFileList>\r
+      </urn:newChildEntityRecord>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:workflow#newChildEntityRecord"/></con:call></con:operation><con:operation id="d3baff91-4849-4325-acd4-e839087d8396" isOneWay="false" action="urn:workflow#newChildEntityRecordList" name="newChildEntityRecordList" bindingOperationName="newChildEntityRecordList" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a909f34c-9e7d-4755-86d2-ad4a8023d367" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuitedev.uniaoquimica.com.br/apigateway/se/ws/wf_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:workflow">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:newChildEntityRecordList>\r
+         <!--You may enter the following 4 items in any order-->\r
+         <urn:WorkflowID>?</urn:WorkflowID>\r
+         <urn:MainEntityID>?</urn:MainEntityID>\r
+         <urn:ChildRelationshipID>?</urn:ChildRelationshipID>\r
+         <urn:EntityRecordList>\r
+            <!--Zero or more repetitions:-->\r
+            <urn:EntityRecord>\r
+               <!--Optional:-->\r
+               <urn:EntityAttributeList>\r
+                  <!--Zero or more repetitions:-->\r
+                  <urn:EntityAttribute>\r
+                     <!--You may enter the following 2 items in any order-->\r
+                     <urn:EntityAttributeID>?</urn:EntityAttributeID>\r
+                     <urn:EntityAttributeValue>?</urn:EntityAttributeValue>\r
+                  </urn:EntityAttribute>\r
+               </urn:EntityAttributeList>\r
+               <!--Optional:-->\r
+               <urn:RelationshipList>\r
+                  <!--Zero or more repetitions:-->\r
+                  <urn:Relationship>\r
+                     <urn:RelationshipID>?</urn:RelationshipID>\r
+                     <!--1 or more repetitions:-->\r
+                     <urn:RelationshipAttribute>\r
+                        <!--You may enter the following 2 items in any order-->\r
+                        <urn:RelationshipAttributeID>?</urn:RelationshipAttributeID>\r
+                        <urn:RelationshipAttributeValue>?</urn:RelationshipAttributeValue>\r
+                     </urn:RelationshipAttribute>\r
+                  </urn:Relationship>\r
+               </urn:RelationshipList>\r
+               <!--Optional:-->\r
+               <urn:EntityAttributeFileList>\r
+                  <!--Zero or more repetitions:-->\r
+                  <urn:EntityAttributeFile>\r
+                     <!--You may enter the following 3 items in any order-->\r
+                     <urn:EntityAttributeID>?</urn:EntityAttributeID>\r
+                     <urn:FileName>?</urn:FileName>\r
+                     <urn:FileContent>cid:657211309223</urn:FileContent>\r
+                  </urn:EntityAttributeFile>\r
+               </urn:EntityAttributeFileList>\r
+            </urn:EntityRecord>\r
+         </urn:EntityRecordList>\r
+      </urn:newChildEntityRecordList>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:workflow#newChildEntityRecordList"/></con:call></con:operation><con:operation id="641f738d-044c-48ee-b35e-42254021e262" isOneWay="false" action="urn:workflow#newWorkflow" name="newWorkflow" bindingOperationName="newWorkflow" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f42a583d-3e65-41ef-9672-8fcfb9b6acef" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjA1NjA5NjUsImV4cCI6MTc2NzIyNTU0MCwiaWRsb2dpbiI6IndzZXJ2aWNlIiwicmF0ZWxpbWl0IjoxMjAsInF1b3RhbGltaXQiOjEwMDAwMH0.8kfE0gjtlPPb9JtKtODiS2ns0cbC48KrLiidldAraw8" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/wf_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:workflow">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:newWorkflow>\r
+         <!--You may enter the following 3 items in any order-->\r
+         <urn:ProcessID>ITSM-INCSOL</urn:ProcessID>\r
+         <urn:WorkflowTitle>Isso é um teste</urn:WorkflowTitle>\r
+         <!--Optional:-->\r
+         <urn:UserID>abeck</urn:UserID>\r
+      </urn:newWorkflow>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:workflow#newWorkflow"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="e9c24f89-40fb-4ff4-9ea8-e13d579d3790" isOneWay="false" action="urn:workflow#newWorkflowEditData" name="newWorkflowEditData" bindingOperationName="newWorkflowEditData" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4085fd29-ce8b-4ec5-ad37-e4d4fec9f868" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjA1NjA5NjUsImV4cCI6MTc2NzIyNTU0MCwiaWRsb2dpbiI6IndzZXJ2aWNlIiwicmF0ZWxpbWl0IjoxMjAsInF1b3RhbGltaXQiOjEwMDAwMH0.8kfE0gjtlPPb9JtKtODiS2ns0cbC48KrLiidldAraw8" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/wf_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:workflow">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:newWorkflowEditData>
+         <!--You may enter the following 6 items in any order-->
+         <urn:ProcessID>ITSM-INCSOL</urn:ProcessID>
+         <urn:WorkflowTitle>Teste aabeck 001</urn:WorkflowTitle>
+         <urn:UserID>abeck</urn:UserID>
+      </urn:newWorkflowEditData>
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>wservice</con:username><con:password>Ws#$%678</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:workflow#newWorkflowEditData"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="4b89b25e-0bf6-453e-af64-fef05c783c5f" isOneWay="false" action="urn:workflow#newWorkflowTypeEditData" name="newWorkflowTypeEditData" bindingOperationName="newWorkflowTypeEditData" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6768cff1-168c-443b-9a9f-fbb9415cecdf" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuitedev.uniaoquimica.com.br/apigateway/se/ws/wf_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:workflow">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:newWorkflowTypeEditData>\r
+         <!--You may enter the following 6 items in any order-->\r
+         <urn:WorkflowTypeID>?</urn:WorkflowTypeID>\r
+         <urn:WorkflowTitle>?</urn:WorkflowTitle>\r
+         <!--Optional:-->\r
+         <urn:UserID>?</urn:UserID>\r
+         <!--Optional:-->\r
+         <urn:Requester>\r
+            <urn:User>\r
+               <urn:UserID>?</urn:UserID>\r
+            </urn:User>\r
+            <urn:Customer>\r
+               <!--You may enter the following 2 items in any order-->\r
+               <urn:CustomerID>?</urn:CustomerID>\r
+               <urn:Contact>?</urn:Contact>\r
+            </urn:Customer>\r
+         </urn:Requester>\r
+         <!--Optional:-->\r
+         <urn:EntityList>\r
+            <!--Zero or more repetitions:-->\r
+            <urn:Entity>\r
+               <urn:EntityID>?</urn:EntityID>\r
+               <!--Optional:-->\r
+               <urn:EntityAttributeList>\r
+                  <!--Zero or more repetitions:-->\r
+                  <urn:EntityAttribute>\r
+                     <!--You may enter the following 2 items in any order-->\r
+                     <urn:EntityAttributeID>?</urn:EntityAttributeID>\r
+                     <urn:EntityAttributeValue>?</urn:EntityAttributeValue>\r
+                  </urn:EntityAttribute>\r
+               </urn:EntityAttributeList>\r
+               <!--Optional:-->\r
+               <urn:RelationshipList>\r
+                  <!--Zero or more repetitions:-->\r
+                  <urn:Relationship>\r
+                     <urn:RelationshipID>?</urn:RelationshipID>\r
+                     <!--1 or more repetitions:-->\r
+                     <urn:RelationshipAttributeList>\r
+                        <!--Zero or more repetitions:-->\r
+                        <urn:RelationshipAttribute>\r
+                           <!--You may enter the following 2 items in any order-->\r
+                           <urn:RelationshipAttributeID>?</urn:RelationshipAttributeID>\r
+                           <urn:RelationshipAttributeValue>?</urn:RelationshipAttributeValue>\r
+                        </urn:RelationshipAttribute>\r
+                     </urn:RelationshipAttributeList>\r
+                  </urn:Relationship>\r
+               </urn:RelationshipList>\r
+               <!--Optional:-->\r
+               <urn:EntityAttributeFileList>\r
+                  <!--Zero or more repetitions:-->\r
+                  <urn:EntityAttributeFile>\r
+                     <!--You may enter the following 3 items in any order-->\r
+                     <urn:EntityAttributeID>?</urn:EntityAttributeID>\r
+                     <urn:FileName>?</urn:FileName>\r
+                     <urn:FileContent>cid:246797778303</urn:FileContent>\r
+                  </urn:EntityAttributeFile>\r
+               </urn:EntityAttributeFileList>\r
+            </urn:Entity>\r
+         </urn:EntityList>\r
+         <!--Optional:-->\r
+         <urn:AttributeList>\r
+            <!--1 or more repetitions:-->\r
+            <urn:Attribute>\r
+               <urn:AttributeID>?</urn:AttributeID>\r
+               <!--Zero or more repetitions:-->\r
+               <urn:AttributeValueList>\r
+                  <urn:AttributeValue>?</urn:AttributeValue>\r
+               </urn:AttributeValueList>\r
+            </urn:Attribute>\r
+         </urn:AttributeList>\r
+      </urn:newWorkflowTypeEditData>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:workflow#newWorkflowTypeEditData"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

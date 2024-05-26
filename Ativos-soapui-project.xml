@@ -1,0 +1,1089 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="c22a417c-c617-4246-960f-95f7bdcfdb67" activeEnvironment="Default" name="Ativos" resourceRoot="" soapui-version="5.7.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="7e840cd2-6db6-47a7-bac6-6232b7d68e9f" wsaVersion="NONE" name="AssetBinding" type="wsdl" bindingName="{urn:asset}AssetBinding" soapVersion="1_1" anonymous="optional" definition="https://sesuiteqas.uniaoquimica.com.br/se/ws/ast_ws.php?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://sesuiteqas.uniaoquimica.com.br/se/ws/ast_ws.php?wsdl"><con:part><con:url>https://sesuiteqas.uniaoquimica.com.br/se/ws/ast_ws.php?wsdl</con:url><con:content><![CDATA[<definitions targetNamespace="urn:asset" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:asset" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="urn:asset">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/"/>
+      <xsd:complexType name="del_objectTypeRequestType">
+        <xsd:all>
+          <xsd:element name="idobjecttype" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="del_objectTypeResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="delete_assetConfSiteRequestType">
+        <xsd:all>
+          <xsd:element name="idsite" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="delete_assetConfSiteResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_assetRequestType">
+        <xsd:all>
+          <xsd:element name="idobject" type="xsd:string"/>
+          <xsd:element name="nmobject" type="xsd:string"/>
+          <xsd:element name="idobjecttype" type="xsd:string"/>
+          <xsd:element name="idteam" type="xsd:string"/>
+          <xsd:element name="fgapplication" type="xsd:string"/>
+          <xsd:element name="dtstartoper" type="xsd:string"/>
+          <xsd:element name="quantity" type="xsd:string"/>
+          <xsd:element name="cavity" type="xsd:string"/>
+          <xsd:element name="manufacturer" type="xsd:string"/>
+          <xsd:element name="idserialnumber" type="xsd:string"/>
+          <xsd:element name="idmodel" type="xsd:string"/>
+          <xsd:element name="idcalendar" type="xsd:string"/>
+          <xsd:element name="supplier" type="xsd:string"/>
+          <xsd:element name="vlequipmentcost" type="xsd:string"/>
+          <xsd:element name="vlcost" type="xsd:string"/>
+          <xsd:element name="dtrevision" type="xsd:string"/>
+          <xsd:element name="attributes" type="xsd:string"/>
+          <xsd:element name="dsdescription" type="xsd:string"/>
+          <xsd:element name="characteristics" type="xsd:string"/>
+          <xsd:element name="dsobservation" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_assetResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_asset_oeeRequestType">
+        <xsd:all>
+          <xsd:element name="idobject" type="xsd:string"/>
+          <xsd:element name="dtstart" type="xsd:string"/>
+          <xsd:element name="dtend" type="xsd:string"/>
+          <xsd:element name="qtquality" type="xsd:string"/>
+          <xsd:element name="qttotal" type="xsd:string"/>
+          <xsd:element name="qtproduced" type="xsd:string"/>
+          <xsd:element name="qtplanned" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_asset_oeeResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_asset_siteRequestType">
+        <xsd:all>
+          <xsd:element name="idobject" type="xsd:string"/>
+          <xsd:element name="date" type="xsd:string"/>
+          <xsd:element name="hour" type="xsd:string"/>
+          <xsd:element name="type" type="xsd:string"/>
+          <xsd:element name="location" type="xsd:string"/>
+          <xsd:element name="user" type="xsd:string"/>
+          <xsd:element name="coordinate" type="xsd:string"/>
+          <xsd:element name="comments" type="xsd:string"/>
+          <xsd:element name="fgupdatechildrensite" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_asset_siteResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_asset_stateRequestType">
+        <xsd:all>
+          <xsd:element name="idobject" type="xsd:string"/>
+          <xsd:element name="dtstate" type="xsd:string"/>
+          <xsd:element name="tmstate" type="xsd:string"/>
+          <xsd:element name="idstate" type="xsd:string"/>
+          <xsd:element name="dsobservation" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_asset_stateResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_asset_statusRequestType">
+        <xsd:all>
+          <xsd:element name="idobject" type="xsd:string"/>
+          <xsd:element name="fgasstatus" type="xsd:string"/>
+          <xsd:element name="reserve" type="xsd:string"/>
+          <xsd:element name="dsjustify" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_asset_statusResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_asset_structure_insert_updateRequestType">
+        <xsd:all>
+          <xsd:element name="idobject" type="xsd:string"/>
+          <xsd:element name="idrevision" type="xsd:string"/>
+          <xsd:element name="idobjectchild" type="xsd:string"/>
+          <xsd:element name="idrevisionchild" type="xsd:string"/>
+          <xsd:element name="vlquantity" type="xsd:string"/>
+          <xsd:element name="fgapplication" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_asset_structure_insert_updateResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_assetConfSiteRequestType">
+        <xsd:all>
+          <xsd:element name="idsite" type="xsd:string"/>
+          <xsd:element name="nmsite" type="xsd:string"/>
+          <xsd:element name="fgenabled" type="xsd:string"/>
+          <xsd:element name="idsiteowner" type="xsd:string"/>
+          <xsd:element name="iddepartment" type="xsd:string"/>
+          <xsd:element name="nmcountry" type="xsd:string"/>
+          <xsd:element name="nmstate" type="xsd:string"/>
+          <xsd:element name="nmcity" type="xsd:string"/>
+          <xsd:element name="dsaddress" type="xsd:string"/>
+          <xsd:element name="nmpostalcode" type="xsd:string"/>
+          <xsd:element name="nmcoord" type="xsd:string"/>
+          <xsd:element name="dssite" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_assetConfSiteResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_attrib_assocRequestType">
+        <xsd:all>
+          <xsd:element name="idobject" type="xsd:string"/>
+          <xsd:element name="idattribute" type="xsd:string"/>
+          <xsd:element name="value" type="xsd:string"/>
+          <xsd:element name="idrevision" type="xsd:string"/>
+          <xsd:element name="fginsertlistvalue" type="xsd:string"/>
+          <xsd:element name="dsvalue" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_attrib_assocResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_del_assetRequestType">
+        <xsd:all>
+          <xsd:element name="idobject" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_del_assetResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_del_asset_siteRequestType">
+        <xsd:all>
+          <xsd:element name="idobject" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_del_asset_siteResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_del_asset_stateRequestType">
+        <xsd:all>
+          <xsd:element name="idobject" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_del_asset_stateResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_del_asset_structureRequestType">
+        <xsd:all>
+          <xsd:element name="idobject" type="xsd:string"/>
+          <xsd:element name="idrevision" type="xsd:string"/>
+          <xsd:element name="idobjectchild" type="xsd:string"/>
+          <xsd:element name="idrevisionchild" type="xsd:string"/>
+          <xsd:element name="fgapplication" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_del_asset_structureResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_objectSecurityRequestType">
+        <xsd:all>
+          <xsd:element name="idobjecttype" type="xsd:string"/>
+          <xsd:element name="accesstype" type="xsd:string"/>
+          <xsd:element name="permission" type="xsd:string"/>
+          <xsd:element name="idaccesstype" type="xsd:string"/>
+          <xsd:element name="idfunction" type="xsd:string"/>
+          <xsd:element name="insert" type="xsd:string"/>
+          <xsd:element name="edit" type="xsd:string"/>
+          <xsd:element name="delete" type="xsd:string"/>
+          <xsd:element name="security" type="xsd:string"/>
+          <xsd:element name="list" type="xsd:string"/>
+          <xsd:element name="view" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_objectSecurityResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_objectTypeRequestType">
+        <xsd:all>
+          <xsd:element name="idobjecttype" type="xsd:string"/>
+          <xsd:element name="nmobjecttype" type="xsd:string"/>
+          <xsd:element name="idobjecttypeowner" type="xsd:string"/>
+          <xsd:element name="fgusemask" type="xsd:string"/>
+          <xsd:element name="idmask" type="xsd:string"/>
+          <xsd:element name="fgeditid" type="xsd:string"/>
+          <xsd:element name="fguserevisionobjtype" type="xsd:string"/>
+          <xsd:element name="fgrevidobjtype" type="xsd:string"/>
+          <xsd:element name="fgrevapprovalmodeobjtype" type="xsd:string"/>
+          <xsd:element name="fgrevreleasemodeobjtype" type="xsd:string"/>
+          <xsd:element name="qtrevretentionobjtype" type="xsd:string"/>
+          <xsd:element name="fgrevretentionmodeobjtype" type="xsd:string"/>
+          <xsd:element name="fgrevroutetypeobjtype" type="xsd:string"/>
+          <xsd:element name="fgrevelabclauseobjtype" type="xsd:string"/>
+          <xsd:element name="fgrevconsclauseobjtype" type="xsd:string"/>
+          <xsd:element name="fgrevaprovclauseobjtype" type="xsd:string"/>
+          <xsd:element name="fgrevhomologclauseobjtype" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="import_objectTypeResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="importPlanActivityRequestType">
+        <xsd:all>
+          <xsd:element name="fgoption" type="xsd:string"/>
+          <xsd:element name="fgplantype" type="xsd:string"/>
+          <xsd:element name="idplanactivity" type="xsd:string"/>
+          <xsd:element name="nmplanactivity" type="xsd:string"/>
+          <xsd:element name="idmodelactivity" type="xsd:string"/>
+          <xsd:element name="fgplanconf" type="xsd:string"/>
+          <xsd:element name="idasset" type="xsd:string"/>
+          <xsd:element name="idteam" type="xsd:string"/>
+          <xsd:element name="idteamprog" type="xsd:string"/>
+          <xsd:element name="idteamexec" type="xsd:string"/>
+          <xsd:element name="fgdatefrequency" type="xsd:string"/>
+          <xsd:element name="fgfreqtype" type="xsd:string"/>
+          <xsd:element name="qtfrequence" type="xsd:string"/>
+          <xsd:element name="fgfrequnit" type="xsd:string"/>
+          <xsd:element name="fgdateview" type="xsd:string"/>
+          <xsd:element name="dtnextexecution" type="xsd:string"/>
+          <xsd:element name="idcalendar" type="xsd:string"/>
+          <xsd:element name="fgmeterfrequency" type="xsd:string"/>
+          <xsd:element name="vlmeterfrequency" type="xsd:string"/>
+          <xsd:element name="vlantecipation" type="xsd:string"/>
+          <xsd:element name="vlnextexecution" type="xsd:string"/>
+          <xsd:element name="fgautocreate" type="xsd:string"/>
+          <xsd:element name="fgautostatus" type="xsd:string"/>
+          <xsd:element name="qtdaybefore" type="xsd:string"/>
+          <xsd:element name="fgkeepcreating" type="xsd:string"/>
+          <xsd:element name="idevalmethod" type="xsd:string"/>
+          <xsd:element name="dsevalcrit" type="xsd:string"/>
+          <xsd:element name="qtnotifyb4day" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="importPlanActivityResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="importAssetDowntimeRequestType">
+        <xsd:all>
+          <xsd:element name="FgOption" type="xsd:string"/>
+          <xsd:element name="IdAsset" type="xsd:string"/>
+          <xsd:element name="IdDowntimeReason" type="xsd:string"/>
+          <xsd:element name="DtStart" type="xsd:string"/>
+          <xsd:element name="QtStart" type="xsd:string"/>
+          <xsd:element name="DtEnd" type="xsd:string"/>
+          <xsd:element name="QtEnd" type="xsd:string"/>
+          <xsd:element name="DsComments" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="importAssetDowntimeResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="importCMDBRelationshipRequestType">
+        <xsd:all>
+          <xsd:element name="TypeFrom" type="xsd:string"/>
+          <xsd:element name="IdentifierFrom" type="xsd:string"/>
+          <xsd:element name="TypeTo" type="xsd:string"/>
+          <xsd:element name="IdentifierTo" type="xsd:string"/>
+          <xsd:element name="RelationshipName" type="xsd:string"/>
+          <xsd:element name="ReverseRelationship" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="importCMDBRelationshipResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="deleteCMDBRelationshipRequestType">
+        <xsd:all>
+          <xsd:element name="TypeFrom" type="xsd:string"/>
+          <xsd:element name="IdentifierFrom" type="xsd:string"/>
+          <xsd:element name="TypeTo" type="xsd:string"/>
+          <xsd:element name="IdentifierTo" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="deleteCMDBRelationshipResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:element name="del_objectType" type="tns:del_objectTypeRequestType"/>
+      <xsd:element name="del_objectTypeResponse" type="tns:del_objectTypeResponseType"/>
+      <xsd:element name="delete_assetConfSite" type="tns:delete_assetConfSiteRequestType"/>
+      <xsd:element name="delete_assetConfSiteResponse" type="tns:delete_assetConfSiteResponseType"/>
+      <xsd:element name="import_asset" type="tns:import_assetRequestType"/>
+      <xsd:element name="import_assetResponse" type="tns:import_assetResponseType"/>
+      <xsd:element name="import_asset_oee" type="tns:import_asset_oeeRequestType"/>
+      <xsd:element name="import_asset_oeeResponse" type="tns:import_asset_oeeResponseType"/>
+      <xsd:element name="import_asset_site" type="tns:import_asset_siteRequestType"/>
+      <xsd:element name="import_asset_siteResponse" type="tns:import_asset_siteResponseType"/>
+      <xsd:element name="import_asset_state" type="tns:import_asset_stateRequestType"/>
+      <xsd:element name="import_asset_stateResponse" type="tns:import_asset_stateResponseType"/>
+      <xsd:element name="import_asset_status" type="tns:import_asset_statusRequestType"/>
+      <xsd:element name="import_asset_statusResponse" type="tns:import_asset_statusResponseType"/>
+      <xsd:element name="import_asset_structure_insert_update" type="tns:import_asset_structure_insert_updateRequestType"/>
+      <xsd:element name="import_asset_structure_insert_updateResponse" type="tns:import_asset_structure_insert_updateResponseType"/>
+      <xsd:element name="import_assetConfSite" type="tns:import_assetConfSiteRequestType"/>
+      <xsd:element name="import_assetConfSiteResponse" type="tns:import_assetConfSiteResponseType"/>
+      <xsd:element name="import_attrib_assoc" type="tns:import_attrib_assocRequestType"/>
+      <xsd:element name="import_attrib_assocResponse" type="tns:import_attrib_assocResponseType"/>
+      <xsd:element name="import_del_asset" type="tns:import_del_assetRequestType"/>
+      <xsd:element name="import_del_assetResponse" type="tns:import_del_assetResponseType"/>
+      <xsd:element name="import_del_asset_site" type="tns:import_del_asset_siteRequestType"/>
+      <xsd:element name="import_del_asset_siteResponse" type="tns:import_del_asset_siteResponseType"/>
+      <xsd:element name="import_del_asset_state" type="tns:import_del_asset_stateRequestType"/>
+      <xsd:element name="import_del_asset_stateResponse" type="tns:import_del_asset_stateResponseType"/>
+      <xsd:element name="import_del_asset_structure" type="tns:import_del_asset_structureRequestType"/>
+      <xsd:element name="import_del_asset_structureResponse" type="tns:import_del_asset_structureResponseType"/>
+      <xsd:element name="import_objectSecurity" type="tns:import_objectSecurityRequestType"/>
+      <xsd:element name="import_objectSecurityResponse" type="tns:import_objectSecurityResponseType"/>
+      <xsd:element name="import_objectType" type="tns:import_objectTypeRequestType"/>
+      <xsd:element name="import_objectTypeResponse" type="tns:import_objectTypeResponseType"/>
+      <xsd:element name="importPlanActivity" type="tns:importPlanActivityRequestType"/>
+      <xsd:element name="importPlanActivityResponse" type="tns:importPlanActivityResponseType"/>
+      <xsd:element name="importAssetDowntime" type="tns:importAssetDowntimeRequestType"/>
+      <xsd:element name="importAssetDowntimeResponse" type="tns:importAssetDowntimeResponseType"/>
+      <xsd:element name="importCMDBRelationship" type="tns:importCMDBRelationshipRequestType"/>
+      <xsd:element name="importCMDBRelationshipResponse" type="tns:importCMDBRelationshipResponseType"/>
+      <xsd:element name="deleteCMDBRelationship" type="tns:deleteCMDBRelationshipRequestType"/>
+      <xsd:element name="deleteCMDBRelationshipResponse" type="tns:deleteCMDBRelationshipResponseType"/>
+    </xsd:schema>
+  </types>
+  <message name="del_objectTypeRequest">
+    <part name="parameters" element="tns:del_objectType"/>
+  </message>
+  <message name="del_objectTypeResponse">
+    <part name="parameters" element="tns:del_objectTypeResponse"/>
+  </message>
+  <message name="delete_assetConfSiteRequest">
+    <part name="parameters" element="tns:delete_assetConfSite"/>
+  </message>
+  <message name="delete_assetConfSiteResponse">
+    <part name="parameters" element="tns:delete_assetConfSiteResponse"/>
+  </message>
+  <message name="import_assetRequest">
+    <part name="parameters" element="tns:import_asset"/>
+  </message>
+  <message name="import_assetResponse">
+    <part name="parameters" element="tns:import_assetResponse"/>
+  </message>
+  <message name="import_asset_oeeRequest">
+    <part name="parameters" element="tns:import_asset_oee"/>
+  </message>
+  <message name="import_asset_oeeResponse">
+    <part name="parameters" element="tns:import_asset_oeeResponse"/>
+  </message>
+  <message name="import_asset_siteRequest">
+    <part name="parameters" element="tns:import_asset_site"/>
+  </message>
+  <message name="import_asset_siteResponse">
+    <part name="parameters" element="tns:import_asset_siteResponse"/>
+  </message>
+  <message name="import_asset_stateRequest">
+    <part name="parameters" element="tns:import_asset_state"/>
+  </message>
+  <message name="import_asset_stateResponse">
+    <part name="parameters" element="tns:import_asset_stateResponse"/>
+  </message>
+  <message name="import_asset_statusRequest">
+    <part name="parameters" element="tns:import_asset_status"/>
+  </message>
+  <message name="import_asset_statusResponse">
+    <part name="parameters" element="tns:import_asset_statusResponse"/>
+  </message>
+  <message name="import_asset_structure_insert_updateRequest">
+    <part name="parameters" element="tns:import_asset_structure_insert_update"/>
+  </message>
+  <message name="import_asset_structure_insert_updateResponse">
+    <part name="parameters" element="tns:import_asset_structure_insert_updateResponse"/>
+  </message>
+  <message name="import_assetConfSiteRequest">
+    <part name="parameters" element="tns:import_assetConfSite"/>
+  </message>
+  <message name="import_assetConfSiteResponse">
+    <part name="parameters" element="tns:import_assetConfSiteResponse"/>
+  </message>
+  <message name="import_attrib_assocRequest">
+    <part name="parameters" element="tns:import_attrib_assoc"/>
+  </message>
+  <message name="import_attrib_assocResponse">
+    <part name="parameters" element="tns:import_attrib_assocResponse"/>
+  </message>
+  <message name="import_del_assetRequest">
+    <part name="parameters" element="tns:import_del_asset"/>
+  </message>
+  <message name="import_del_assetResponse">
+    <part name="parameters" element="tns:import_del_assetResponse"/>
+  </message>
+  <message name="import_del_asset_siteRequest">
+    <part name="parameters" element="tns:import_del_asset_site"/>
+  </message>
+  <message name="import_del_asset_siteResponse">
+    <part name="parameters" element="tns:import_del_asset_siteResponse"/>
+  </message>
+  <message name="import_del_asset_stateRequest">
+    <part name="parameters" element="tns:import_del_asset_state"/>
+  </message>
+  <message name="import_del_asset_stateResponse">
+    <part name="parameters" element="tns:import_del_asset_stateResponse"/>
+  </message>
+  <message name="import_del_asset_structureRequest">
+    <part name="parameters" element="tns:import_del_asset_structure"/>
+  </message>
+  <message name="import_del_asset_structureResponse">
+    <part name="parameters" element="tns:import_del_asset_structureResponse"/>
+  </message>
+  <message name="import_objectSecurityRequest">
+    <part name="parameters" element="tns:import_objectSecurity"/>
+  </message>
+  <message name="import_objectSecurityResponse">
+    <part name="parameters" element="tns:import_objectSecurityResponse"/>
+  </message>
+  <message name="import_objectTypeRequest">
+    <part name="parameters" element="tns:import_objectType"/>
+  </message>
+  <message name="import_objectTypeResponse">
+    <part name="parameters" element="tns:import_objectTypeResponse"/>
+  </message>
+  <message name="importPlanActivityRequest">
+    <part name="parameters" element="tns:importPlanActivity"/>
+  </message>
+  <message name="importPlanActivityResponse">
+    <part name="parameters" element="tns:importPlanActivityResponse"/>
+  </message>
+  <message name="importAssetDowntimeRequest">
+    <part name="parameters" element="tns:importAssetDowntime"/>
+  </message>
+  <message name="importAssetDowntimeResponse">
+    <part name="parameters" element="tns:importAssetDowntimeResponse"/>
+  </message>
+  <message name="importCMDBRelationshipRequest">
+    <part name="parameters" element="tns:importCMDBRelationship"/>
+  </message>
+  <message name="importCMDBRelationshipResponse">
+    <part name="parameters" element="tns:importCMDBRelationshipResponse"/>
+  </message>
+  <message name="deleteCMDBRelationshipRequest">
+    <part name="parameters" element="tns:deleteCMDBRelationship"/>
+  </message>
+  <message name="deleteCMDBRelationshipResponse">
+    <part name="parameters" element="tns:deleteCMDBRelationshipResponse"/>
+  </message>
+  <portType name="AssetPortType">
+    <operation name="del_objectType">
+      <documentation><![CDATA[Remove tipo de ativo.<BR>Parâmetros:<BR>IDOBJECTTYPE -> Identificador do tipo de objeto;  *<BR>Em caso de SUCESSO: 1;<BR>Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>* Requerido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:del_objectTypeRequest"/>
+      <output message="tns:del_objectTypeResponse"/>
+    </operation>
+    <operation name="delete_assetConfSite">
+      <documentation><![CDATA[Excluir localização física.<BR>Parâmetros:<BR>IDSITE -> Identificador da localização física;  *<BR>Em caso de SUCESSO: 1;<BR>Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>* Requerido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:delete_assetConfSiteRequest"/>
+      <output message="tns:delete_assetConfSiteResponse"/>
+    </operation>
+    <operation name="import_asset">
+      <documentation><![CDATA[Adicionará um novo ativo ou editará um ativo existente.<BR>Parâmetros:<BR>IDOBJECT -> Identificador do objeto;  *<BR>NMOBJECT -> Nome do objeto;  *<BR>IDOBJECTTYPE -> Identificador do tipo de objeto;  *<BR>IDTEAM -> Identificador da equipe responsável;  *<BR>FGAPPLICATION -> Especificações do objeto;  *<BR>DTSTARTOPER -> Data de início da operação;  *<BR>QUANTITY -> Quantidade;  *<BR>CAVITY -> Cavidade <BR>IDMANUFACTURER -> Fabricante <BR>IDSERIALNUMBER -> Número de série;<BR>IDMODEL -> Identificador do modelo; <BR>IDCALENDAR -> Identificador do calendário; *<BR>IDSUPPLIER -> Fornecedor <BR>VLEQUIPMENTCOST -> Custo de aquisição <BR>VLCOST -> Custo hora <BR>DTREVISION = Data de revisão <BR>ATTRIBUTES -> Atributos da solicitação. Exemplo: IDENTIFICADOR_DO_ATRIBUTO1=VALOR_DO_ATRIBUTO1;IDENTIFICADOR_DO_ATRIBUTO2=VALOR_DO_ATRIBUTO2;IDENTIFICADOR_DO_ATRIBUTO3=VALOR_DO_ATRIBUTO3. <BR>DSDESCRIPTION -> Descrição; <BR>CHARACTERISTICS -> Características <BR>DSOBSERVATION -> Observações <BR>Exemplo com atributo multivalorado (Observe que o separador para os valores dos atributos multivalorados é a ´,´): IDENTIFICADOR_DO_ATRIBUTO1=VALOR1_DO_ATRIBUTO1,VALOR2_DO_ATRIBUTO1,VALOR3_DO_ATRIBUTO1.<BR>OBS: Para atributos com valor numérico, o separador de casas decimais deve ser o ´.´. Para campos de data, o valor deve ter o formato "Y-M-D" (Ano-Mês-Dia).<BR>Em caso de SUCESSO: 1;<BR>Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>* Requerido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:import_assetRequest"/>
+      <output message="tns:import_assetResponse"/>
+    </operation>
+    <operation name="import_asset_oee">
+      <documentation><![CDATA[Inclui parâmetros para cálculo do OEE<BR>Parâmetros:<BR>IDOBJECT ->  Identificador do ativo; *<BR>DTSTART ->   Data de início; *<BR>DTEND ->     Data de término; *<BR>QTQUALITY -> Peças com qualidade; *<BR>QTTOTAL ->   Peças totais; *<BR>QTPRODUCED ->Quantidade produzida; *<BR>QTPLANNED -> Quantidade planejada; *<BR>Em caso de SUCESSO: 1;<BR>Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>* Requerido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:import_asset_oeeRequest"/>
+      <output message="tns:import_asset_oeeResponse"/>
+    </operation>
+    <operation name="import_asset_site">
+      <documentation><![CDATA[Adicionará uma localização no ativo.<BR>Parâmetros:<BR>IDOBJECT -> Identificador do objeto;  *<BR>DATE -> Data da localização do ativo. Obs: não pode ser posterior à data atual. *<BR>HOUR -> Hora da localização do ativo. *<BR>TYPE -> Tipo de localização: 1 - Localização, 2 - Usuário, 3 - Localização/Usuário *<BR>LOCATION -> Identificador da localização. *<BR>USER -> Identificador do usuário. *<BR>COMMENTS -> Observações da localização do ativo.<BR>Atualizar a localização dos ativos filhos. [1 - Atualizar; 2 ou vazio - Não atualizar (valor padrão)]<BR>Em caso de SUCESSO: 1;<BR>Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>* Requerido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:import_asset_siteRequest"/>
+      <output message="tns:import_asset_siteResponse"/>
+    </operation>
+    <operation name="import_asset_state">
+      <documentation><![CDATA[Definir condição do ativo.<BR>Parâmetros:<BR>IDOBJECT -> Identificador do objeto;  *<BR>DTSTATE -> Data da condição do ativo;  *<BR>TMSTATE -> Hora da condição do ativo;  *<BR>IDSTATE -> Identificador da condição do ativo;  *<BR>DSOBSERVATION -> Observação;  <BR>Em caso de SUCESSO: 1;<BR>Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>* Requerido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:import_asset_stateRequest"/>
+      <output message="tns:import_asset_stateResponse"/>
+    </operation>
+    <operation name="import_asset_status">
+      <documentation><![CDATA[Desativar ou ativar o ativo.<BR>Parâmetros:<BR>IDOBJECT -> Identificador do objeto;  *<BR>FGASSTATUS -> Status do ativo: 1 - Ativo, 2 - Inativo;  *<BR>RESERVE -> Cancelar reserva(s) do ativo: 1- Sim, 2- Não; *<BR>DSJUSTIFY -> Campo para justificar a ativação/desativação do registro; *<BR>Em caso de SUCESSO: 1;<BR>Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>* Requerido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:import_asset_statusRequest"/>
+      <output message="tns:import_asset_statusResponse"/>
+    </operation>
+    <operation name="import_asset_structure_insert_update">
+      <documentation><![CDATA[Definir uma estrutura para o ativo.<BR>Parâmetros:<BR>IDOBJECT -> Identificador do objeto;  *<BR>IDREVISION -> Identificador da revisão; *<BR>IDOBJECTCHILD -> Identificador do ativo (Inferior); *<BR>IDREVISIONCHILD -> Identificador da revisão (Inferior); *<BR>VLQUANTITY -> Quantidade; *<BR>FGAPPLICATION -> Especificações do objeto; <BR>Em caso de SUCESSO: 1;<BR>Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>* Requerido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:import_asset_structure_insert_updateRequest"/>
+      <output message="tns:import_asset_structure_insert_updateResponse"/>
+    </operation>
+    <operation name="import_assetConfSite">
+      <documentation><![CDATA[Cadastrar localização física.<BR>Parâmetros:<BR>IDSITE -> Identificador da localização física;  *<BR>NMSITE -> Nome da localização física;  *<BR>Unidade de negócio<BR>País<BR>Estado<BR>Cidade<BR>CEP<BR>Endereço<BR>Coordenadas geográficas<BR>FGENABLED -> Ativo ou inativo: 1 - Ativo, 2 - Inativo;  *<BR>IDSITEOWNER -> Nó pai da localização física; <BR>Descrição<BR>Em caso de SUCESSO: 1;<BR>Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>* Requerido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:import_assetConfSiteRequest"/>
+      <output message="tns:import_assetConfSiteResponse"/>
+    </operation>
+    <operation name="import_attrib_assoc">
+      <documentation><![CDATA[Associar atributo com um ativo.<BR>Parâmetros:<BR>IDOBJECT -> Identificador do objeto;  *<BR>IDATTRIBUTE -> Identificador do atributo *<BR>VALUE -> Valor do atributo *<BR>IDREVISION -> Identificador da revisão;  *<BR>FGINSERTLISTVALUE -> Incluir Item do atributo do tipo lista de valor *<BR>DSATTRIBUTE -> Valor do atributo (Texto) *<BR>Em caso de SUCESSO: 1;<BR>Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>* Requerido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:import_attrib_assocRequest"/>
+      <output message="tns:import_attrib_assocResponse"/>
+    </operation>
+    <operation name="import_del_asset">
+      <documentation><![CDATA[Removerá um ativo existente.<BR>Parâmetros:<BR>IDOBJECT -> Identificador do objeto;  *<BR>Em caso de SUCESSO: 1;<BR>Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>* Requerido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:import_del_assetRequest"/>
+      <output message="tns:import_del_assetResponse"/>
+    </operation>
+    <operation name="import_del_asset_site">
+      <documentation><![CDATA[Removerá a última localização do ativo.<BR>Parâmetros:<BR>IDOBJECT -> Identificador do objeto;  *<BR>Em caso de SUCESSO: 1;<BR>Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>* Requerido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:import_del_asset_siteRequest"/>
+      <output message="tns:import_del_asset_siteResponse"/>
+    </operation>
+    <operation name="import_del_asset_state">
+      <documentation><![CDATA[Excluirá condição do ativo.<BR>Parâmetros:<BR>IDOBJECT -> Identificador do objeto;  *<BR>Em caso de SUCESSO: 1;<BR>Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>* Requerido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:import_del_asset_stateRequest"/>
+      <output message="tns:import_del_asset_stateResponse"/>
+    </operation>
+    <operation name="import_del_asset_structure">
+      <documentation><![CDATA[Excluir uma estrutura do ativo.<BR>Parâmetros:<BR>IDOBJECT -> Identificador do objeto;  *<BR>IDREVISION -> Identificador da revisão; *<BR>IDOBJECTCHILD -> Identificador do ativo (Inferior); *<BR>IDREVISIONCHILD -> Identificador da revisão (Inferior); *<BR>FGAPPLICATION -> Especificações do objeto; <BR>Em caso de SUCESSO: 1;<BR>Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>* Requerido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:import_del_asset_structureRequest"/>
+      <output message="tns:import_del_asset_structureResponse"/>
+    </operation>
+    <operation name="import_objectSecurity">
+      <documentation><![CDATA[Adicionará tipos de segurança para o tipo de ativo.<BR>Parâmetros:<BR>IDOBJECTTYPE -> Identificador do tipo de objeto;  *<BR>ACCESSTYPE -> Tipo de controle de acesso: 1 - Grupo de usuários, 2 - Área, 3 - Área/Função, 4 - Função, 5 - Usuário, 6 - Todos *<BR>PERMISSION -> Tipo de permissão: 1 - Permitir, 2 - Negar *<BR>IDACCESSTYPE -> Identificador do tipo de grupo de acesso: 1 - Identificador da equipe, 2 - Identificador da área, 3 - Identificador da área e Identificador da função, 4 - Identificador da função, 5 - Identificador do usuário, 6 - Não é preciso *<BR>IDFUNCTION -> Identificador da função *&sup2;<BR>INSERT -> Controle de incluir: 1 - Sim, 2 - Não *&sup1;<BR>EDIT -> Controle de editar: 1 - Sim, 2 - Não *&sup1;<BR>DELETE -> Controle de deletar: 1 - Sim, 2 - Não *&sup1;<BR>SECURITY -> Controle de segurança: 1 - Sim, 2 - Não *&sup1;<BR>LIST -> Controle de listagem: 1 - Sim, 2 - Não *&sup1;<BR>VIEW -> Controle de visualização: 1 - Sim, 2 - Não *&sup1;<BR>Em caso de SUCESSO: 1;<BR>Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>* Requerido.<BR>*&sup1; Requerido no mínimo um campo de controle<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:import_objectSecurityRequest"/>
+      <output message="tns:import_objectSecurityResponse"/>
+    </operation>
+    <operation name="import_objectType">
+      <documentation><![CDATA[Cria tipo de ativo.<BR>Parâmetros:<BR>IDOBJECTTYPE -> Identificador do tipo de objeto;  *<BR>NMOBJECTTYPE -> Nome do tipo de objeto;  *<BR>FGUSEREVISIONOBJTYPE -> Flag para identificar se a classe possuirá ou não revisão: 1 - Possuirá; 2 - Não possuirá;  *<BR>FGUSEMASK -> Flag para identificar se utilizará máscara para numeração: 1 - Sim, 2 - Não;  *<BR>IDMASK -> Identificador da máscara; <BR>FGEDITID -> Identificador da revisão :1 - Texto, 2 - Numérico, 3 - Customizado, será requerido caso a FGUSEREVISIONOBJTYPE seja 1; <BR>FGREVIDOBJTYPE -> Identificador da revisão, será requerido caso o FGUSEREVISIONOBJTYPE seja 1; <BR>FGREVAPPROVALMODEOBJTYPE -> Modo de aprovação da revisão, será requerido caso o FGUSEREVISIONOBJTYPE seja 1; <BR>FGREVRELEASEMODEOBJTYPE -> Modo de fechamento da revisão, será requerido caso o FGUSEREVISIONOBJTYPE seja 1; <BR>QTREVRETENTIONOBJTYPE -> Quantidade da retenção de revisões obsoletas, será requerido caso o FGUSEREVISIONOBJTYPE seja 1; <BR>FGREVRETENTIONMODEOBJTYPE -> Frequência da retenção de revisões obsoletas, será requerido caso o FGUSEREVISIONOBJTYPE seja 1; <BR>FGREVROUTETYPEOBJTYPE -> Tipo de roteiro, será requerido caso o FGUSEREVISIONOBJTYPE seja 1; <BR>FGREVELABCLAUSEOBJTYPE -> Aceitação de revisão em elaboração, será requerido caso o FGUSEREVISIONOBJTYPE seja 1; <BR>FGREVCONSCLAUSEOBJTYPE -> Aceitação de revisão em consenso, será requerido caso o FGUSEREVISIONOBJTYPE seja 1; <BR>FGREVAPROVCLAUSEOBJTYPE -> Aceitação de revisão em aprovação, será requerido caso o FGUSEREVISIONOBJTYPE seja 1; <BR>FGREVHOMOLOGCLAUSEOBJTYPE -> Aceitação de revisão em homologação, será requerido caso o FGUSEREVISIONOBJTYPE seja 1; <BR>Em caso de SUCESSO: 1;<BR>Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>* Requerido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:import_objectTypeRequest"/>
+      <output message="tns:import_objectTypeResponse"/>
+    </operation>
+    <operation name="importPlanActivity">
+      <documentation><![CDATA[Insere/Edita um plano de atividade<BR>Parâmetros:<BR>&nbsp;&nbsp;&nbsp;&nbsp;FGOPTION -> Opção: 21- Incluir, 22- Editar *<BR>&nbsp;&nbsp;&nbsp;&nbsp;FGPLANTYPE -> Tipo de plano: 1- Verificação, 2- Manutenção preventiva, 3- Calibração *<BR>&nbsp;&nbsp;&nbsp;&nbsp;IDPLANACTIVITY -> Identificador do plano *<BR>&nbsp;&nbsp;&nbsp;&nbsp;NMPLANACTIVITY -> Nome do plano *<BR>&nbsp;&nbsp;&nbsp;&nbsp;IDMODELACTIVITY -> Identificador da atividade modelo *<BR>&nbsp;&nbsp;&nbsp;&nbsp;FGPLANCONF -> Configuração do plano: 1- Herdar dados da atividade, 2- Copiar dados da atividade *<BR>&nbsp;&nbsp;&nbsp;&nbsp;IDASSET -> Identificador do ativo *<BR>&nbsp;&nbsp;&nbsp;&nbsp;IDTEAM -> Equipe responsável pelo plano *<BR>&nbsp;&nbsp;&nbsp;&nbsp;IDTEAMPROG -> Equipe responsável pelo planejamento *&sup1;<BR>&nbsp;&nbsp;&nbsp;&nbsp;IDTEAMEXEC -> Equipe responsável pela execução *&sup1;<BR>&nbsp;&nbsp;&nbsp;&nbsp;FGDATEFREQUENCY -> Frequência baseada em data: 1- Habilitar, 2- Desabilitar<BR>&nbsp;&nbsp;&nbsp;&nbsp;FGFREQTYPE -> Tipo de frequência: 1- Data de execução, 2- Primeiro uso, 3- Tempo de uso *&sup2;<BR>&nbsp;&nbsp;&nbsp;&nbsp;QTFREQUENCE -> Frequência *&sup2;<BR>&nbsp;&nbsp;&nbsp;&nbsp;FGFREQUNIT -> Unidade de frequência: 1- Dia, 2- Semana, 3- Mês, 4- Ano, 5- dias úteis *&sup2;<BR>&nbsp;&nbsp;&nbsp;&nbsp;FGDATEVIEW -> Visualização da data: 1- Dia/Mês/Ano, 2- Mês/Ano *&sup2;<BR>&nbsp;&nbsp;&nbsp;&nbsp;DTNEXTEXECUTION -> Data da próxima execução *&sup2;<BR>&nbsp;&nbsp;&nbsp;&nbsp;IDCALENDAR -> Identificador do calendário<BR>&nbsp;&nbsp;&nbsp;&nbsp;FGMETERFREQUENCY -> Frequência baseada no medidor do ativo: 1- Habilitar, 2- Desabilitar<BR>&nbsp;&nbsp;&nbsp;&nbsp;VLMETERFREQUENCY -> Valor da frequência *&sup3<BR>&nbsp;&nbsp;&nbsp;&nbsp;VLANTECIPATION -> Antecipação *&sup3<BR>&nbsp;&nbsp;&nbsp;&nbsp;VLNEXTEXECUTION -> Próxima execução *&sup3<BR>&nbsp;&nbsp;&nbsp;&nbsp;FGAUTOCREATE -> Criar atividade automaticamente: 1- Habilitar, 2- Desabilitar *&#x2074;<BR>&nbsp;&nbsp;&nbsp;&nbsp;FGAUTOSTATUS -> Situação da atividade: 1- Planejamento, 2- A iniciar *&#x2074;<BR>&nbsp;&nbsp;&nbsp;&nbsp;QTDAYBEFORE -> Criar antes de (dias)<BR>&nbsp;&nbsp;&nbsp;&nbsp;FGKEEPCREATING -> Continuar criando atividades automaticamente mesmo que já existam atividades pendentes [ 1 = Sim; 2 = Não]<BR>&nbsp;&nbsp;&nbsp;&nbsp;IDEVALMETHOD -> Método de avaliação<BR>&nbsp;&nbsp;&nbsp;&nbsp;DSEVALCRIT -> Critério<BR>&nbsp;&nbsp;&nbsp;&nbsp;QTNOTIFYB4DAY -> Notificar antes de<BR>Em caso de SUCESSO: 1;<BR>Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>* Requerido.<BR>*&sup1; Requerido caso o campo FGPLANCONF for igual a 2 <BR>*&sup2; Requerido caso o campo FGDATEFREQUENCY for igual a 1 <BR>*&sup3; Requerido caso o campo FGMETERFREQUENCY for igual a 1 <BR>*&#x2074; Requerido caso o campo FGAUTOCREATE for igual a 1 <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:importPlanActivityRequest"/>
+      <output message="tns:importPlanActivityResponse"/>
+    </operation>
+    <operation name="importAssetDowntime">
+      <documentation><![CDATA[Registro de parada<BR>Parâmetros: <BR>FGOPTION -> Opção: 23 - Incluir, 24 - Finalizar<BR>IDASSET -> Identificador do ativo <BR>IDDOWNTIMEREASON -> Motivo da parada <BR>DTSTART -> Data inicial <BR>QTSTART -> Hora inicial <BR>DTEND -> Data final <BR>QTEND -> Hora final <BR>DSCOMMENTS -> Observações <BR>Em caso de SUCESSO: 1;<BR>Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>* Requerido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:importAssetDowntimeRequest"/>
+      <output message="tns:importAssetDowntimeResponse"/>
+    </operation>
+    <operation name="importCMDBRelationship">
+      <documentation><![CDATA[CMDB<BR>Parâmetros: <BR>TYPEFROM -> Opção: 1 - Ativo,2 - Processo,3 - Atividade<BR>IDENTIFIERFROM -> Identificador do objeto de origem <BR>TYPETO -> Opção: 1 - Ativo,2 - Processo,3 - Atividade <BR>IDENTIFIERTO -> Identificador do objeto de destino <BR>RELATIONSHIPNAME -> Nome do relacionamento <BR>REVERSERELATIONSHIP -> Relacionamento inverso: 1 - Sim,2 - Não <BR>Em caso de SUCESSO: 1;<BR>Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>* Requerido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:importCMDBRelationshipRequest"/>
+      <output message="tns:importCMDBRelationshipResponse"/>
+    </operation>
+    <operation name="deleteCMDBRelationship">
+      <documentation><![CDATA[CMDB<BR>Parâmetros: <BR>TYPEFROM -> Opção: 1 - Ativo,2 - Processo,3 - Atividade<BR>IDENTIFIERFROM -> Identificador do objeto de origem <BR>TYPETO -> Opção: 1 - Ativo,2 - Processo,3 - Atividade <BR>IDENTIFIERTO -> Identificador do objeto de destino <BR>Em caso de SUCESSO: 1;<BR>Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>* Requerido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:deleteCMDBRelationshipRequest"/>
+      <output message="tns:deleteCMDBRelationshipResponse"/>
+    </operation>
+  </portType>
+  <binding name="AssetBinding" type="tns:AssetPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="del_objectType">
+      <soap:operation soapAction="urn:asset#del_objectType" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </output>
+    </operation>
+    <operation name="delete_assetConfSite">
+      <soap:operation soapAction="urn:asset#delete_assetConfSite" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </output>
+    </operation>
+    <operation name="import_asset">
+      <soap:operation soapAction="urn:asset#import_asset" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </output>
+    </operation>
+    <operation name="import_asset_oee">
+      <soap:operation soapAction="urn:asset#import_asset_oee" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </output>
+    </operation>
+    <operation name="import_asset_site">
+      <soap:operation soapAction="urn:asset#import_asset_site" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </output>
+    </operation>
+    <operation name="import_asset_state">
+      <soap:operation soapAction="urn:asset#import_asset_state" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </output>
+    </operation>
+    <operation name="import_asset_status">
+      <soap:operation soapAction="urn:asset#import_asset_status" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </output>
+    </operation>
+    <operation name="import_asset_structure_insert_update">
+      <soap:operation soapAction="urn:asset#import_asset_structure_insert_update" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </output>
+    </operation>
+    <operation name="import_assetConfSite">
+      <soap:operation soapAction="urn:asset#import_assetConfSite" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </output>
+    </operation>
+    <operation name="import_attrib_assoc">
+      <soap:operation soapAction="urn:asset#import_attrib_assoc" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </output>
+    </operation>
+    <operation name="import_del_asset">
+      <soap:operation soapAction="urn:asset#import_del_asset" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </output>
+    </operation>
+    <operation name="import_del_asset_site">
+      <soap:operation soapAction="urn:asset#import_del_asset_site" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </output>
+    </operation>
+    <operation name="import_del_asset_state">
+      <soap:operation soapAction="urn:asset#import_del_asset_state" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </output>
+    </operation>
+    <operation name="import_del_asset_structure">
+      <soap:operation soapAction="urn:asset#import_del_asset_structure" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </output>
+    </operation>
+    <operation name="import_objectSecurity">
+      <soap:operation soapAction="urn:asset#import_objectSecurity" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </output>
+    </operation>
+    <operation name="import_objectType">
+      <soap:operation soapAction="urn:asset#import_objectType" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </output>
+    </operation>
+    <operation name="importPlanActivity">
+      <soap:operation soapAction="urn:asset#importPlanActivity" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </output>
+    </operation>
+    <operation name="importAssetDowntime">
+      <soap:operation soapAction="urn:asset#importAssetDowntime" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </output>
+    </operation>
+    <operation name="importCMDBRelationship">
+      <soap:operation soapAction="urn:asset#importCMDBRelationship" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </output>
+    </operation>
+    <operation name="deleteCMDBRelationship">
+      <soap:operation soapAction="urn:asset#deleteCMDBRelationship" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:asset"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="Asset">
+    <port name="AssetPort" binding="tns:AssetBinding">
+      <soap:address location="https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/ast_ws.php"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/ast_ws.php</con:endpoint></con:endpoints><con:operation id="3e0c4709-8978-46ff-95df-6ada3b006918" isOneWay="false" action="urn:asset#del_objectType" name="del_objectType" bindingOperationName="del_objectType" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7b9855d0-8ef5-4d5e-abd1-98a8531c34cd" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/ast_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:asset">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:del_objectType>\r
+         <urn:idobjecttype>?</urn:idobjecttype>\r
+      </urn:del_objectType>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:asset#del_objectType"/></con:call></con:operation><con:operation id="0ab989f0-9455-4aca-99a9-1b69f3541b62" isOneWay="false" action="urn:asset#delete_assetConfSite" name="delete_assetConfSite" bindingOperationName="delete_assetConfSite" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="180b9a62-5af5-425a-b531-07571e7b6bf5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/ast_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:asset">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:delete_assetConfSite>\r
+         <urn:idsite>?</urn:idsite>\r
+      </urn:delete_assetConfSite>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:asset#delete_assetConfSite"/></con:call></con:operation><con:operation id="da9f5910-a023-43f3-9ded-70ffeb29f634" isOneWay="false" action="urn:asset#deleteCMDBRelationship" name="deleteCMDBRelationship" bindingOperationName="deleteCMDBRelationship" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1f433219-904a-4dbd-8716-8560b8db98f4" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/ast_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:asset">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:deleteCMDBRelationship>\r
+         <!--You may enter the following 4 items in any order-->\r
+         <urn:TypeFrom>?</urn:TypeFrom>\r
+         <urn:IdentifierFrom>?</urn:IdentifierFrom>\r
+         <urn:TypeTo>?</urn:TypeTo>\r
+         <urn:IdentifierTo>?</urn:IdentifierTo>\r
+      </urn:deleteCMDBRelationship>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:asset#deleteCMDBRelationship"/></con:call></con:operation><con:operation id="6e7f39dd-8d0d-4ebd-9839-c1bca8946901" isOneWay="false" action="urn:asset#import_asset" name="import_asset" bindingOperationName="import_asset" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="62005a3a-6132-4b15-ab5a-e49b552e821e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/ast_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:asset">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:import_asset>\r
+         <!--You may enter the following 20 items in any order-->\r
+         <urn:idobject>?</urn:idobject>\r
+         <urn:nmobject>?</urn:nmobject>\r
+         <urn:idobjecttype>?</urn:idobjecttype>\r
+         <urn:idteam>?</urn:idteam>\r
+         <urn:fgapplication>?</urn:fgapplication>\r
+         <urn:dtstartoper>?</urn:dtstartoper>\r
+         <urn:quantity>?</urn:quantity>\r
+         <urn:cavity>?</urn:cavity>\r
+         <urn:manufacturer>?</urn:manufacturer>\r
+         <urn:idserialnumber>?</urn:idserialnumber>\r
+         <urn:idmodel>?</urn:idmodel>\r
+         <urn:idcalendar>?</urn:idcalendar>\r
+         <urn:supplier>?</urn:supplier>\r
+         <urn:vlequipmentcost>?</urn:vlequipmentcost>\r
+         <urn:vlcost>?</urn:vlcost>\r
+         <urn:dtrevision>?</urn:dtrevision>\r
+         <urn:attributes>?</urn:attributes>\r
+         <urn:dsdescription>?</urn:dsdescription>\r
+         <urn:characteristics>?</urn:characteristics>\r
+         <urn:dsobservation>?</urn:dsobservation>\r
+      </urn:import_asset>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:asset#import_asset"/></con:call></con:operation><con:operation id="f295e1fa-2909-4068-80fc-9d1edbe1909e" isOneWay="false" action="urn:asset#import_asset_oee" name="import_asset_oee" bindingOperationName="import_asset_oee" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3602e3f9-c74e-48e5-b7c7-0a5148dc1b96" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/ast_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:asset">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:import_asset_oee>\r
+         <!--You may enter the following 7 items in any order-->\r
+         <urn:idobject>?</urn:idobject>\r
+         <urn:dtstart>?</urn:dtstart>\r
+         <urn:dtend>?</urn:dtend>\r
+         <urn:qtquality>?</urn:qtquality>\r
+         <urn:qttotal>?</urn:qttotal>\r
+         <urn:qtproduced>?</urn:qtproduced>\r
+         <urn:qtplanned>?</urn:qtplanned>\r
+      </urn:import_asset_oee>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:asset#import_asset_oee"/></con:call></con:operation><con:operation id="db2c3280-a35b-4af7-97c6-f4c1692514a4" isOneWay="false" action="urn:asset#import_asset_site" name="import_asset_site" bindingOperationName="import_asset_site" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ca4d7bda-9cc7-4305-ba6c-3425e585b81a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/ast_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:asset">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:import_asset_site>\r
+         <!--You may enter the following 9 items in any order-->\r
+         <urn:idobject>?</urn:idobject>\r
+         <urn:date>?</urn:date>\r
+         <urn:hour>?</urn:hour>\r
+         <urn:type>?</urn:type>\r
+         <urn:location>?</urn:location>\r
+         <urn:user>?</urn:user>\r
+         <urn:coordinate>?</urn:coordinate>\r
+         <urn:comments>?</urn:comments>\r
+         <urn:fgupdatechildrensite>?</urn:fgupdatechildrensite>\r
+      </urn:import_asset_site>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:asset#import_asset_site"/></con:call></con:operation><con:operation id="de62bd12-743f-4da8-9edd-50a1e08e0cea" isOneWay="false" action="urn:asset#import_asset_state" name="import_asset_state" bindingOperationName="import_asset_state" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ce970c2f-2a09-455c-b7b3-5896423e2088" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/ast_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:asset">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:import_asset_state>\r
+         <!--You may enter the following 5 items in any order-->\r
+         <urn:idobject>?</urn:idobject>\r
+         <urn:dtstate>?</urn:dtstate>\r
+         <urn:tmstate>?</urn:tmstate>\r
+         <urn:idstate>?</urn:idstate>\r
+         <urn:dsobservation>?</urn:dsobservation>\r
+      </urn:import_asset_state>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:asset#import_asset_state"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="e76ca0a2-cfbf-406b-9931-04055629712c" isOneWay="false" action="urn:asset#import_asset_status" name="import_asset_status" bindingOperationName="import_asset_status" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="63bf260d-dff5-431f-a090-d9fd0786cbd6" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/ast_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:asset">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:import_asset_status>\r
+         <!--You may enter the following 4 items in any order-->\r
+         <urn:idobject>?</urn:idobject>\r
+         <urn:fgasstatus>?</urn:fgasstatus>\r
+         <urn:reserve>?</urn:reserve>\r
+         <urn:dsjustify>?</urn:dsjustify>\r
+      </urn:import_asset_status>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:asset#import_asset_status"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="95520c0f-3c39-4e04-94a0-ade6dafdeb24" isOneWay="false" action="urn:asset#import_asset_structure_insert_update" name="import_asset_structure_insert_update" bindingOperationName="import_asset_structure_insert_update" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c7653452-c207-4cb5-a749-11ca3876c237" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/ast_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:asset">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:import_asset_structure_insert_update>\r
+         <!--You may enter the following 6 items in any order-->\r
+         <urn:idobject>?</urn:idobject>\r
+         <urn:idrevision>?</urn:idrevision>\r
+         <urn:idobjectchild>?</urn:idobjectchild>\r
+         <urn:idrevisionchild>?</urn:idrevisionchild>\r
+         <urn:vlquantity>?</urn:vlquantity>\r
+         <urn:fgapplication>?</urn:fgapplication>\r
+      </urn:import_asset_structure_insert_update>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:asset#import_asset_structure_insert_update"/></con:call></con:operation><con:operation id="afc806bb-2304-4e39-8e84-6df294be7718" isOneWay="false" action="urn:asset#import_assetConfSite" name="import_assetConfSite" bindingOperationName="import_assetConfSite" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ae025045-7bcd-4075-b470-9bc4f94237f9" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/ast_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:asset">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:import_assetConfSite>\r
+         <!--You may enter the following 12 items in any order-->\r
+         <urn:idsite>?</urn:idsite>\r
+         <urn:nmsite>?</urn:nmsite>\r
+         <urn:fgenabled>?</urn:fgenabled>\r
+         <urn:idsiteowner>?</urn:idsiteowner>\r
+         <urn:iddepartment>?</urn:iddepartment>\r
+         <urn:nmcountry>?</urn:nmcountry>\r
+         <urn:nmstate>?</urn:nmstate>\r
+         <urn:nmcity>?</urn:nmcity>\r
+         <urn:dsaddress>?</urn:dsaddress>\r
+         <urn:nmpostalcode>?</urn:nmpostalcode>\r
+         <urn:nmcoord>?</urn:nmcoord>\r
+         <urn:dssite>?</urn:dssite>\r
+      </urn:import_assetConfSite>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:asset#import_assetConfSite"/></con:call></con:operation><con:operation id="fca8e72d-3c0f-43b8-82d3-5a702c096fdb" isOneWay="false" action="urn:asset#import_attrib_assoc" name="import_attrib_assoc" bindingOperationName="import_attrib_assoc" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2644bb6e-585d-4283-9773-1763e4fb9474" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/ast_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:asset">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:import_attrib_assoc>\r
+         <!--You may enter the following 6 items in any order-->\r
+         <urn:idobject>?</urn:idobject>\r
+         <urn:idattribute>?</urn:idattribute>\r
+         <urn:value>?</urn:value>\r
+         <urn:idrevision>?</urn:idrevision>\r
+         <urn:fginsertlistvalue>?</urn:fginsertlistvalue>\r
+         <urn:dsvalue>?</urn:dsvalue>\r
+      </urn:import_attrib_assoc>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:asset#import_attrib_assoc"/></con:call></con:operation><con:operation id="278eeab2-204d-43c8-90a3-7295592b20c1" isOneWay="false" action="urn:asset#import_del_asset" name="import_del_asset" bindingOperationName="import_del_asset" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1a2ac626-c050-4666-91a9-2dc334096dfd" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/ast_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:asset">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:import_del_asset>\r
+         <urn:idobject>?</urn:idobject>\r
+      </urn:import_del_asset>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:asset#import_del_asset"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="46e0b3f1-87ea-4282-b306-0ae1ec52c820" isOneWay="false" action="urn:asset#import_del_asset_site" name="import_del_asset_site" bindingOperationName="import_del_asset_site" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ebdf9190-1300-48ea-89fc-c83db80b1d7b" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/ast_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:asset">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:import_del_asset_site>\r
+         <urn:idobject>?</urn:idobject>\r
+      </urn:import_del_asset_site>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:asset#import_del_asset_site"/></con:call></con:operation><con:operation id="0a012375-a13f-43e9-a2fc-fc0a10c4b34c" isOneWay="false" action="urn:asset#import_del_asset_state" name="import_del_asset_state" bindingOperationName="import_del_asset_state" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1df7f738-b627-4bdc-a4da-aca3aa51cd12" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/ast_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:asset">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:import_del_asset_state>\r
+         <urn:idobject>?</urn:idobject>\r
+      </urn:import_del_asset_state>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:asset#import_del_asset_state"/></con:call></con:operation><con:operation id="607d1c45-5ff0-4300-aeec-a1ece1be9198" isOneWay="false" action="urn:asset#import_del_asset_structure" name="import_del_asset_structure" bindingOperationName="import_del_asset_structure" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d05889cd-b99d-4d37-9bc9-f93b753efa8f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/ast_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:asset">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:import_del_asset_structure>\r
+         <!--You may enter the following 5 items in any order-->\r
+         <urn:idobject>?</urn:idobject>\r
+         <urn:idrevision>?</urn:idrevision>\r
+         <urn:idobjectchild>?</urn:idobjectchild>\r
+         <urn:idrevisionchild>?</urn:idrevisionchild>\r
+         <urn:fgapplication>?</urn:fgapplication>\r
+      </urn:import_del_asset_structure>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:asset#import_del_asset_structure"/></con:call></con:operation><con:operation id="2015a195-e905-499a-94a8-ad444894070e" isOneWay="false" action="urn:asset#import_objectSecurity" name="import_objectSecurity" bindingOperationName="import_objectSecurity" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="094e8391-7122-4e54-8ce2-e8fcee644eaa" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/ast_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:asset">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:import_objectSecurity>\r
+         <!--You may enter the following 11 items in any order-->\r
+         <urn:idobjecttype>?</urn:idobjecttype>\r
+         <urn:accesstype>?</urn:accesstype>\r
+         <urn:permission>?</urn:permission>\r
+         <urn:idaccesstype>?</urn:idaccesstype>\r
+         <urn:idfunction>?</urn:idfunction>\r
+         <urn:insert>?</urn:insert>\r
+         <urn:edit>?</urn:edit>\r
+         <urn:delete>?</urn:delete>\r
+         <urn:security>?</urn:security>\r
+         <urn:list>?</urn:list>\r
+         <urn:view>?</urn:view>\r
+      </urn:import_objectSecurity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:asset#import_objectSecurity"/></con:call></con:operation><con:operation id="1d25e61b-de8e-4167-a374-cb9479550374" isOneWay="false" action="urn:asset#import_objectType" name="import_objectType" bindingOperationName="import_objectType" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="acf8239c-4614-4212-a4c5-e111bfa4c687" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/ast_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:asset">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:import_objectType>\r
+         <!--You may enter the following 17 items in any order-->\r
+         <urn:idobjecttype>?</urn:idobjecttype>\r
+         <urn:nmobjecttype>?</urn:nmobjecttype>\r
+         <urn:idobjecttypeowner>?</urn:idobjecttypeowner>\r
+         <urn:fgusemask>?</urn:fgusemask>\r
+         <urn:idmask>?</urn:idmask>\r
+         <urn:fgeditid>?</urn:fgeditid>\r
+         <urn:fguserevisionobjtype>?</urn:fguserevisionobjtype>\r
+         <urn:fgrevidobjtype>?</urn:fgrevidobjtype>\r
+         <urn:fgrevapprovalmodeobjtype>?</urn:fgrevapprovalmodeobjtype>\r
+         <urn:fgrevreleasemodeobjtype>?</urn:fgrevreleasemodeobjtype>\r
+         <urn:qtrevretentionobjtype>?</urn:qtrevretentionobjtype>\r
+         <urn:fgrevretentionmodeobjtype>?</urn:fgrevretentionmodeobjtype>\r
+         <urn:fgrevroutetypeobjtype>?</urn:fgrevroutetypeobjtype>\r
+         <urn:fgrevelabclauseobjtype>?</urn:fgrevelabclauseobjtype>\r
+         <urn:fgrevconsclauseobjtype>?</urn:fgrevconsclauseobjtype>\r
+         <urn:fgrevaprovclauseobjtype>?</urn:fgrevaprovclauseobjtype>\r
+         <urn:fgrevhomologclauseobjtype>?</urn:fgrevhomologclauseobjtype>\r
+      </urn:import_objectType>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:asset#import_objectType"/></con:call></con:operation><con:operation id="092a2e99-831e-4d7c-b851-e134ca40ec0e" isOneWay="false" action="urn:asset#importAssetDowntime" name="importAssetDowntime" bindingOperationName="importAssetDowntime" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a9cd9170-0cca-49d8-b268-2a43face2378" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/ast_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:asset">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:importAssetDowntime>\r
+         <!--You may enter the following 8 items in any order-->\r
+         <urn:FgOption>?</urn:FgOption>\r
+         <urn:IdAsset>?</urn:IdAsset>\r
+         <urn:IdDowntimeReason>?</urn:IdDowntimeReason>\r
+         <urn:DtStart>?</urn:DtStart>\r
+         <urn:QtStart>?</urn:QtStart>\r
+         <urn:DtEnd>?</urn:DtEnd>\r
+         <urn:QtEnd>?</urn:QtEnd>\r
+         <urn:DsComments>?</urn:DsComments>\r
+      </urn:importAssetDowntime>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:asset#importAssetDowntime"/></con:call></con:operation><con:operation id="1672dfaf-598a-4b25-a6fe-7b1069172430" isOneWay="false" action="urn:asset#importCMDBRelationship" name="importCMDBRelationship" bindingOperationName="importCMDBRelationship" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ece2e583-7c48-4e1d-a3f2-2b219ac13cfa" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/ast_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:asset">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:importCMDBRelationship>\r
+         <!--You may enter the following 6 items in any order-->\r
+         <urn:TypeFrom>?</urn:TypeFrom>\r
+         <urn:IdentifierFrom>?</urn:IdentifierFrom>\r
+         <urn:TypeTo>?</urn:TypeTo>\r
+         <urn:IdentifierTo>?</urn:IdentifierTo>\r
+         <urn:RelationshipName>?</urn:RelationshipName>\r
+         <urn:ReverseRelationship>?</urn:ReverseRelationship>\r
+      </urn:importCMDBRelationship>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:asset#importCMDBRelationship"/></con:call></con:operation><con:operation id="f4682523-7d89-45b4-8275-df99629d2a20" isOneWay="false" action="urn:asset#importPlanActivity" name="importPlanActivity" bindingOperationName="importPlanActivity" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="990cc3e6-c04f-4c1d-b628-8ffe84aba03e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/ast_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:asset">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:importPlanActivity>\r
+         <!--You may enter the following 28 items in any order-->\r
+         <urn:fgoption>?</urn:fgoption>\r
+         <urn:fgplantype>?</urn:fgplantype>\r
+         <urn:idplanactivity>?</urn:idplanactivity>\r
+         <urn:nmplanactivity>?</urn:nmplanactivity>\r
+         <urn:idmodelactivity>?</urn:idmodelactivity>\r
+         <urn:fgplanconf>?</urn:fgplanconf>\r
+         <urn:idasset>?</urn:idasset>\r
+         <urn:idteam>?</urn:idteam>\r
+         <urn:idteamprog>?</urn:idteamprog>\r
+         <urn:idteamexec>?</urn:idteamexec>\r
+         <urn:fgdatefrequency>?</urn:fgdatefrequency>\r
+         <urn:fgfreqtype>?</urn:fgfreqtype>\r
+         <urn:qtfrequence>?</urn:qtfrequence>\r
+         <urn:fgfrequnit>?</urn:fgfrequnit>\r
+         <urn:fgdateview>?</urn:fgdateview>\r
+         <urn:dtnextexecution>?</urn:dtnextexecution>\r
+         <urn:idcalendar>?</urn:idcalendar>\r
+         <urn:fgmeterfrequency>?</urn:fgmeterfrequency>\r
+         <urn:vlmeterfrequency>?</urn:vlmeterfrequency>\r
+         <urn:vlantecipation>?</urn:vlantecipation>\r
+         <urn:vlnextexecution>?</urn:vlnextexecution>\r
+         <urn:fgautocreate>?</urn:fgautocreate>\r
+         <urn:fgautostatus>?</urn:fgautostatus>\r
+         <urn:qtdaybefore>?</urn:qtdaybefore>\r
+         <urn:fgkeepcreating>?</urn:fgkeepcreating>\r
+         <urn:idevalmethod>?</urn:idevalmethod>\r
+         <urn:dsevalcrit>?</urn:dsevalcrit>\r
+         <urn:qtnotifyb4day>?</urn:qtnotifyb4day>\r
+      </urn:importPlanActivity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:asset#importPlanActivity"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

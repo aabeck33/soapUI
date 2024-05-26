@@ -1,0 +1,204 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:workflow">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:newWorkflowEditData>
+         <!--You may enter the following 6 items in any order-->
+         <urn:ProcessID>ITSM-INCSOL</urn:ProcessID>
+         <urn:WorkflowTitle>Teste WebService 001</urn:WorkflowTitle>
+         <!--Optional:-->
+         <urn:UserID>foalves</urn:UserID>
+         <!--Optional:-->
+       
+         <!--Optional:-->
+         <urn:EntityList>
+            <!--Zero or more repetitions:-->
+            <urn:Entity>
+               <urn:EntityID>itsm</urn:EntityID>
+               <!--Optional:-->
+               <urn:EntityAttributeList>
+                  <!--Zero or more repetitions:-->
+                  <urn:EntityAttribute>
+                     <!--You may enter the following 2 items in any order-->
+                     <!--Nome do Solicitante-->
+                     <urn:EntityAttributeID>itsm041</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>abeck</urn:EntityAttributeValue>
+                       <!-- -->
+                     <!--Unidade do solicitante-->
+                      <urn:EntityAttributeID>itsm048</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>UnidadeDoSolicitante</urn:EntityAttributeValue>
+                    <!-- -->
+                     <!--Departamento do Solicitante-->
+                      <urn:EntityAttributeID>itsm040</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>DepartamentoDoSolicitante</urn:EntityAttributeValue>
+                    <!-- -->
+                 <!--Função do solicitante-->
+                 <urn:EntityAttributeID>itsm039</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>FunçãoDoSolicitante</urn:EntityAttributeValue>
+                    <!-- -->
+                     <!--Telefone/Ramal-->
+                      <urn:EntityAttributeID>itsm061</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>telefoneRamal</urn:EntityAttributeValue>
+                    <!-- -->
+                     <!--login do solicitante-->
+                 <urn:EntityAttributeID>itsm031</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>NomeDoSolicitante</urn:EntityAttributeValue>
+                <!-- -->
+                     <!--Unidade no qual o serviço sera executado-->
+                 <urn:EntityAttributeID>itsm036</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>UnidadeNoQualServiçoSeraExecutado</urn:EntityAttributeValue>    
+                     <!-- -->
+                     <!--Detalhe especifico(Processo/Transação)-->
+                 <urn:EntityAttributeID>itsm049</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>Detalheespecifico</urn:EntityAttributeValue>
+                <!-- -->
+                     <!--Justificativa de alta prioridade-->
+                 <urn:EntityAttributeID>itsm068</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>Justificativaparaaltaprioridade</urn:EntityAttributeValue>        
+                     <!-- -->
+                     <!--categoria-->
+                 <urn:EntityAttributeID>itsm070</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>Categoria</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--Objeto-->
+                 <urn:EntityAttributeID>itsm002</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>Objeto</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--Serviço-->
+                 <urn:EntityAttributeID>itsm003</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>Serviço</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--Complemento-->
+                 <urn:EntityAttributeID>itsm004</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>complemento</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--Descrição do serviço-->
+                 <urn:EntityAttributeID>itsm033</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>Descriçãodoserviço</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--Descrição da solicitação-->
+                 <urn:EntityAttributeID>itsm031</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>Descrição da solicitação</urn:EntityAttributeValue>
+                     <!--Controle -->
+                     <!--Codigo do usuario logado-->
+                 <urn:EntityAttributeID>itsm005</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>1548</urn:EntityAttributeValue>
+                      <!-- -->
+                     <!--identificador do serviço-->
+                 <urn:EntityAttributeID>itsm006</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>ITSM-CS-0000109</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--odidentity-->
+                 <urn:EntityAttributeID>itsm007</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>ff80808171833a3f0171a833</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--oidentityreg-->
+                 <urn:EntityAttributeID>itsm008</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>J9378NMNg893jaabeck9893nj0</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--oidrevisionform-->
+                 <urn:EntityAttributeID>itsm009</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>oidrevisionform</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--Atendimento Corporativo-->
+                 <urn:EntityAttributeID>itsm047</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>Checked</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--Quem Solicita - Key User-->
+                 <urn:EntityAttributeID>itsm080</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>0</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--Banner-->
+                 <urn:EntityAttributeID>itsm010</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>Bem vindo...</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--Identificador do processo-->
+                 <urn:EntityAttributeID>itsm030</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>202200320</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--Iniciador é TI-->
+                 <urn:EntityAttributeID>itsm081</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>TI TDS</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--iniciador - login-->
+                 <urn:EntityAttributeID>itsm032</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>abeck</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--unidserv - id-->
+                 <urn:EntityAttributeID>itsm032</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>119883</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--area do usuario logado-->
+                 <urn:EntityAttributeID>itsm054</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>Tecnologia da Informação</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--tipo cd-->
+                 <urn:EntityAttributeID>itsm044</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>1</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--sla-->
+                 <urn:EntityAttributeID>itsm042</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>16</urn:EntityAttributeValue>
+                  </urn:EntityAttribute>
+                  <!-- -->
+                     <!--atividade atual - todas-->
+                 <urn:EntityAttributeID>itsm050</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>Atividade20131</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--aux1-->
+                 <urn:EntityAttributeID>itsm062</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>SE Suite</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--aux2-->
+                 <urn:EntityAttributeID>itsm063</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>Suporte tecnico</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--aux3-->
+                 <urn:EntityAttributeID>itsm064</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>Duvidas/ Ajuda</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--identificador-->
+                 <urn:EntityAttributeID>itsm069</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>202200320</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--aux4-->
+                 <urn:EntityAttributeID>itsm071</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>Sistemas</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--automatizado-->
+                 <urn:EntityAttributeID>itsm075</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>0</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--automatizado com complemento-->
+                 <urn:EntityAttributeID>itsm077</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>0</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--automatizado com separação-->
+                 <urn:EntityAttributeID>itsm078</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>0</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--titulo do chamado-->
+                 <urn:EntityAttributeID>itsm083</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>teste</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--grupo solucionador - catalogo-->
+                 <urn:EntityAttributeID>itsm066</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>SESUITE</urn:EntityAttributeValue>
+                     <!-- -->
+                     <!--oidentityreg-->
+                 <urn:EntityAttributeID>itsm080</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>0</urn:EntityAttributeValue>
+                      <!--coordgs - id-->
+                 <urn:EntityAttributeID>itsm073</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>jefilho</urn:EntityAttributeValue>
+                      <!--gscorp-->
+                 <urn:EntityAttributeID>itsm079</urn:EntityAttributeID>
+                     <urn:EntityAttributeValue>checked</urn:EntityAttributeValue>
+               </urn:EntityAttributeList>
+               <!--Optional:-->
+               <!--Optional:-->
+            </urn:Entity>
+         </urn:EntityList>
+         <!--Optional:-->
+      </urn:newWorkflowEditData>
+   </soapenv:Body>
+</soapenv:Envelope>

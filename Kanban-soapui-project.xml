@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="ea83b8d8-e13f-4c3d-b1b1-187489f5f39a" activeEnvironment="Default" name="Kanban" resourceRoot="" soapui-version="5.6.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="8b6017b2-44f1-48ea-b6f0-2402dc8daf61" wsaVersion="NONE" name="TaskBinding" type="wsdl" bindingName="{urn:task}TaskBinding" soapVersion="1_1" anonymous="optional" definition="http://sesuite.uniaoquimica.com.br/se/ws/tsk_ws.php?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://sesuite.uniaoquimica.com.br/se/ws/tsk_ws.php?wsdl"><con:part><con:url>http://sesuite.uniaoquimica.com.br/se/ws/tsk_ws.php?wsdl</con:url><con:content><![CDATA[<definitions targetNamespace="urn:task" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:task" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="urn:task">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/"/>
+      <xsd:complexType name="createTaskRequestType">
+        <xsd:all>
+          <xsd:element name="Workspace" type="xsd:string"/>
+          <xsd:element name="TaskType" type="xsd:string"/>
+          <xsd:element name="Priority" type="xsd:string"/>
+          <xsd:element name="Title" type="xsd:string"/>
+          <xsd:element name="DtDeadline" type="xsd:string"/>
+          <xsd:element name="Description" type="xsd:string"/>
+          <xsd:element name="IdReporter" type="xsd:string"/>
+          <xsd:element name="IdAssignee" type="xsd:string"/>
+          <xsd:element name="IdCreator" type="xsd:string"/>
+          <xsd:element name="Attribute" type="xsd:string"/>
+          <xsd:element name="Sprint" type="xsd:string"/>
+          <xsd:element name="Estimate" type="xsd:string"/>
+          <xsd:element name="DtStartPlan" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="createTaskResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="RecordID" type="xsd:string"/>
+          <xsd:element name="RecordKey" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editTaskRequestType">
+        <xsd:all>
+          <xsd:element name="Identification" type="xsd:string"/>
+          <xsd:element name="Workspace" type="xsd:string"/>
+          <xsd:element name="Priority" type="xsd:string"/>
+          <xsd:element name="Title" type="xsd:string"/>
+          <xsd:element name="DtDeadline" type="xsd:string"/>
+          <xsd:element name="Description" type="xsd:string"/>
+          <xsd:element name="IdReporter" type="xsd:string"/>
+          <xsd:element name="IdAssignee" type="xsd:string"/>
+          <xsd:element name="IdCreator" type="xsd:string"/>
+          <xsd:element name="Attribute" type="xsd:string"/>
+          <xsd:element name="Sprint" type="xsd:string"/>
+          <xsd:element name="Estimate" type="xsd:string"/>
+          <xsd:element name="DtStartPlan" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editTaskResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="RecordID" type="xsd:string"/>
+          <xsd:element name="RecordKey" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="insertAssociationRequestType">
+        <xsd:all>
+          <xsd:element name="Identification" type="xsd:string"/>
+          <xsd:element name="AssociationType" type="xsd:string"/>
+          <xsd:element name="AssociationId" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="insertAssociationResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="updateTaskAttribRequestType">
+        <xsd:all>
+          <xsd:element name="TaskId" type="xsd:string"/>
+          <xsd:element name="AttributeId" type="xsd:string"/>
+          <xsd:element name="AttributeValue" type="xsd:string"/>
+          <xsd:element name="AttribDescriptionValue" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="updateTaskAttribResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:element name="createTask" type="tns:createTaskRequestType"/>
+      <xsd:element name="createTaskResponse" type="tns:createTaskResponseType"/>
+      <xsd:element name="editTask" type="tns:editTaskRequestType"/>
+      <xsd:element name="editTaskResponse" type="tns:editTaskResponseType"/>
+      <xsd:element name="insertAssociation" type="tns:insertAssociationRequestType"/>
+      <xsd:element name="insertAssociationResponse" type="tns:insertAssociationResponseType"/>
+      <xsd:element name="updateTaskAttrib" type="tns:updateTaskAttribRequestType"/>
+      <xsd:element name="updateTaskAttribResponse" type="tns:updateTaskAttribResponseType"/>
+    </xsd:schema>
+  </types>
+  <message name="createTaskRequest">
+    <part name="parameters" element="tns:createTask"/>
+  </message>
+  <message name="createTaskResponse">
+    <part name="parameters" element="tns:createTaskResponse"/>
+  </message>
+  <message name="editTaskRequest">
+    <part name="parameters" element="tns:editTask"/>
+  </message>
+  <message name="editTaskResponse">
+    <part name="parameters" element="tns:editTaskResponse"/>
+  </message>
+  <message name="insertAssociationRequest">
+    <part name="parameters" element="tns:insertAssociation"/>
+  </message>
+  <message name="insertAssociationResponse">
+    <part name="parameters" element="tns:insertAssociationResponse"/>
+  </message>
+  <message name="updateTaskAttribRequest">
+    <part name="parameters" element="tns:updateTaskAttrib"/>
+  </message>
+  <message name="updateTaskAttribResponse">
+    <part name="parameters" element="tns:updateTaskAttribResponse"/>
+  </message>
+  <portType name="TaskPortType">
+    <operation name="createTask">
+      <documentation><![CDATA[Atividade<BR>Parâmetros: <BR>WORKSPACE -> Prefixo do workspace <BR>TASKTYPE -> Tipo de atividade <BR>PRIORITY -> Prioridade <BR>TITLE -> Título <BR>DTDEADLINE -> Prazo <BR>DESCRIPTION -> Descrição <BR>IDREPORTER -> Relator <BR>IDASSIGNEE -> Responsável <BR>IDCREATOR -> Criador <BR>ATTRIBUTE -> Atributos <BR>SPRINT -> Sprint <BR>ESTIMATE -> Estimativa <BR>DTSTARTPLAN -> Data de início programada <BR>Em caso de SUCESSO: 1;<BR>Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>* Requerido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:createTaskRequest"/>
+      <output message="tns:createTaskResponse"/>
+    </operation>
+    <operation name="editTask">
+      <documentation><![CDATA[Atividade<BR>Parâmetros: <BR>IDENTIFICATION -> IdentificadorWORKSPACE -> Prefixo do workspace <BR>PRIORITY -> Prioridade <BR>TITLE -> Título <BR>DTDEADLINE -> Prazo <BR>DESCRIPTION -> Descrição <BR>IDREPORTER -> Relator <BR>IDASSIGNEE -> Responsável <BR>IDCREATOR -> Criador <BR>ATTRIBUTE -> Atributos <BR>SPRINT -> Sprint <BR>ESTIMATE -> Estimativa <BR>DTSTARTPLAN -> Data de início programada <BR>Em caso de SUCESSO: 1;<BR>Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>* Requerido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:editTaskRequest"/>
+      <output message="tns:editTaskResponse"/>
+    </operation>
+    <operation name="insertAssociation">
+      <documentation><![CDATA[Atividade<BR>
+        Parâmetros: <BR>
+        IDENTIFICATION* -> Identificador<BR>
+        ASSOCIATIONTYPE* -> Tipo de associação [1 - Workflow; 2 - Incidente; Problema]<BR>
+        ASSOCIATIONID* -> Identificador da instância<BR>
+        Em caso de SUCESSO: 1;<BR> Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR> * Requerido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:insertAssociationRequest"/>
+      <output message="tns:insertAssociationResponse"/>
+    </operation>
+    <operation name="updateTaskAttrib">
+      <documentation><![CDATA[Editar atributo<BR>
+        Parâmetros: <BR>
+        TASKID* -> Identificador<BR>
+        ATTRIBUTEID* -> Identificador do atributo<BR>
+        ATTRIBUTEVALUE* -> Valor do atributo<BR>
+        ATTRIBDESCRIPTIONVALUE -> Valor do atributo (Texto)<BR>
+        Em caso de SUCESSO: 1;<BR> Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR> * Requerido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:updateTaskAttribRequest"/>
+      <output message="tns:updateTaskAttribResponse"/>
+    </operation>
+  </portType>
+  <binding name="TaskBinding" type="tns:TaskPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createTask">
+      <soap:operation soapAction="urn:task#createTask" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:task"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:task"/>
+      </output>
+    </operation>
+    <operation name="editTask">
+      <soap:operation soapAction="urn:task#editTask" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:task"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:task"/>
+      </output>
+    </operation>
+    <operation name="insertAssociation">
+      <soap:operation soapAction="urn:task#insertAssociation" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:task"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:task"/>
+      </output>
+    </operation>
+    <operation name="updateTaskAttrib">
+      <soap:operation soapAction="urn:task#updateTaskAttrib" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:task"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:task"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="Task">
+    <port name="TaskPort" binding="tns:TaskBinding">
+      <soap:address location="https://sesuite.uniaoquimica.com.br/apigateway/se/ws/tsk_ws.php"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/tsk_ws.php</con:endpoint><con:endpoint>https://sesuitedev.uniaoquimica.com.br/apigateway/se/ws/tsk_ws.php</con:endpoint></con:endpoints><con:operation id="0504c70e-83c1-496c-9428-bf1ed3de65e3" isOneWay="false" action="urn:task#createTask" name="createTask" bindingOperationName="createTask" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="fcb7eb8d-fc58-4a5f-9bd7-47871bffd124" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/tsk_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:task">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:createTask>\r
+         <!--You may enter the following 13 items in any order-->\r
+         <urn:Workspace>?</urn:Workspace>\r
+         <urn:TaskType>?</urn:TaskType>\r
+         <urn:Priority>?</urn:Priority>\r
+         <urn:Title>?</urn:Title>\r
+         <urn:DtDeadline>?</urn:DtDeadline>\r
+         <urn:Description>?</urn:Description>\r
+         <urn:IdReporter>?</urn:IdReporter>\r
+         <urn:IdAssignee>?</urn:IdAssignee>\r
+         <urn:IdCreator>?</urn:IdCreator>\r
+         <urn:Attribute>?</urn:Attribute>\r
+         <urn:Sprint>?</urn:Sprint>\r
+         <urn:Estimate>?</urn:Estimate>\r
+         <urn:DtStartPlan>?</urn:DtStartPlan>\r
+      </urn:createTask>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:task#createTask"/><con:wsrmConfig version="1.2"/></con:call><con:call id="e7988cd1-20b4-43e4-9b36-e70dcba87f82" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/tsk_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:task">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:createTask>\r
+         <!--You may enter the following 13 items in any order-->\r
+         <urn:Workspace>?</urn:Workspace>\r
+         <urn:TaskType>?</urn:TaskType>\r
+         <urn:Priority>?</urn:Priority>\r
+         <urn:Title>?</urn:Title>\r
+         <urn:DtDeadline>?</urn:DtDeadline>\r
+         <urn:Description>?</urn:Description>\r
+         <urn:IdReporter>?</urn:IdReporter>\r
+         <urn:IdAssignee>?</urn:IdAssignee>\r
+         <urn:IdCreator>?</urn:IdCreator>\r
+         <urn:Attribute>?</urn:Attribute>\r
+         <urn:Sprint>?</urn:Sprint>\r
+         <urn:Estimate>?</urn:Estimate>\r
+         <urn:DtStartPlan>?</urn:DtStartPlan>\r
+      </urn:createTask>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:task#createTask"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="fc3b0479-e3a0-458e-9c4f-bf3c0d556fcb" isOneWay="false" action="urn:task#editTask" name="editTask" bindingOperationName="editTask" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="31e3d45e-1fa4-4c34-bc07-c4f56ee4addf" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/tsk_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:task">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:editTask>\r
+         <!--You may enter the following 13 items in any order-->\r
+         <urn:Identification>?</urn:Identification>\r
+         <urn:Workspace>?</urn:Workspace>\r
+         <urn:Priority>?</urn:Priority>\r
+         <urn:Title>?</urn:Title>\r
+         <urn:DtDeadline>?</urn:DtDeadline>\r
+         <urn:Description>?</urn:Description>\r
+         <urn:IdReporter>?</urn:IdReporter>\r
+         <urn:IdAssignee>?</urn:IdAssignee>\r
+         <urn:IdCreator>?</urn:IdCreator>\r
+         <urn:Attribute>?</urn:Attribute>\r
+         <urn:Sprint>?</urn:Sprint>\r
+         <urn:Estimate>?</urn:Estimate>\r
+         <urn:DtStartPlan>?</urn:DtStartPlan>\r
+      </urn:editTask>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:task#editTask"/></con:call><con:call id="975c0de9-aaf1-4485-9982-94311d7ef9a8" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/tsk_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:task">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:editTask>\r
+         <!--You may enter the following 13 items in any order-->\r
+         <urn:Identification>?</urn:Identification>\r
+         <urn:Workspace>?</urn:Workspace>\r
+         <urn:Priority>?</urn:Priority>\r
+         <urn:Title>?</urn:Title>\r
+         <urn:DtDeadline>?</urn:DtDeadline>\r
+         <urn:Description>?</urn:Description>\r
+         <urn:IdReporter>?</urn:IdReporter>\r
+         <urn:IdAssignee>?</urn:IdAssignee>\r
+         <urn:IdCreator>?</urn:IdCreator>\r
+         <urn:Attribute>?</urn:Attribute>\r
+         <urn:Sprint>?</urn:Sprint>\r
+         <urn:Estimate>?</urn:Estimate>\r
+         <urn:DtStartPlan>?</urn:DtStartPlan>\r
+      </urn:editTask>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:task#editTask"/></con:call></con:operation><con:operation id="21d6038b-1bc6-4624-af8e-c8dffcd8e238" isOneWay="false" action="urn:task#insertAssociation" name="insertAssociation" bindingOperationName="insertAssociation" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="da88d892-79b9-4135-a5ee-437949bfb09e" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/tsk_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:task">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:insertAssociation>\r
+         <!--You may enter the following 3 items in any order-->\r
+         <urn:Identification>sesop-2</urn:Identification>\r
+         <urn:AssociationType>1</urn:AssociationType>\r
+         <urn:AssociationId>GMUDTI-202100207</urn:AssociationId>\r
+      </urn:insertAssociation>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>wservice</con:username><con:password>2B807F7278B9BC3#b.e&amp;c*k@1508DCC8737BC8C8B</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:task#insertAssociation"/><con:wsrmConfig version="1.2"/></con:call><con:call id="9672c8cc-4122-4104-a118-2d32c7e57335" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/tsk_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:task">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:insertAssociation>\r
+         <!--You may enter the following 3 items in any order-->\r
+         <urn:Identification>?</urn:Identification>\r
+         <urn:AssociationType>?</urn:AssociationType>\r
+         <urn:AssociationId>?</urn:AssociationId>\r
+      </urn:insertAssociation>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:task#insertAssociation"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="fc5aff5c-5d73-4dd3-a15d-41deab6a3abf" isOneWay="false" action="urn:task#updateTaskAttrib" name="updateTaskAttrib" bindingOperationName="updateTaskAttrib" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6bb6f37d-1269-4a81-a0d1-b198c6ee6740" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/tsk_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:task">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:updateTaskAttrib>\r
+         <!--You may enter the following 4 items in any order-->\r
+         <urn:TaskId>?</urn:TaskId>\r
+         <urn:AttributeId>?</urn:AttributeId>\r
+         <urn:AttributeValue>?</urn:AttributeValue>\r
+         <urn:AttribDescriptionValue>?</urn:AttribDescriptionValue>\r
+      </urn:updateTaskAttrib>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:task#updateTaskAttrib"/></con:call><con:call id="bed3a067-3dbb-4bb7-ae4f-c3628b49bcf8" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/tsk_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:task">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:updateTaskAttrib>\r
+         <!--You may enter the following 4 items in any order-->\r
+         <urn:TaskId>?</urn:TaskId>\r
+         <urn:AttributeId>?</urn:AttributeId>\r
+         <urn:AttributeValue>?</urn:AttributeValue>\r
+         <urn:AttribDescriptionValue>?</urn:AttribDescriptionValue>\r
+      </urn:updateTaskAttrib>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:task#updateTaskAttrib"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

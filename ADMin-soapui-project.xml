@@ -1,0 +1,1692 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="62307f7b-eb91-4b6e-aade-1cf451f5381c" activeEnvironment="Default" name="ADMin" soapui-version="5.6.0" abortOnError="false" runType="SEQUENTIAL" resourceRoot="" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="2a5455ac-f691-418e-90ae-9427766d2e33" wsaVersion="NONE" name="AdministrationBinding" type="wsdl" bindingName="{urn:admin}AdministrationBinding" soapVersion="1_1" anonymous="optional" definition="https://sesuite.uniaoquimica.com.br/se/ws/adm_ws.php?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://sesuite.uniaoquimica.com.br/se/ws/adm_ws.php?wsdl"><con:part><con:url>https://sesuite.uniaoquimica.com.br/se/ws/adm_ws.php?wsdl</con:url><con:content><![CDATA[<definitions targetNamespace="urn:admin" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:admin" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="urn:admin">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/"/>
+      <xsd:complexType name="ArrayOfString">
+        <xsd:sequence>
+          <xsd:element name="codes" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="newUserRequestType">
+        <xsd:all>
+          <xsd:element name="IDUSER" type="xsd:string"/>
+          <xsd:element name="NAME" type="xsd:string"/>
+          <xsd:element name="LOGIN" type="xsd:string"/>
+          <xsd:element name="PASS" type="xsd:string"/>
+          <xsd:element name="EMAIL" type="xsd:string"/>
+          <xsd:element name="IDAREA" type="xsd:string"/>
+          <xsd:element name="IDFUNC" type="xsd:string"/>
+          <xsd:element name="IDACCGROUP" type="xsd:string"/>
+          <xsd:element name="CDLEADER" type="xsd:string" minOccurs="0"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newUserResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:int"/>
+          <xsd:element name="RecordKey" type="xsd:string"/>
+          <xsd:element name="RecordId" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editUserRequestType">
+        <xsd:all>
+          <xsd:element name="ID" type="xsd:string"/>
+          <xsd:element name="NAME" type="xsd:string"/>
+          <xsd:element name="LOGIN" type="xsd:string"/>
+          <xsd:element name="PASS" type="xsd:string"/>
+          <xsd:element name="EMAIL" type="xsd:string"/>
+          <xsd:element name="CDLEADER" type="xsd:string" minOccurs="0"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editUserResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:int"/>
+          <xsd:element name="RecordId" type="xsd:string"/>
+          <xsd:element name="RecordKey" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="disableUserRequestType">
+        <xsd:all>
+          <xsd:element name="cd" type="tns:ArrayOfString"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="disableUserResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editUserDepartmentRequestType">
+        <xsd:all>
+          <xsd:element name="ID" type="xsd:string"/>
+          <xsd:element name="IDAREA" type="xsd:string"/>
+          <xsd:element name="IDFUNC" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editUserDepartmentResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:int"/>
+          <xsd:element name="RecordId" type="xsd:string"/>
+          <xsd:element name="RecordKey" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editPositionRequestType">
+        <xsd:all>
+          <xsd:element name="ID" type="xsd:string"/>
+          <xsd:element name="DESC" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editPositionResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newPositionRequestType">
+        <xsd:all>
+          <xsd:element name="ID" type="xsd:string"/>
+          <xsd:element name="DESC" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newPositionResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:int"/>
+          <xsd:element name="RecordId" type="xsd:string"/>
+          <xsd:element name="RecordKey" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="DeptPos">
+        <xsd:all>
+          <xsd:element name="DepartmentID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+          <xsd:element name="DepartmentName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+          <xsd:element name="PositionID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+          <xsd:element name="PositionName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="DeptPosArray">
+        <xsd:sequence>
+          <xsd:element name="DeptPos" type="tns:DeptPos" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="importUserV2RequestType">
+        <xsd:all>
+          <xsd:element name="UserId" type="xsd:string"/>
+          <xsd:element name="UserName" type="xsd:string"/>
+          <xsd:element name="UserLogin" type="xsd:string"/>
+          <xsd:element name="UserPassword" type="xsd:string"/>
+          <xsd:element name="UserCounterSign" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="UserLanguage" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="IsActive" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="IsEnabled" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="NumMaxConnections" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="UserPhone" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="UserEmail" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="LeaderId" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="UserPhoto" type="xsd:base64Binary" minOccurs="0"/>
+          <xsd:element name="UserDomainId" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="DomainId" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="AccGroupIdArray" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="DeptPosArray" type="tns:DeptPosArray" minOccurs="0"/>
+          <xsd:element name="TeamIdArray" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="UpdateType" type="xsd:int" minOccurs="0"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="importUserV2ResponseType">
+        <xsd:all>
+          <xsd:element name="UserId" type="xsd:int"/>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editOrganizationalUnitRequestType">
+        <xsd:all>
+          <xsd:element name="Id" type="xsd:string"/>
+          <xsd:element name="Name" type="xsd:string"/>
+          <xsd:element name="IdUpper" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editOrganizationalUnitResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addAttribProfileValueRequestType">
+        <xsd:all>
+          <xsd:element name="IDUSER" type="xsd:string"/>
+          <xsd:element name="NMATTRIBUTE" type="xsd:string"/>
+          <xsd:element name="VLATTRIBUTE" type="xsd:string"/>
+          <xsd:element name="DSATTRIBUTE" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addAttribProfileValueResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addAttributeRequestType">
+        <xsd:all>
+          <xsd:element name="IDATTRIBUTE" type="xsd:string"/>
+          <xsd:element name="NMATTRIBUTE" type="xsd:string"/>
+          <xsd:element name="IDUSER" type="xsd:string"/>
+          <xsd:element name="FGATTRIBUTETYPE" type="xsd:string"/>
+          <xsd:element name="FGDATATYPE" type="xsd:string"/>
+          <xsd:element name="FGSELECTIONTYPE" type="xsd:string"/>
+          <xsd:element name="FGMULTIVALUED" type="xsd:string"/>
+          <xsd:element name="CDISOSYSTEM" type="xsd:string"/>
+          <xsd:element name="FGMASKTYPE" type="xsd:string"/>
+          <xsd:element name="DSMASK" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addAttributeResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addAttribValueRequestType">
+        <xsd:all>
+          <xsd:element name="IDATTRIBUTE" type="xsd:string"/>
+          <xsd:element name="VLATTRIBUTE" type="xsd:string"/>
+          <xsd:element name="FGDEFAULTVALUE" type="xsd:string"/>
+          <xsd:element name="IDUSER" type="xsd:string"/>
+          <xsd:element name="IDDATASOURCE" type="xsd:string"/>
+          <xsd:element name="DSCONNDBSQL" type="xsd:string"/>
+          <xsd:element name="NMFILTERFIELD" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addAttribValueResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addCompanyRequestType">
+        <xsd:all>
+          <xsd:element name="IDCOMMERCIAL" type="xsd:string"/>
+          <xsd:element name="NMCOMPANY" type="xsd:string"/>
+          <xsd:element name="DSADDRESS" type="xsd:string"/>
+          <xsd:element name="NMCITY" type="xsd:string"/>
+          <xsd:element name="IDSTATE" type="xsd:string"/>
+          <xsd:element name="NMCOUNTRY" type="xsd:string"/>
+          <xsd:element name="IDZIPCODE" type="xsd:string"/>
+          <xsd:element name="IDPHONE" type="xsd:string"/>
+          <xsd:element name="IDFAX" type="xsd:string"/>
+          <xsd:element name="NMHOMEPAGE" type="xsd:string"/>
+          <xsd:element name="FGCUSTOMER" type="xsd:string"/>
+          <xsd:element name="FGSUPPLIER" type="xsd:string"/>
+          <xsd:element name="FGMANUFACTURER" type="xsd:string"/>
+          <xsd:element name="DSCOMPANY" type="xsd:string"/>
+          <xsd:element name="IDCOMPANY" type="xsd:string"/>
+          <xsd:element name="IDCOMPANYTYPE" type="xsd:string"/>
+          <xsd:element name="CDISOSYSTEM" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addCompanyResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addCompContactRequestType">
+        <xsd:all>
+          <xsd:element name="IDCOMMERCIAL" type="xsd:string"/>
+          <xsd:element name="NMCONTACT" type="xsd:string"/>
+          <xsd:element name="NMDEPARTMENT" type="xsd:string"/>
+          <xsd:element name="NMPOSITION" type="xsd:string"/>
+          <xsd:element name="IDPHONE" type="xsd:string"/>
+          <xsd:element name="IDFAX" type="xsd:string"/>
+          <xsd:element name="NMEMAIL" type="xsd:string"/>
+          <xsd:element name="DSCONTACT" type="xsd:string"/>
+          <xsd:element name="FGDEFAULT" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addCompContactResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addDepartmentPositionRequestType">
+        <xsd:all>
+          <xsd:element name="IDAREA" type="xsd:string"/>
+          <xsd:element name="IDFUNC" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addDepartmentPositionResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:long"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="RecordID" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addMeasUnityRequestType">
+        <xsd:all>
+          <xsd:element name="IDMEASUNITY" type="xsd:string"/>
+          <xsd:element name="NMMEASUNITY" type="xsd:string"/>
+          <xsd:element name="CDISOSYSTEM" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addMeasUnityResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addUserDepartmentRequestType">
+        <xsd:all>
+          <xsd:element name="ID" type="xsd:string"/>
+          <xsd:element name="IDAREA" type="xsd:string"/>
+          <xsd:element name="IDFUNC" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addUserDepartmentResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="changePositionStatusRequestType">
+        <xsd:all>
+          <xsd:element name="ID" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="changePositionStatusResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="compAtribAssocRequestType">
+        <xsd:all>
+          <xsd:element name="IDCOMMERCIAL" type="xsd:string"/>
+          <xsd:element name="IDATTRIBUTE" type="xsd:string"/>
+          <xsd:element name="VLATTRIBUTE" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="compAtribAssocResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="deleteCompanyRequestType">
+        <xsd:all>
+          <xsd:element name="IDCOMMERCIAL" type="xsd:string"/>
+          <xsd:element name="NMCOMPANY" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="deleteCompanyResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="deleteCompContactRequestType">
+        <xsd:all>
+          <xsd:element name="IDCOMMERCIAL" type="xsd:string"/>
+          <xsd:element name="NMCONTACT" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="deleteCompContactResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="deleteDepartmentRequestType">
+        <xsd:all>
+          <xsd:element name="ID" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="deleteDepartmentResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="deleteMeasUnityRequestType">
+        <xsd:all>
+          <xsd:element name="idmeasunity" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="deleteMeasUnityResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="deleteUserRequestType">
+        <xsd:all>
+          <xsd:element name="ID" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="deleteUserResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="deleteUserDepartmentRequestType">
+        <xsd:all>
+          <xsd:element name="ID" type="xsd:string"/>
+          <xsd:element name="IDAREA" type="xsd:string"/>
+          <xsd:element name="IDFUNC" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="deleteUserDepartmentResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="deleteUserAccessGroupRequestType">
+        <xsd:all>
+          <xsd:element name="USERID" type="xsd:string"/>
+          <xsd:element name="IDACCGROUP" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="deleteUserAccessGroupResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+          <xsd:element name="detail" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="deleteUserLeaderRequestType">
+        <xsd:all>
+          <xsd:element name="ID" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="deleteUserLeaderResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editDepartmentRequestType">
+        <xsd:all>
+          <xsd:element name="ID" type="xsd:string"/>
+          <xsd:element name="DESC" type="xsd:string"/>
+          <xsd:element name="IDUPPER" type="xsd:string" nillable="true"/>
+          <xsd:element name="IDCOMPANY" type="xsd:string" nillable="true"/>
+          <xsd:element name="FGDEPTTYPE" type="xsd:string" nillable="true"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editDepartmentResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="getAttribDataRequestType">
+        <xsd:all>
+          <xsd:element name="IDATTRIBS" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="getAttribDataResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newDepartmentRequestType">
+        <xsd:all>
+          <xsd:element name="ID" type="xsd:string"/>
+          <xsd:element name="DESC" type="xsd:string"/>
+          <xsd:element name="IDPOS" type="xsd:string" nillable="true"/>
+          <xsd:element name="IDUPPER" type="xsd:string" nillable="true"/>
+          <xsd:element name="IDCOMPANY" type="xsd:string" nillable="true"/>
+          <xsd:element name="FGDEPTTYPE" type="xsd:string" nillable="true"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newDepartmentResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="importUserRequestType">
+        <xsd:all>
+          <xsd:element name="UserId" type="xsd:string"/>
+          <xsd:element name="UserName" type="xsd:string"/>
+          <xsd:element name="UserLogin" type="xsd:string"/>
+          <xsd:element name="UserPassword" type="xsd:string"/>
+          <xsd:element name="UserCounterSign" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="UserLanguage" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="IsActive" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="IsEnabled" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="NumMaxConnections" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="UserPhone" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="UserEmail" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="LeaderId" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="UserPhoto" type="xsd:base64Binary" minOccurs="0"/>
+          <xsd:element name="UserDomainId" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="DomainId" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="AccGroupIdArray" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="RolPosIdArray" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="TeamIdArray" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="UpdateType" type="xsd:int" minOccurs="0"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="importUserResponseType">
+        <xsd:all>
+          <xsd:element name="UserId" type="xsd:int"/>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="synchUserRequestType">
+        <xsd:all>
+          <xsd:element name="nmdomainuid" type="xsd:string"/>
+          <xsd:element name="id" type="xsd:string"/>
+          <xsd:element name="login" type="xsd:string"/>
+          <xsd:element name="name" type="xsd:string"/>
+          <xsd:element name="email" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="fglanguage" type="xsd:string"/>
+          <xsd:element name="fguserenabled" type="xsd:string"/>
+          <xsd:element name="fguserblocked" type="xsd:string"/>
+          <xsd:element name="fgnotice" type="xsd:string"/>
+          <xsd:element name="idarea" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="nmarea" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="idfunc" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="nmfunc" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="nmdefsynchfilter" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="oidconnection" type="xsd:string"/>
+          <xsd:element name="cdleader" type="xsd:string" minOccurs="0"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="synchUserResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="updateEmployeeProfileRequestType">
+        <xsd:all>
+          <xsd:element name="IDUSER" type="xsd:string"/>
+          <xsd:element name="IDEDULEVEL" type="xsd:string"/>
+          <xsd:element name="FGEDULEVELSTATUS" type="xsd:string"/>
+          <xsd:element name="DTBIRTHDAY" type="xsd:string"/>
+          <xsd:element name="DTADMISSION" type="xsd:string"/>
+          <xsd:element name="DTDEMISSION" type="xsd:string"/>
+          <xsd:element name="DSADDRESS" type="xsd:string"/>
+          <xsd:element name="DSOBS" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="updateEmployeeProfileResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:element name="newUser" type="tns:newUserRequestType"/>
+      <xsd:element name="newUserResponse" type="tns:newUserResponseType"/>
+      <xsd:element name="editUser" type="tns:editUserRequestType"/>
+      <xsd:element name="editUserResponse" type="tns:editUserResponseType"/>
+      <xsd:element name="disableUser" type="tns:disableUserRequestType"/>
+      <xsd:element name="disableUserResponse" type="tns:disableUserResponseType"/>
+      <xsd:element name="editUserDepartment" type="tns:editUserDepartmentRequestType"/>
+      <xsd:element name="editUserDepartmentResponse" type="tns:editUserDepartmentResponseType"/>
+      <xsd:element name="editPosition" type="tns:editPositionRequestType"/>
+      <xsd:element name="editPositionResponse" type="tns:editPositionResponseType"/>
+      <xsd:element name="newPosition" type="tns:newPositionRequestType"/>
+      <xsd:element name="newPositionResponse" type="tns:newPositionResponseType"/>
+      <xsd:element name="importUserV2" type="tns:importUserV2RequestType"/>
+      <xsd:element name="importUserV2Response" type="tns:importUserV2ResponseType"/>
+      <xsd:element name="editOrganizationalUnit" type="tns:editOrganizationalUnitRequestType"/>
+      <xsd:element name="editOrganizationalUnitResponse" type="tns:editOrganizationalUnitResponseType"/>
+      <xsd:element name="addAttribProfileValue" type="tns:addAttribProfileValueRequestType"/>
+      <xsd:element name="addAttribProfileValueResponse" type="tns:addAttribProfileValueResponseType"/>
+      <xsd:element name="addAttribute" type="tns:addAttributeRequestType"/>
+      <xsd:element name="addAttributeResponse" type="tns:addAttributeResponseType"/>
+      <xsd:element name="addAttribValue" type="tns:addAttribValueRequestType"/>
+      <xsd:element name="addAttribValueResponse" type="tns:addAttribValueResponseType"/>
+      <xsd:element name="addCompany" type="tns:addCompanyRequestType"/>
+      <xsd:element name="addCompanyResponse" type="tns:addCompanyResponseType"/>
+      <xsd:element name="addCompContact" type="tns:addCompContactRequestType"/>
+      <xsd:element name="addCompContactResponse" type="tns:addCompContactResponseType"/>
+      <xsd:element name="addDepartmentPosition" type="tns:addDepartmentPositionRequestType"/>
+      <xsd:element name="addDepartmentPositionResponse" type="tns:addDepartmentPositionResponseType"/>
+      <xsd:element name="addMeasUnity" type="tns:addMeasUnityRequestType"/>
+      <xsd:element name="addMeasUnityResponse" type="tns:addMeasUnityResponseType"/>
+      <xsd:element name="addUserDepartment" type="tns:addUserDepartmentRequestType"/>
+      <xsd:element name="addUserDepartmentResponse" type="tns:addUserDepartmentResponseType"/>
+      <xsd:element name="changePositionStatus" type="tns:changePositionStatusRequestType"/>
+      <xsd:element name="changePositionStatusResponse" type="tns:changePositionStatusResponseType"/>
+      <xsd:element name="compAtribAssoc" type="tns:compAtribAssocRequestType"/>
+      <xsd:element name="compAtribAssocResponse" type="tns:compAtribAssocResponseType"/>
+      <xsd:element name="deleteCompany" type="tns:deleteCompanyRequestType"/>
+      <xsd:element name="deleteCompanyResponse" type="tns:deleteCompanyResponseType"/>
+      <xsd:element name="deleteCompContact" type="tns:deleteCompContactRequestType"/>
+      <xsd:element name="deleteCompContactResponse" type="tns:deleteCompContactResponseType"/>
+      <xsd:element name="deleteDepartment" type="tns:deleteDepartmentRequestType"/>
+      <xsd:element name="deleteDepartmentResponse" type="tns:deleteDepartmentResponseType"/>
+      <xsd:element name="deleteMeasUnity" type="tns:deleteMeasUnityRequestType"/>
+      <xsd:element name="deleteMeasUnityResponse" type="tns:deleteMeasUnityResponseType"/>
+      <xsd:element name="deleteUser" type="tns:deleteUserRequestType"/>
+      <xsd:element name="deleteUserResponse" type="tns:deleteUserResponseType"/>
+      <xsd:element name="deleteUserDepartment" type="tns:deleteUserDepartmentRequestType"/>
+      <xsd:element name="deleteUserDepartmentResponse" type="tns:deleteUserDepartmentResponseType"/>
+      <xsd:element name="deleteUserAccessGroup" type="tns:deleteUserAccessGroupRequestType"/>
+      <xsd:element name="deleteUserAccessGroupResponse" type="tns:deleteUserAccessGroupResponseType"/>
+      <xsd:element name="deleteUserLeader" type="tns:deleteUserLeaderRequestType"/>
+      <xsd:element name="deleteUserLeaderResponse" type="tns:deleteUserLeaderResponseType"/>
+      <xsd:element name="editDepartment" type="tns:editDepartmentRequestType"/>
+      <xsd:element name="editDepartmentResponse" type="tns:editDepartmentResponseType"/>
+      <xsd:element name="getAttribData" type="tns:getAttribDataRequestType"/>
+      <xsd:element name="getAttribDataResponse" type="tns:getAttribDataResponseType"/>
+      <xsd:element name="newDepartment" type="tns:newDepartmentRequestType"/>
+      <xsd:element name="newDepartmentResponse" type="tns:newDepartmentResponseType"/>
+      <xsd:element name="importUser" type="tns:importUserRequestType"/>
+      <xsd:element name="importUserResponse" type="tns:importUserResponseType"/>
+      <xsd:element name="synchUser" type="tns:synchUserRequestType"/>
+      <xsd:element name="synchUserResponse" type="tns:synchUserResponseType"/>
+      <xsd:element name="updateEmployeeProfile" type="tns:updateEmployeeProfileRequestType"/>
+      <xsd:element name="updateEmployeeProfileResponse" type="tns:updateEmployeeProfileResponseType"/>
+    </xsd:schema>
+  </types>
+  <message name="newUserRequest">
+    <part name="parameters" element="tns:newUser"/>
+  </message>
+  <message name="newUserResponse">
+    <part name="parameters" element="tns:newUserResponse"/>
+  </message>
+  <message name="editUserRequest">
+    <part name="parameters" element="tns:editUser"/>
+  </message>
+  <message name="editUserResponse">
+    <part name="parameters" element="tns:editUserResponse"/>
+  </message>
+  <message name="disableUserRequest">
+    <part name="parameters" element="tns:disableUser"/>
+  </message>
+  <message name="disableUserResponse">
+    <part name="parameters" element="tns:disableUserResponse"/>
+  </message>
+  <message name="editUserDepartmentRequest">
+    <part name="parameters" element="tns:editUserDepartment"/>
+  </message>
+  <message name="editUserDepartmentResponse">
+    <part name="parameters" element="tns:editUserDepartmentResponse"/>
+  </message>
+  <message name="editPositionRequest">
+    <part name="parameters" element="tns:editPosition"/>
+  </message>
+  <message name="editPositionResponse">
+    <part name="parameters" element="tns:editPositionResponse"/>
+  </message>
+  <message name="newPositionRequest">
+    <part name="parameters" element="tns:newPosition"/>
+  </message>
+  <message name="newPositionResponse">
+    <part name="parameters" element="tns:newPositionResponse"/>
+  </message>
+  <message name="importUserV2Request">
+    <part name="parameters" element="tns:importUserV2"/>
+  </message>
+  <message name="importUserV2Response">
+    <part name="parameters" element="tns:importUserV2Response"/>
+  </message>
+  <message name="editOrganizationalUnitRequest">
+    <part name="parameters" element="tns:editOrganizationalUnit"/>
+  </message>
+  <message name="editOrganizationalUnitResponse">
+    <part name="parameters" element="tns:editOrganizationalUnitResponse"/>
+  </message>
+  <message name="addAttribProfileValueRequest">
+    <part name="parameters" element="tns:addAttribProfileValue"/>
+  </message>
+  <message name="addAttribProfileValueResponse">
+    <part name="parameters" element="tns:addAttribProfileValueResponse"/>
+  </message>
+  <message name="addAttributeRequest">
+    <part name="parameters" element="tns:addAttribute"/>
+  </message>
+  <message name="addAttributeResponse">
+    <part name="parameters" element="tns:addAttributeResponse"/>
+  </message>
+  <message name="addAttribValueRequest">
+    <part name="parameters" element="tns:addAttribValue"/>
+  </message>
+  <message name="addAttribValueResponse">
+    <part name="parameters" element="tns:addAttribValueResponse"/>
+  </message>
+  <message name="addCompanyRequest">
+    <part name="parameters" element="tns:addCompany"/>
+  </message>
+  <message name="addCompanyResponse">
+    <part name="parameters" element="tns:addCompanyResponse"/>
+  </message>
+  <message name="addCompContactRequest">
+    <part name="parameters" element="tns:addCompContact"/>
+  </message>
+  <message name="addCompContactResponse">
+    <part name="parameters" element="tns:addCompContactResponse"/>
+  </message>
+  <message name="addDepartmentPositionRequest">
+    <part name="parameters" element="tns:addDepartmentPosition"/>
+  </message>
+  <message name="addDepartmentPositionResponse">
+    <part name="parameters" element="tns:addDepartmentPositionResponse"/>
+  </message>
+  <message name="addMeasUnityRequest">
+    <part name="parameters" element="tns:addMeasUnity"/>
+  </message>
+  <message name="addMeasUnityResponse">
+    <part name="parameters" element="tns:addMeasUnityResponse"/>
+  </message>
+  <message name="addUserDepartmentRequest">
+    <part name="parameters" element="tns:addUserDepartment"/>
+  </message>
+  <message name="addUserDepartmentResponse">
+    <part name="parameters" element="tns:addUserDepartmentResponse"/>
+  </message>
+  <message name="changePositionStatusRequest">
+    <part name="parameters" element="tns:changePositionStatus"/>
+  </message>
+  <message name="changePositionStatusResponse">
+    <part name="parameters" element="tns:changePositionStatusResponse"/>
+  </message>
+  <message name="compAtribAssocRequest">
+    <part name="parameters" element="tns:compAtribAssoc"/>
+  </message>
+  <message name="compAtribAssocResponse">
+    <part name="parameters" element="tns:compAtribAssocResponse"/>
+  </message>
+  <message name="deleteCompanyRequest">
+    <part name="parameters" element="tns:deleteCompany"/>
+  </message>
+  <message name="deleteCompanyResponse">
+    <part name="parameters" element="tns:deleteCompanyResponse"/>
+  </message>
+  <message name="deleteCompContactRequest">
+    <part name="parameters" element="tns:deleteCompContact"/>
+  </message>
+  <message name="deleteCompContactResponse">
+    <part name="parameters" element="tns:deleteCompContactResponse"/>
+  </message>
+  <message name="deleteDepartmentRequest">
+    <part name="parameters" element="tns:deleteDepartment"/>
+  </message>
+  <message name="deleteDepartmentResponse">
+    <part name="parameters" element="tns:deleteDepartmentResponse"/>
+  </message>
+  <message name="deleteMeasUnityRequest">
+    <part name="parameters" element="tns:deleteMeasUnity"/>
+  </message>
+  <message name="deleteMeasUnityResponse">
+    <part name="parameters" element="tns:deleteMeasUnityResponse"/>
+  </message>
+  <message name="deleteUserRequest">
+    <part name="parameters" element="tns:deleteUser"/>
+  </message>
+  <message name="deleteUserResponse">
+    <part name="parameters" element="tns:deleteUserResponse"/>
+  </message>
+  <message name="deleteUserDepartmentRequest">
+    <part name="parameters" element="tns:deleteUserDepartment"/>
+  </message>
+  <message name="deleteUserDepartmentResponse">
+    <part name="parameters" element="tns:deleteUserDepartmentResponse"/>
+  </message>
+  <message name="deleteUserAccessGroupRequest">
+    <part name="parameters" element="tns:deleteUserAccessGroup"/>
+  </message>
+  <message name="deleteUserAccessGroupResponse">
+    <part name="parameters" element="tns:deleteUserAccessGroupResponse"/>
+  </message>
+  <message name="deleteUserLeaderRequest">
+    <part name="parameters" element="tns:deleteUserLeader"/>
+  </message>
+  <message name="deleteUserLeaderResponse">
+    <part name="parameters" element="tns:deleteUserLeaderResponse"/>
+  </message>
+  <message name="editDepartmentRequest">
+    <part name="parameters" element="tns:editDepartment"/>
+  </message>
+  <message name="editDepartmentResponse">
+    <part name="parameters" element="tns:editDepartmentResponse"/>
+  </message>
+  <message name="getAttribDataRequest">
+    <part name="parameters" element="tns:getAttribData"/>
+  </message>
+  <message name="getAttribDataResponse">
+    <part name="parameters" element="tns:getAttribDataResponse"/>
+  </message>
+  <message name="newDepartmentRequest">
+    <part name="parameters" element="tns:newDepartment"/>
+  </message>
+  <message name="newDepartmentResponse">
+    <part name="parameters" element="tns:newDepartmentResponse"/>
+  </message>
+  <message name="importUserRequest">
+    <part name="parameters" element="tns:importUser"/>
+  </message>
+  <message name="importUserResponse">
+    <part name="parameters" element="tns:importUserResponse"/>
+  </message>
+  <message name="synchUserRequest">
+    <part name="parameters" element="tns:synchUser"/>
+  </message>
+  <message name="synchUserResponse">
+    <part name="parameters" element="tns:synchUserResponse"/>
+  </message>
+  <message name="updateEmployeeProfileRequest">
+    <part name="parameters" element="tns:updateEmployeeProfile"/>
+  </message>
+  <message name="updateEmployeeProfileResponse">
+    <part name="parameters" element="tns:updateEmployeeProfileResponse"/>
+  </message>
+  <portType name="AdministrationPortType">
+    <operation name="newUser">
+      <documentation><![CDATA[Adiciona um novo usuário.<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDUSER     -> Matrícula do usuário <BR>&nbsp;&nbsp;&nbsp;&nbsp;NAME       -> Nome do usuário <BR>&nbsp;&nbsp;&nbsp;&nbsp;LOGIN      -> Login do usuário <BR>&nbsp;&nbsp;&nbsp;&nbsp;PASS       -> Senha do usuário <BR>Parâmetros não requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;EMAIL      -> E-mail <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDAREA     -> Identificador da área <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDFUNC     -> Identificador da função <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDACCGROUP -> Identificador do grupo de acesso <BR>&nbsp;&nbsp;&nbsp;&nbsp;CDLEADER   -> Matrícula do líder <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso  : Chave primária (CDUSER)  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha -1 : Erro inesperado.   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 2 : Grupo de acesso inexistente   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 3 : O tamanho máximo para este campo é  50   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 4 : Erro ao identificar o usuário. Existe mais de um registro com o mesmo login.   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 5 : Não é permitido utilizar aspas no campo login   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 6 : Login do usuário nulo   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 7 : Identificador do usuário nulo   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 8 : Nome do usuário nulo   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 9 : Senha nula   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 10 : Linguagem nula ou inexistente   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 11 : O líder informado não existe.   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 12 : Usuário inexistente   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 13 : Identificador da função nulo   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 14 : Identificador da área nulo   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 15 : Área inexistente   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 16 : Função inexistente   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 17 : Relacionamento entre área e função inexistente   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 18 : A matrícula do usuário não pode ser igual à matrícula do líder   <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:newUserRequest"/>
+      <output message="tns:newUserResponse"/>
+    </operation>
+    <operation name="editUser">
+      <documentation><![CDATA[Edita as informações de um usuário.<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;ID    -> Matrícula do usuário <BR>&nbsp;&nbsp;&nbsp;&nbsp;NAME  -> Nome do usuário <BR>&nbsp;&nbsp;&nbsp;&nbsp;LOGIN -> Login do usuário <BR>&nbsp;&nbsp;&nbsp;&nbsp;PASS  -> Senha do usuário <BR>Parâmetros não requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;EMAIL -> E-mail <BR>&nbsp;&nbsp;&nbsp;&nbsp;CDLEADER   -> Matrícula do líder <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso  : Chave primária (CDUSER)  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 3 : O tamanho máximo para este campo é  50   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 4 : Erro ao identificar o usuário. Existe mais de um registro com o mesmo login.   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 5 : Não é permitido utilizar aspas no campo login   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 6 : Login do usuário nulo   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 7 : Identificador do usuário nulo   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 8 : Nome do usuário nulo   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 9 : Senha nula   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 10 : Linguagem nula ou inexistente   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 11 : O líder informado não existe.   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 12 : Usuário inexistente   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 15 : Área inexistente   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 16 : Função inexistente   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 18 : A matrícula do usuário não pode ser igual à matrícula do líder   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 19 : Relacionamento entre área e função inexistente   <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:editUserRequest"/>
+      <output message="tns:editUserResponse"/>
+    </operation>
+    <operation name="disableUser">
+      <documentation>Synchronize User. Parameters: CD->Primary of the User; Return values: SUCCESS->0; FAILURE:-1.</documentation>
+      <input message="tns:disableUserRequest"/>
+      <output message="tns:disableUserResponse"/>
+    </operation>
+    <operation name="editUserDepartment">
+      <documentation><![CDATA[Edita um relacionamento entre usuÃ¡rio, Ã¡rea e funÃ§Ã£o.<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;ID     -> Matrícula do usuário <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDAREA -> Identificador da área <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDFUNC -> Identificador da função <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso: Chave primária (CDUSER)  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha -1 : Erro inesperado.   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 12 : Usuário inexistente   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 15 : Área inexistente   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 16 : Função inexistente   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 17 : Relacionamento entre área e função inexistente   <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:editUserDepartmentRequest"/>
+      <output message="tns:editUserDepartmentResponse"/>
+    </operation>
+    <operation name="editPosition">
+      <documentation><![CDATA[Edita as informações de uma função. <BR>Parâmetros requeridos:  <BR>&nbsp;&nbsp;&nbsp;&nbsp;ID   -> Identificador da função <BR>&nbsp;&nbsp;&nbsp;&nbsp;DESC -> Descrição <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso: Chave primária (CDPOSITION)  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 13 : Identificador da função nulo   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 16 : Função inexistente   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 22 : Nome da função nulo   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 23 : Função já existente   <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:editPositionRequest"/>
+      <output message="tns:editPositionResponse"/>
+    </operation>
+    <operation name="newPosition">
+      <documentation><![CDATA[Adiciona uma nova função.<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;ID   -> Identificador da função <BR>&nbsp;&nbsp;&nbsp;&nbsp;DESC -> Descrição <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso: Chave primária (CDPOSITION)  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 13 : Identificador da função nulo   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 16 : Função inexistente   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 22 : Nome da função nulo   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 23 : Função já existente   <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:newPositionRequest"/>
+      <output message="tns:newPositionResponse"/>
+    </operation>
+    <operation name="importUserV2">
+      <documentation><![CDATA[Adiciona um novo usuário.<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;UserID         -> Matrícula do usuário <BR>&nbsp;&nbsp;&nbsp;&nbsp;UserName           -> Nome do usuário <BR>&nbsp;&nbsp;&nbsp;&nbsp;UserLogin          -> Login do usuário <BR>&nbsp;&nbsp;&nbsp;&nbsp;UserPassword       -> Senha do usuário <BR>Parâmetros não requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;UserCounterSign    -> Contrassenha <BR>&nbsp;&nbsp;&nbsp;&nbsp;UserLanguage       -> Idioma do usuário <BR>&nbsp;&nbsp;&nbsp;&nbsp;IsActive         -> Situação [1 - Usuário ativo; 2 - Usuário inativo] <BR>&nbsp;&nbsp;&nbsp;&nbsp;IsEnabled        -> Habilitado <BR>&nbsp;&nbsp;&nbsp;&nbsp;NumMaxConnections -> Número máximo de conexões <BR>&nbsp;&nbsp;&nbsp;&nbsp;UserPhone          -> Telefone <BR>&nbsp;&nbsp;&nbsp;&nbsp;UserEmail          -> E-mail <BR>&nbsp;&nbsp;&nbsp;&nbsp;LeaderId       -> Matrícula do líder <BR>&nbsp;&nbsp;&nbsp;&nbsp;UserPhoto          -> Foto <BR>&nbsp;&nbsp;&nbsp;&nbsp;UserDomainId     -> Identificador do domínio <BR>&nbsp;&nbsp;&nbsp;&nbsp;DomainId         -> Controlador de domínio <BR>&nbsp;&nbsp;&nbsp;&nbsp;AccGroupIdArray     -> Identificador do grupo de acesso <BR>&nbsp;&nbsp;&nbsp;&nbsp;DeptPosArray     -> Dados da área e função do usuário <BR>&nbsp;&nbsp;&nbsp;&nbsp;UpdateType         -> Equipe <BR>Retorno<BR>&nbsp;&nbsp;&nbsp;&nbsp;UserId         -> Matrícula do usuário <BR>&nbsp;&nbsp;&nbsp;&nbsp;Status         -> Status: <BR>&nbsp;&nbsp;&nbsp;&nbsp;Detail         -> Detalhes <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:importUserV2Request"/>
+      <output message="tns:importUserV2Response"/>
+    </operation>
+    <operation name="editOrganizationalUnit">
+      <documentation><![CDATA[Edita as informações de uma unidade organizacional <BR>Parâmetros requeridos:  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Id   -> Identificador da unidade organizacional <BR>&nbsp;&nbsp;&nbsp;&nbsp;Name -> Nome da unidade organizacional <BR>&nbsp;&nbsp;&nbsp;&nbsp;IdUpper -> Unidade organizacional superior <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso 1 : Registro editado com sucesso   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 43 : O identificador não foi preenchido   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 44 : O nome não foi preenchido   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 52 : Unidade organizacional inexistente   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 53 : Unidade organizacional superior inexistente   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 54 : Unidade [%s1] é subnível de [%s2]   <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:editOrganizationalUnitRequest"/>
+      <output message="tns:editOrganizationalUnitResponse"/>
+    </operation>
+    <operation name="addAttribProfileValue">
+      <documentation><![CDATA[Valor do atributo do perfil do colaborador<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDUSER      -> Matrícula do colaborador   <BR>&nbsp;&nbsp;&nbsp;&nbsp;NMATTRIBUTE -> Identificador do atributo   <BR>Parâmetros não requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;VLATTRIBUTE -> Valor do atributo   <BR>&nbsp;&nbsp;&nbsp;&nbsp;DSATTRIBUTE -> Valor do atributo   <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso: 1               <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha: Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:addAttribProfileValueRequest"/>
+      <output message="tns:addAttribProfileValueResponse"/>
+    </operation>
+    <operation name="addAttribute">
+      <documentation><![CDATA[Adiciona atributos<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDATTRIBUTE     -> Identificador do atributo <BR>&nbsp;&nbsp;&nbsp;&nbsp;NMATTRIBUTE     -> Nome do atributo <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDUSER          -> Identificador do usuário <BR>&nbsp;&nbsp;&nbsp;&nbsp;FGATTRIBUTETYPE -> Tipo do atributo [1 - Lista de valores (discreto); 2 - Indeterminado; 3 - Externo] <BR>&nbsp;&nbsp;&nbsp;&nbsp;FGDATATYPE      -> Tipo de dados do atributo: [1 - Texto, 2 - Numérico, 3 - Data, 4 - Memorando, 5 - Moeda] <BR>&nbsp;&nbsp;&nbsp;&nbsp;FGSELECTIONTYPE -> Modo de seleção [1 - Zoom;  2 - Combo] <BR>Parâmetros não requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;FGMULTIVALUED   -> Atributo multivalorado [1 - Sim; 2 - Não] <BR>&nbsp;&nbsp;&nbsp;&nbsp;CDISOSYSTEM     -> Código do componente SE Suite, no qual o atributo estará associado (separados por ";" ). Exemplo: 109;107. <BR>&nbsp;&nbsp;&nbsp;&nbsp;FGMASKTYPE      -> Tipo de máscara [1 - Máscara simples; 2 - Expressão regular]<BR>&nbsp;&nbsp;&nbsp;&nbsp;DSMASK          -> Máscara <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso: Registro incluído com sucesso  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha: Em caso de FALHA, retorna uma mensagem com o erro ocorrido.  <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:addAttributeRequest"/>
+      <output message="tns:addAttributeResponse"/>
+    </operation>
+    <operation name="addAttribValue">
+      <documentation><![CDATA[Adiciona valores em atributos<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDATTRIBUTE    -> Identificador do atributo <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDUSER         -> Identificador do usuário <BR>Parâmetros requeridos:  Lista de valores<BR>&nbsp;&nbsp;&nbsp;&nbsp;VLATTRIBUTE    -> Valor do atributo (Requerido quando o tipo do atributo for Lista de valores)<BR>&nbsp;&nbsp;&nbsp;&nbsp;FGDEFAULTVALUE -> Utilizar como padrão: [1 - Sim, 2 - Não] (Requerido quando o tipo do atributo for Lista de valores)<BR>Parâmetros requeridos:  Atributo externo<BR>&nbsp;&nbsp;&nbsp;&nbsp;IDDATASOURCE   -> Identificador da fonte de dados (Requerido quando o tipo do atributo for Atributo externo)<BR>&nbsp;&nbsp;&nbsp;&nbsp;DSCONNDBSQL    -> SQL (Requerido quando o tipo do atributo for Atributo externo)<BR>&nbsp;&nbsp;&nbsp;&nbsp;NMFILTERFIELD  -> Campo filtro (Requerido quando o tipo do atributo for Atributo externo)<BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso: Registro incluído com sucesso  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha: Em caso de FALHA, retorna uma mensagem com o erro ocorrido.  <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:addAttribValueRequest"/>
+      <output message="tns:addAttribValueResponse"/>
+    </operation>
+    <operation name="addCompany">
+      <documentation><![CDATA[Adiciona uma nova empresa ou edita uma empresa existente.<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDCOMMERCIAL   -> Nome fantasia <BR>&nbsp;&nbsp;&nbsp;&nbsp;NMCOMPANY      -> Razão social <BR>&nbsp;&nbsp;&nbsp;&nbsp;FGCUSTOMER     -> Empresa como cliente: [1 - Sim, 2 - Não] <BR>&nbsp;&nbsp;&nbsp;&nbsp;FGSUPPLIER     -> Empresa como fornecedor: [1 - Sim, 2 - Não] <BR>&nbsp;&nbsp;&nbsp;&nbsp;FGMANUFACTURER -> Empresa como fabricante: [1 - Sim, 2 - Não] <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDCOMPANYTYPE  -> Identificador do tipo de empresa <BR>Parâmetros não requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;DSADDRESS      -> Endereço <BR>&nbsp;&nbsp;&nbsp;&nbsp;NMCITY         -> Cidade <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDSTATE        -> Estado <BR>&nbsp;&nbsp;&nbsp;&nbsp;NMCOUNTRY      -> País <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDZIPCODE      -> CEP <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDPHONE        -> Telefone <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDFAX          -> Fax <BR>&nbsp;&nbsp;&nbsp;&nbsp;NMHOMEPAGE     -> Home page <BR>&nbsp;&nbsp;&nbsp;&nbsp;DSCOMPANY      -> Descrição <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDCOMPANY      -> Código da empresa <BR>&nbsp;&nbsp;&nbsp;&nbsp;CDISOSYSTEM    -> Código do componente SE Suite, no qual a empresa estará associada (separados por ";" ). Exemplo: 109;107. <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso: Registro incluído com sucesso  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha: Em caso de FALHA, retorna uma mensagem com o erro ocorrido.  <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:addCompanyRequest"/>
+      <output message="tns:addCompanyResponse"/>
+    </operation>
+    <operation name="addCompContact">
+      <documentation><![CDATA[Adiciona contatos a uma empresa ou edita um contato existente.<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDCOMMERCIAL -> Nome fantasia <BR>&nbsp;&nbsp;&nbsp;&nbsp;NMCONTACT    -> Contato <BR>Parâmetros não requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;NMDEPARTMENT -> Área <BR>&nbsp;&nbsp;&nbsp;&nbsp;NMPOSITION   -> Função <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDPHONE      -> Telefone <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDFAX        -> Fax <BR>&nbsp;&nbsp;&nbsp;&nbsp;NMEMAIL      -> E-mail <BR>&nbsp;&nbsp;&nbsp;&nbsp;DSCONTACT    -> Descrição <BR>&nbsp;&nbsp;&nbsp;&nbsp;FGDEFAULT    -> Utilizar como padrão: [1 -Sim, 2 -Não] <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso: Registro incluído com sucesso  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha: Em caso de FALHA, retorna uma mensagem com o erro ocorrido.  <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:addCompContactRequest"/>
+      <output message="tns:addCompContactResponse"/>
+    </operation>
+    <operation name="addDepartmentPosition">
+      <documentation><![CDATA[Adiciona um relacionamento entre área e função<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDAREA -> Identificador da área <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDFUNC -> Identificador da função <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:addDepartmentPositionRequest"/>
+      <output message="tns:addDepartmentPositionResponse"/>
+    </operation>
+    <operation name="addMeasUnity">
+      <documentation><![CDATA[Adiciona uma nova unidade de medida ou edita uma unidade de medida existente.<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDMEASUNITY -> Identificador (Unidade de medida).<BR>&nbsp;&nbsp;&nbsp;&nbsp;NMMEASUNITY -> Nome (Unidade de medida).<BR>Parâmetros não requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;CDISOSYSTEM    -> Código do componente SE Suite, no qual a empresa estará associada (separados por ";" ). Exemplo: 109;107. <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso: Registro incluído com sucesso  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha: Em caso de FALHA, retorna uma mensagem com o erro ocorrido.  <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:addMeasUnityRequest"/>
+      <output message="tns:addMeasUnityResponse"/>
+    </operation>
+    <operation name="addUserDepartment">
+      <documentation><![CDATA[Adiciona um relacionamento entre usuário, área e função.<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;ID     -> Matrícula do usuário <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDAREA -> Identificador da área <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDFUNC -> Identificador da função <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso: Chave primária (CDUSER)  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha: -1  <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:addUserDepartmentRequest"/>
+      <output message="tns:addUserDepartmentResponse"/>
+    </operation>
+    <operation name="changePositionStatus">
+      <documentation><![CDATA[Altera o status de uma funÃ§Ã£o<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;ID -> Identificador da função <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso: Chave primária (CDPOSITION)  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha: -1  <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:changePositionStatusRequest"/>
+      <output message="tns:changePositionStatusResponse"/>
+    </operation>
+    <operation name="compAtribAssoc">
+      <documentation><![CDATA[Associa valores de atributos a empresas<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDCOMMERCIAL -> Nome fantasia <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDATTRIBUTE  -> Identificador do atributo <BR>&nbsp;&nbsp;&nbsp;&nbsp;VLATTRIBUTE  -> Valor do atributo <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso: Registro incluído com sucesso  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha: Em caso de FALHA, retorna uma mensagem com o erro ocorrido.  <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:compAtribAssocRequest"/>
+      <output message="tns:compAtribAssocResponse"/>
+    </operation>
+    <operation name="deleteCompany">
+      <documentation><![CDATA[Deleta uma empresa.<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDCOMMERCIAL   -> Nome fantasia <BR>&nbsp;&nbsp;&nbsp;&nbsp;NMCOMPANY      -> Razão social <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso: Registro excluído com sucesso  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha: Em caso de FALHA, retorna uma mensagem com o erro ocorrido.  <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:deleteCompanyRequest"/>
+      <output message="tns:deleteCompanyResponse"/>
+    </operation>
+    <operation name="deleteCompContact">
+      <documentation><![CDATA[Deleta um contato de uma empresa.<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDCOMMERCIAL   -> Nome fantasia <BR>&nbsp;&nbsp;&nbsp;&nbsp;NMCONTACT      -> Contato <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso: Registro excluído com sucesso  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha: Em caso de FALHA, retorna uma mensagem com o erro ocorrido.  <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:deleteCompContactRequest"/>
+      <output message="tns:deleteCompContactResponse"/>
+    </operation>
+    <operation name="deleteDepartment">
+      <documentation><![CDATA[Deleta uma área.<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;ID -> Identificador da área <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso: Chave primária (CDDEPARTMENT)  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha: -1                <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:deleteDepartmentRequest"/>
+      <output message="tns:deleteDepartmentResponse"/>
+    </operation>
+    <operation name="deleteMeasUnity">
+      <documentation><![CDATA[Deleta uma unidade de medida<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDMEASUNITY -> Identificador (Unidade de medida).<BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso: Registro excluído com sucesso  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha: Em caso de FALHA, retorna uma mensagem com o erro ocorrido.  <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:deleteMeasUnityRequest"/>
+      <output message="tns:deleteMeasUnityResponse"/>
+    </operation>
+    <operation name="deleteUser">
+      <documentation><![CDATA[Deleta um usuário.<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;ID -> Matrícula do usuário <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso: Chave primária (CDUSER)  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha: -1  <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:deleteUserRequest"/>
+      <output message="tns:deleteUserResponse"/>
+    </operation>
+    <operation name="deleteUserDepartment">
+      <documentation><![CDATA[Exclui um relacionamento entre usuário, área e função.<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;ID     -> Matrícula do usuário <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDAREA -> Identificador da área <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDFUNC -> Identificador da função <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso: Chave primária (CDUSER)  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha: -1  <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:deleteUserDepartmentRequest"/>
+      <output message="tns:deleteUserDepartmentResponse"/>
+    </operation>
+    <operation name="deleteUserAccessGroup">
+      <documentation><![CDATA[Exclui um relacionamento entre usuário e grupo de acesso.<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;USERID     -> Matrícula do usuário <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDACCGROUP -> Identificador do grupo de acesso <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso: Chave primária (CDGROUP)  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha: -1  <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:deleteUserAccessGroupRequest"/>
+      <output message="tns:deleteUserAccessGroupResponse"/>
+    </operation>
+    <operation name="deleteUserLeader">
+      <documentation><![CDATA[Edita as informações de um usuário.<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;ID    -> Matrícula do usuário <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso: Chave primária (CDUSER)  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha: -1  <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:deleteUserLeaderRequest"/>
+      <output message="tns:deleteUserLeaderResponse"/>
+    </operation>
+    <operation name="editDepartment">
+      <documentation><![CDATA[Edita as informações de uma área.<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;ID         -> Identificador da área <BR>&nbsp;&nbsp;&nbsp;&nbsp;DESC       -> Descrição <BR>Parâmetros não requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDUPPER    -> Área superior <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDCOMPANY  -> Código da empresa <BR>&nbsp;&nbsp;&nbsp;&nbsp;FGDEPTTYPE -> Tipo da área [1 - Área; 2 - Unidade de Negócio] <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso: Chave primária (CDDEPARTMENT)  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha: -1  <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:editDepartmentRequest"/>
+      <output message="tns:editDepartmentResponse"/>
+    </operation>
+    <operation name="getAttribData">
+      <documentation><![CDATA[Busca pelas informações do atributo.<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDATTRIBS            -> Identificador do atributo, pode ser passado mais de um identificador. Exemplo: "Atributo1,Atributo2,Atributo3" <BR>&nbsp;&nbsp;&nbsp;&nbsp;RETORNO:                        <BR> &nbsp; &nbsp; &nbsp; &nbsp; CDATTRIBUTE     -> Código do atributo <BR> &nbsp; &nbsp; &nbsp; &nbsp; NMATTRIBUTE     -> Identificador do atributo <BR> &nbsp; &nbsp; &nbsp; &nbsp; FGDATATYPE      -> Tipo de dados do atributo: [1 - Texto, 2 - Numérico, 3 - Data, 4 - Memorando, 5 - Moeda] <BR> &nbsp; &nbsp; &nbsp; &nbsp; FGATTRIBUTETYPE -> Tipo de atributo <BR> &nbsp; &nbsp; &nbsp; &nbsp; NMLABEL -> Label do atributo;                     <BR> &nbsp; &nbsp; &nbsp; &nbsp; FGMULTIVALUED   -> Atributo multivalorado [1 - Sim; 2 - Não] <BR> &nbsp; &nbsp; &nbsp; &nbsp; VALUE           -> Lista de valores do atributo <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:getAttribDataRequest"/>
+      <output message="tns:getAttribDataResponse"/>
+    </operation>
+    <operation name="newDepartment">
+      <documentation><![CDATA[Adiciona uma nova área.<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;ID         -> Identificador da área <BR>&nbsp;&nbsp;&nbsp;&nbsp;DESC       -> Descrição <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDPOS      -> Identificador da função <BR>Parâmetros não requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDUPPER    -> Área superior <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDCOMPANY  -> Código da empresa <BR>&nbsp;&nbsp;&nbsp;&nbsp;FGDEPTTYPE -> Tipo da área [1 - Área; 2 - Unidade de Negócio] <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso: Chave primária (CDDEPARTMENT)  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha: -1  <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:newDepartmentRequest"/>
+      <output message="tns:newDepartmentResponse"/>
+    </operation>
+    <operation name="importUser">
+      <documentation><![CDATA[Adiciona um novo usuário.<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;UserID         -> Matrícula do usuário <BR>&nbsp;&nbsp;&nbsp;&nbsp;UserName           -> Nome do usuário <BR>&nbsp;&nbsp;&nbsp;&nbsp;UserLogin          -> Login do usuário <BR>&nbsp;&nbsp;&nbsp;&nbsp;UserPassword       -> Senha do usuário <BR>Parâmetros não requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;UserCounterSign    -> Contrassenha <BR>&nbsp;&nbsp;&nbsp;&nbsp;UserLanguage       -> Idioma do usuário <BR>&nbsp;&nbsp;&nbsp;&nbsp;IsActive         -> Situação [1 - Usuário ativo; 2 - Usuário inativo] <BR>&nbsp;&nbsp;&nbsp;&nbsp;IsEnabled        -> Habilitado <BR>&nbsp;&nbsp;&nbsp;&nbsp;NumMaxConnections -> Número máximo de conexões <BR>&nbsp;&nbsp;&nbsp;&nbsp;UserPhone          -> Telefone <BR>&nbsp;&nbsp;&nbsp;&nbsp;UserEmail          -> E-mail <BR>&nbsp;&nbsp;&nbsp;&nbsp;LeaderId       -> Matrícula do líder <BR>&nbsp;&nbsp;&nbsp;&nbsp;UserPhoto          -> Foto <BR>&nbsp;&nbsp;&nbsp;&nbsp;UserDomainId     -> Identificador do domínio <BR>&nbsp;&nbsp;&nbsp;&nbsp;DomainId         -> Controlador de domínio <BR>&nbsp;&nbsp;&nbsp;&nbsp;AccGroupIdArray     -> Identificador do grupo de acesso <BR>&nbsp;&nbsp;&nbsp;&nbsp;RolPosIdArray     -> Dados da área e função do usuário <BR>&nbsp;&nbsp;&nbsp;&nbsp;UpdateType         -> Equipe <BR>Retorno<BR>&nbsp;&nbsp;&nbsp;&nbsp;UserId         -> Matrícula do usuário <BR>&nbsp;&nbsp;&nbsp;&nbsp;Status         -> Status: <BR>&nbsp;&nbsp;&nbsp;&nbsp;Detail         -> Detalhes <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:importUserRequest"/>
+      <output message="tns:importUserResponse"/>
+    </operation>
+    <operation name="synchUser">
+      <documentation>[THIS METHOD IS DEPRECATED] Synchronize User. Parameters: nmdomainuid->Unique user identifier on Domain Controller
+                                        ID->Identifier for the User; Name->The user's name;
+                                        Login->The user's login;
+                                        Email->Email address for this user;
+                                        Fglanguage->Default languge of this user
+                                        Fguserenabled->User enabled
+                                        Fguserblocked->User blocked
+                                        Fgnotice->Enviar email
+                                        Idarea->User department;
+                                        nmarea->User department name;
+                                        Idposition->User position
+                                        nmposition->User position name
+                                        nmdefsynchfilter->First time synch field
+                                        oidconnection->Connection identifier
+                                        cdleader->Leader id
+                                        Return values: SUCCESS->Primary key value for the user(CDUSER); FAILURE:-1.</documentation>
+      <input message="tns:synchUserRequest"/>
+      <output message="tns:synchUserResponse"/>
+    </operation>
+    <operation name="updateEmployeeProfile">
+      <documentation><![CDATA[Atualiza informações do perfil do colaborador<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDUSER           -> Matrícula do usuário <BR>Parâmetros não requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDEDULEVEL       -> Identificador do nível de instrução <BR>&nbsp;&nbsp;&nbsp;&nbsp;FGEDULEVELSTATUS -> Nível de instrução [1 - Completo; 2 - Incompleto] <BR>&nbsp;&nbsp;&nbsp;&nbsp;DTBIRTHDAY       -> Data de nascimento <BR>&nbsp;&nbsp;&nbsp;&nbsp;DTADMISSION      -> Ao delegar uma atividade a outro usuário, você deve informar uma justificativa no campo [Comentário]. <BR>&nbsp;&nbsp;&nbsp;&nbsp;DTDEMISSION      -> Data de demissão <BR>&nbsp;&nbsp;&nbsp;&nbsp;DSADDRESS        -> Endereço <BR>&nbsp;&nbsp;&nbsp;&nbsp;DSOBS            -> Observação <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso: 1               <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha: Em caso de FALHA, retorna uma mensagem com o erro ocorrido.<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:updateEmployeeProfileRequest"/>
+      <output message="tns:updateEmployeeProfileResponse"/>
+    </operation>
+  </portType>
+  <binding name="AdministrationBinding" type="tns:AdministrationPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="newUser">
+      <soap:operation soapAction="urn:admin#newUser" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="editUser">
+      <soap:operation soapAction="urn:admin#editUser" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="disableUser">
+      <soap:operation soapAction="urn:admin#disableUser" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="editUserDepartment">
+      <soap:operation soapAction="urn:admin#editUserDepartment" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="editPosition">
+      <soap:operation soapAction="urn:admin#editPosition" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="newPosition">
+      <soap:operation soapAction="urn:admin#newPosition" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="importUserV2">
+      <soap:operation soapAction="urn:admin#importUserV2" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="editOrganizationalUnit">
+      <soap:operation soapAction="urn:admin#editOrganizationalUnit" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="addAttribProfileValue">
+      <soap:operation soapAction="urn:admin#addAttribProfileValue" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="addAttribute">
+      <soap:operation soapAction="urn:admin#addAttribute" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="addAttribValue">
+      <soap:operation soapAction="urn:admin#addAttribValue" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="addCompany">
+      <soap:operation soapAction="urn:admin#addCompany" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="addCompContact">
+      <soap:operation soapAction="urn:admin#addCompContact" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="addDepartmentPosition">
+      <soap:operation soapAction="urn:admin#addDepartmentPosition" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="addMeasUnity">
+      <soap:operation soapAction="urn:admin#addMeasUnity" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="addUserDepartment">
+      <soap:operation soapAction="urn:admin#addUserDepartment" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="changePositionStatus">
+      <soap:operation soapAction="urn:admin#changePositionStatus" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="compAtribAssoc">
+      <soap:operation soapAction="urn:admin#compAtribAssoc" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="deleteCompany">
+      <soap:operation soapAction="urn:admin#deleteCompany" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="deleteCompContact">
+      <soap:operation soapAction="urn:admin#deleteCompContact" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="deleteDepartment">
+      <soap:operation soapAction="urn:admin#deleteDepartment" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="deleteMeasUnity">
+      <soap:operation soapAction="urn:admin#deleteMeasUnity" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="deleteUser">
+      <soap:operation soapAction="urn:admin#deleteUser" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="deleteUserDepartment">
+      <soap:operation soapAction="urn:admin#deleteUserDepartment" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="deleteUserAccessGroup">
+      <soap:operation soapAction="urn:admin#deleteUserAccessGroup" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="deleteUserLeader">
+      <soap:operation soapAction="urn:admin#deleteUserLeader" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="editDepartment">
+      <soap:operation soapAction="urn:admin#editDepartment" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="getAttribData">
+      <soap:operation soapAction="urn:admin#getAttribData" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="newDepartment">
+      <soap:operation soapAction="urn:admin#newDepartment" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="importUser">
+      <soap:operation soapAction="urn:admin#importUser" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="synchUser">
+      <soap:operation soapAction="urn:admin#synchUser" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+    <operation name="updateEmployeeProfile">
+      <soap:operation soapAction="urn:admin#updateEmployeeProfile" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:admin"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="Administration">
+    <port name="AdministrationPort" binding="tns:AdministrationBinding">
+      <soap:address location="https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint></con:endpoints><con:operation id="c2a9d999-8854-4e6a-ad65-2311163b621f" isOneWay="false" action="urn:admin#addAttribProfileValue" name="addAttribProfileValue" bindingOperationName="addAttribProfileValue" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="305386a2-e24a-432c-bd6d-53da86ab4dae" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:addAttribProfileValue>\r
+         <!--You may enter the following 4 items in any order-->\r
+         <urn:IDUSER>?</urn:IDUSER>\r
+         <urn:NMATTRIBUTE>?</urn:NMATTRIBUTE>\r
+         <urn:VLATTRIBUTE>?</urn:VLATTRIBUTE>\r
+         <urn:DSATTRIBUTE>?</urn:DSATTRIBUTE>\r
+      </urn:addAttribProfileValue>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#addAttribProfileValue"/></con:call></con:operation><con:operation id="16fe4209-4f83-4657-99b4-27bea85bb73a" isOneWay="false" action="urn:admin#addAttribute" name="addAttribute" bindingOperationName="addAttribute" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7bb86f55-475e-4aa1-98c8-20bfce7545c2" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:addAttribute>\r
+         <!--You may enter the following 10 items in any order-->\r
+         <urn:IDATTRIBUTE>?</urn:IDATTRIBUTE>\r
+         <urn:NMATTRIBUTE>?</urn:NMATTRIBUTE>\r
+         <urn:IDUSER>?</urn:IDUSER>\r
+         <urn:FGATTRIBUTETYPE>?</urn:FGATTRIBUTETYPE>\r
+         <urn:FGDATATYPE>?</urn:FGDATATYPE>\r
+         <urn:FGSELECTIONTYPE>?</urn:FGSELECTIONTYPE>\r
+         <urn:FGMULTIVALUED>?</urn:FGMULTIVALUED>\r
+         <urn:CDISOSYSTEM>?</urn:CDISOSYSTEM>\r
+         <urn:FGMASKTYPE>?</urn:FGMASKTYPE>\r
+         <urn:DSMASK>?</urn:DSMASK>\r
+      </urn:addAttribute>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#addAttribute"/></con:call></con:operation><con:operation id="72e9950c-4028-42a6-8646-c1e78218a5ee" isOneWay="false" action="urn:admin#addAttribValue" name="addAttribValue" bindingOperationName="addAttribValue" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="36fbd242-c5f3-4a71-a257-43f143c50b08" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:addAttribValue>\r
+         <!--You may enter the following 7 items in any order-->\r
+         <urn:IDATTRIBUTE>?</urn:IDATTRIBUTE>\r
+         <urn:VLATTRIBUTE>?</urn:VLATTRIBUTE>\r
+         <urn:FGDEFAULTVALUE>?</urn:FGDEFAULTVALUE>\r
+         <urn:IDUSER>?</urn:IDUSER>\r
+         <urn:IDDATASOURCE>?</urn:IDDATASOURCE>\r
+         <urn:DSCONNDBSQL>?</urn:DSCONNDBSQL>\r
+         <urn:NMFILTERFIELD>?</urn:NMFILTERFIELD>\r
+      </urn:addAttribValue>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#addAttribValue"/></con:call></con:operation><con:operation id="582c58d9-4b78-4330-9793-291128f1963b" isOneWay="false" action="urn:admin#addCompany" name="addCompany" bindingOperationName="addCompany" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5e377cde-7d9d-49ab-a8e1-da707aee8d77" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:addCompany>\r
+         <!--You may enter the following 17 items in any order-->\r
+         <urn:IDCOMMERCIAL>?</urn:IDCOMMERCIAL>\r
+         <urn:NMCOMPANY>?</urn:NMCOMPANY>\r
+         <urn:DSADDRESS>?</urn:DSADDRESS>\r
+         <urn:NMCITY>?</urn:NMCITY>\r
+         <urn:IDSTATE>?</urn:IDSTATE>\r
+         <urn:NMCOUNTRY>?</urn:NMCOUNTRY>\r
+         <urn:IDZIPCODE>?</urn:IDZIPCODE>\r
+         <urn:IDPHONE>?</urn:IDPHONE>\r
+         <urn:IDFAX>?</urn:IDFAX>\r
+         <urn:NMHOMEPAGE>?</urn:NMHOMEPAGE>\r
+         <urn:FGCUSTOMER>?</urn:FGCUSTOMER>\r
+         <urn:FGSUPPLIER>?</urn:FGSUPPLIER>\r
+         <urn:FGMANUFACTURER>?</urn:FGMANUFACTURER>\r
+         <urn:DSCOMPANY>?</urn:DSCOMPANY>\r
+         <urn:IDCOMPANY>?</urn:IDCOMPANY>\r
+         <urn:IDCOMPANYTYPE>?</urn:IDCOMPANYTYPE>\r
+         <urn:CDISOSYSTEM>?</urn:CDISOSYSTEM>\r
+      </urn:addCompany>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#addCompany"/></con:call></con:operation><con:operation id="530c31cb-0feb-4e02-8f43-f50cbcdcb1a0" isOneWay="false" action="urn:admin#addCompContact" name="addCompContact" bindingOperationName="addCompContact" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5d1c4c8e-04b5-443d-aefc-0d3ce35a1110" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:addCompContact>\r
+         <!--You may enter the following 9 items in any order-->\r
+         <urn:IDCOMMERCIAL>?</urn:IDCOMMERCIAL>\r
+         <urn:NMCONTACT>?</urn:NMCONTACT>\r
+         <urn:NMDEPARTMENT>?</urn:NMDEPARTMENT>\r
+         <urn:NMPOSITION>?</urn:NMPOSITION>\r
+         <urn:IDPHONE>?</urn:IDPHONE>\r
+         <urn:IDFAX>?</urn:IDFAX>\r
+         <urn:NMEMAIL>?</urn:NMEMAIL>\r
+         <urn:DSCONTACT>?</urn:DSCONTACT>\r
+         <urn:FGDEFAULT>?</urn:FGDEFAULT>\r
+      </urn:addCompContact>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#addCompContact"/></con:call></con:operation><con:operation id="602f5fe0-f94b-4544-9620-5bfe3c55d3bb" isOneWay="false" action="urn:admin#addDepartmentPosition" name="addDepartmentPosition" bindingOperationName="addDepartmentPosition" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bd0f1e82-a941-4954-b17d-6113f3f866b3" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:addDepartmentPosition>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <urn:IDAREA>?</urn:IDAREA>\r
+         <urn:IDFUNC>?</urn:IDFUNC>\r
+      </urn:addDepartmentPosition>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#addDepartmentPosition"/></con:call></con:operation><con:operation id="36facb76-936f-474b-ac06-fad34ad4281b" isOneWay="false" action="urn:admin#addMeasUnity" name="addMeasUnity" bindingOperationName="addMeasUnity" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="cb075914-3d24-4d7b-92b7-28f4f8234cda" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:addMeasUnity>\r
+         <!--You may enter the following 3 items in any order-->\r
+         <urn:IDMEASUNITY>?</urn:IDMEASUNITY>\r
+         <urn:NMMEASUNITY>?</urn:NMMEASUNITY>\r
+         <urn:CDISOSYSTEM>?</urn:CDISOSYSTEM>\r
+      </urn:addMeasUnity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#addMeasUnity"/></con:call></con:operation><con:operation id="9e0f7cb6-50e9-4650-81c5-ccc946ee2f40" isOneWay="false" action="urn:admin#addUserDepartment" name="addUserDepartment" bindingOperationName="addUserDepartment" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="522f3b5e-b11c-4b01-8279-03746ecd28f2" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:addUserDepartment>\r
+         <!--You may enter the following 3 items in any order-->\r
+         <urn:ID>?</urn:ID>\r
+         <urn:IDAREA>?</urn:IDAREA>\r
+         <urn:IDFUNC>?</urn:IDFUNC>\r
+      </urn:addUserDepartment>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#addUserDepartment"/></con:call></con:operation><con:operation id="8df70227-79c5-43bf-b7d7-1e75cf86b3cb" isOneWay="false" action="urn:admin#changePositionStatus" name="changePositionStatus" bindingOperationName="changePositionStatus" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="35d39de1-5c8e-4b29-873a-8c304e2749c1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:changePositionStatus>\r
+         <urn:ID>?</urn:ID>\r
+      </urn:changePositionStatus>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#changePositionStatus"/></con:call></con:operation><con:operation id="e01eb896-505e-4a2f-9385-a38d0810b91e" isOneWay="false" action="urn:admin#compAtribAssoc" name="compAtribAssoc" bindingOperationName="compAtribAssoc" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="16a472dd-bf87-47be-8c8b-ffe210ea92b7" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:compAtribAssoc>\r
+         <!--You may enter the following 3 items in any order-->\r
+         <urn:IDCOMMERCIAL>?</urn:IDCOMMERCIAL>\r
+         <urn:IDATTRIBUTE>?</urn:IDATTRIBUTE>\r
+         <urn:VLATTRIBUTE>?</urn:VLATTRIBUTE>\r
+      </urn:compAtribAssoc>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#compAtribAssoc"/></con:call></con:operation><con:operation id="fe11b628-5e3e-44ec-b652-2e02c003c318" isOneWay="false" action="urn:admin#deleteCompany" name="deleteCompany" bindingOperationName="deleteCompany" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b8ee10e9-d9a3-490e-8c58-dafe616112bf" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:deleteCompany>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <urn:IDCOMMERCIAL>?</urn:IDCOMMERCIAL>\r
+         <urn:NMCOMPANY>?</urn:NMCOMPANY>\r
+      </urn:deleteCompany>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#deleteCompany"/></con:call></con:operation><con:operation id="01f37c74-372c-4a52-b8c2-3088099570f1" isOneWay="false" action="urn:admin#deleteCompContact" name="deleteCompContact" bindingOperationName="deleteCompContact" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ee600536-c6aa-47c2-be42-ce55defd6e58" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:deleteCompContact>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <urn:IDCOMMERCIAL>?</urn:IDCOMMERCIAL>\r
+         <urn:NMCONTACT>?</urn:NMCONTACT>\r
+      </urn:deleteCompContact>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#deleteCompContact"/></con:call></con:operation><con:operation id="d2712721-13df-4410-93da-bd52586fab9c" isOneWay="false" action="urn:admin#deleteDepartment" name="deleteDepartment" bindingOperationName="deleteDepartment" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="38a756d3-f67b-4947-9956-74cdd4829a80" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:deleteDepartment>\r
+         <urn:ID>?</urn:ID>\r
+      </urn:deleteDepartment>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#deleteDepartment"/></con:call></con:operation><con:operation id="8884fcd2-dae7-4082-a39b-e08a7ac8847e" isOneWay="false" action="urn:admin#deleteMeasUnity" name="deleteMeasUnity" bindingOperationName="deleteMeasUnity" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="9c2eb064-5899-49b9-b3eb-c90637b834ab" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:deleteMeasUnity>\r
+         <urn:idmeasunity>?</urn:idmeasunity>\r
+      </urn:deleteMeasUnity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#deleteMeasUnity"/></con:call></con:operation><con:operation id="9bb8b8fa-8dbd-44bb-a9f8-dfaa43a8ff66" isOneWay="false" action="urn:admin#deleteUser" name="deleteUser" bindingOperationName="deleteUser" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="33192c39-b097-4f73-b8fa-6951b6843ec1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:deleteUser>\r
+         <urn:ID>?</urn:ID>\r
+      </urn:deleteUser>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#deleteUser"/></con:call></con:operation><con:operation id="7b494f82-0ef8-4878-96fd-c1ae0c256a3f" isOneWay="false" action="urn:admin#deleteUserAccessGroup" name="deleteUserAccessGroup" bindingOperationName="deleteUserAccessGroup" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="730f8531-9c05-4971-aca4-887310f61e64" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:deleteUserAccessGroup>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <urn:USERID>?</urn:USERID>\r
+         <urn:IDACCGROUP>?</urn:IDACCGROUP>\r
+      </urn:deleteUserAccessGroup>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#deleteUserAccessGroup"/></con:call></con:operation><con:operation id="6ba38181-46cb-4956-b154-0b367d51e2be" isOneWay="false" action="urn:admin#deleteUserDepartment" name="deleteUserDepartment" bindingOperationName="deleteUserDepartment" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e30e6ea8-3c30-42da-90b0-67e40a824e61" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:deleteUserDepartment>\r
+         <!--You may enter the following 3 items in any order-->\r
+         <urn:ID>?</urn:ID>\r
+         <urn:IDAREA>?</urn:IDAREA>\r
+         <urn:IDFUNC>?</urn:IDFUNC>\r
+      </urn:deleteUserDepartment>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#deleteUserDepartment"/></con:call></con:operation><con:operation id="f52f68cf-844d-4f6c-ac26-39678369ffc3" isOneWay="false" action="urn:admin#deleteUserLeader" name="deleteUserLeader" bindingOperationName="deleteUserLeader" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5c50eeaf-3120-4f02-9092-1d0a06db2c6a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:deleteUserLeader>\r
+         <urn:ID>?</urn:ID>\r
+      </urn:deleteUserLeader>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#deleteUserLeader"/></con:call></con:operation><con:operation id="c6ffa03a-25bf-4d4e-9cfd-885799cab611" isOneWay="false" action="urn:admin#disableUser" name="disableUser" bindingOperationName="disableUser" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="36ff96e3-a43b-482c-8e49-df419c8a271d" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:disableUser>\r
+         <urn:cd>\r
+            <!--Zero or more repetitions:-->\r
+            <urn:codes>?</urn:codes>\r
+         </urn:cd>\r
+      </urn:disableUser>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#disableUser"/></con:call></con:operation><con:operation id="37f6a368-b25a-4599-b0c3-2f8f306824d7" isOneWay="false" action="urn:admin#editDepartment" name="editDepartment" bindingOperationName="editDepartment" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="67882eb2-8fa4-44d5-85d7-070915771af1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:editDepartment>\r
+         <!--You may enter the following 5 items in any order-->\r
+         <urn:ID>?</urn:ID>\r
+         <urn:DESC>?</urn:DESC>\r
+         <urn:IDUPPER>?</urn:IDUPPER>\r
+         <urn:IDCOMPANY>?</urn:IDCOMPANY>\r
+         <urn:FGDEPTTYPE>?</urn:FGDEPTTYPE>\r
+      </urn:editDepartment>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#editDepartment"/></con:call></con:operation><con:operation id="2bef8ed8-e65d-451e-8ba4-53ab083ca4e1" isOneWay="false" action="urn:admin#editOrganizationalUnit" name="editOrganizationalUnit" bindingOperationName="editOrganizationalUnit" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a2cb574c-9875-4ae4-8e95-5c0834a734db" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:editOrganizationalUnit>\r
+         <!--You may enter the following 3 items in any order-->\r
+         <urn:Id>?</urn:Id>\r
+         <urn:Name>?</urn:Name>\r
+         <urn:IdUpper>?</urn:IdUpper>\r
+      </urn:editOrganizationalUnit>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#editOrganizationalUnit"/></con:call></con:operation><con:operation id="cba0a37c-1395-486a-8df4-16d545afa54b" isOneWay="false" action="urn:admin#editPosition" name="editPosition" bindingOperationName="editPosition" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3e9321cf-a9e1-4684-88dd-179f6f2a3fb9" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:editPosition>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <urn:ID>?</urn:ID>\r
+         <urn:DESC>?</urn:DESC>\r
+      </urn:editPosition>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#editPosition"/></con:call></con:operation><con:operation id="528fd9f4-dd83-4f9b-9122-121dac87efc0" isOneWay="false" action="urn:admin#editUser" name="editUser" bindingOperationName="editUser" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d3cb39e1-0d8c-464c-b4ae-320e26cda25c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:editUser>\r
+         <!--You may enter the following 6 items in any order-->\r
+         <urn:ID>?</urn:ID>\r
+         <urn:NAME>?</urn:NAME>\r
+         <urn:LOGIN>?</urn:LOGIN>\r
+         <urn:PASS>?</urn:PASS>\r
+         <urn:EMAIL>?</urn:EMAIL>\r
+         <!--Optional:-->\r
+         <urn:CDLEADER>?</urn:CDLEADER>\r
+      </urn:editUser>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#editUser"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="2c15bcb2-e14f-4eb1-b911-07e3be4d9f44" isOneWay="false" action="urn:admin#editUserDepartment" name="editUserDepartment" bindingOperationName="editUserDepartment" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="aa9e8df2-e570-40ab-9d52-9c2715bb0c02" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:editUserDepartment>\r
+         <!--You may enter the following 3 items in any order-->\r
+         <urn:ID>?</urn:ID>\r
+         <urn:IDAREA>?</urn:IDAREA>\r
+         <urn:IDFUNC>?</urn:IDFUNC>\r
+      </urn:editUserDepartment>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#editUserDepartment"/></con:call></con:operation><con:operation id="8f898ac2-ea48-4c29-b397-a577654d4a12" isOneWay="false" action="urn:admin#getAttribData" name="getAttribData" bindingOperationName="getAttribData" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0531dcc4-2e85-405c-b650-381712589a0f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:getAttribData>\r
+         <urn:IDATTRIBS>?</urn:IDATTRIBS>\r
+      </urn:getAttribData>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#getAttribData"/></con:call></con:operation><con:operation id="9fc3220d-76d1-430d-90b1-c28523d8aae3" isOneWay="false" action="urn:admin#importUser" name="importUser" bindingOperationName="importUser" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7b3de275-b5ca-4229-8a7b-42fd46608d7e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:importUser>\r
+         <!--You may enter the following 19 items in any order-->\r
+         <urn:UserId>?</urn:UserId>\r
+         <urn:UserName>?</urn:UserName>\r
+         <urn:UserLogin>?</urn:UserLogin>\r
+         <urn:UserPassword>?</urn:UserPassword>\r
+         <!--Optional:-->\r
+         <urn:UserCounterSign>?</urn:UserCounterSign>\r
+         <!--Optional:-->\r
+         <urn:UserLanguage>?</urn:UserLanguage>\r
+         <!--Optional:-->\r
+         <urn:IsActive>?</urn:IsActive>\r
+         <!--Optional:-->\r
+         <urn:IsEnabled>?</urn:IsEnabled>\r
+         <!--Optional:-->\r
+         <urn:NumMaxConnections>?</urn:NumMaxConnections>\r
+         <!--Optional:-->\r
+         <urn:UserPhone>?</urn:UserPhone>\r
+         <!--Optional:-->\r
+         <urn:UserEmail>?</urn:UserEmail>\r
+         <!--Optional:-->\r
+         <urn:LeaderId>?</urn:LeaderId>\r
+         <!--Optional:-->\r
+         <urn:UserPhoto>cid:1118085254205</urn:UserPhoto>\r
+         <!--Optional:-->\r
+         <urn:UserDomainId>?</urn:UserDomainId>\r
+         <!--Optional:-->\r
+         <urn:DomainId>?</urn:DomainId>\r
+         <!--Optional:-->\r
+         <urn:AccGroupIdArray>?</urn:AccGroupIdArray>\r
+         <!--Optional:-->\r
+         <urn:RolPosIdArray>?</urn:RolPosIdArray>\r
+         <!--Optional:-->\r
+         <urn:TeamIdArray>?</urn:TeamIdArray>\r
+         <!--Optional:-->\r
+         <urn:UpdateType>?</urn:UpdateType>\r
+      </urn:importUser>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#importUser"/></con:call></con:operation><con:operation id="d534792b-c370-4896-aaeb-c731a6cf0842" isOneWay="false" action="urn:admin#importUserV2" name="importUserV2" bindingOperationName="importUserV2" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="23600d6e-ec6e-4997-8bd7-0d2e84a52eee" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:importUserV2>\r
+         <!--You may enter the following 19 items in any order-->\r
+         <urn:UserId>?</urn:UserId>\r
+         <urn:UserName>?</urn:UserName>\r
+         <urn:UserLogin>?</urn:UserLogin>\r
+         <urn:UserPassword>?</urn:UserPassword>\r
+         <!--Optional:-->\r
+         <urn:UserCounterSign>?</urn:UserCounterSign>\r
+         <!--Optional:-->\r
+         <urn:UserLanguage>?</urn:UserLanguage>\r
+         <!--Optional:-->\r
+         <urn:IsActive>?</urn:IsActive>\r
+         <!--Optional:-->\r
+         <urn:IsEnabled>?</urn:IsEnabled>\r
+         <!--Optional:-->\r
+         <urn:NumMaxConnections>?</urn:NumMaxConnections>\r
+         <!--Optional:-->\r
+         <urn:UserPhone>?</urn:UserPhone>\r
+         <!--Optional:-->\r
+         <urn:UserEmail>?</urn:UserEmail>\r
+         <!--Optional:-->\r
+         <urn:LeaderId>?</urn:LeaderId>\r
+         <!--Optional:-->\r
+         <urn:UserPhoto>cid:419434204568</urn:UserPhoto>\r
+         <!--Optional:-->\r
+         <urn:UserDomainId>?</urn:UserDomainId>\r
+         <!--Optional:-->\r
+         <urn:DomainId>?</urn:DomainId>\r
+         <!--Optional:-->\r
+         <urn:AccGroupIdArray>?</urn:AccGroupIdArray>\r
+         <!--Optional:-->\r
+         <urn:DeptPosArray>\r
+            <!--Zero or more repetitions:-->\r
+            <urn:DeptPos>\r
+               <!--You may enter the following 4 items in any order-->\r
+               <urn:DepartmentID>?</urn:DepartmentID>\r
+               <urn:DepartmentName>?</urn:DepartmentName>\r
+               <urn:PositionID>?</urn:PositionID>\r
+               <urn:PositionName>?</urn:PositionName>\r
+            </urn:DeptPos>\r
+         </urn:DeptPosArray>\r
+         <!--Optional:-->\r
+         <urn:TeamIdArray>?</urn:TeamIdArray>\r
+         <!--Optional:-->\r
+         <urn:UpdateType>?</urn:UpdateType>\r
+      </urn:importUserV2>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#importUserV2"/></con:call></con:operation><con:operation id="9f943026-708f-454d-87da-ff1409a0373b" isOneWay="false" action="urn:admin#newDepartment" name="newDepartment" bindingOperationName="newDepartment" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5352d5f7-008f-4b9e-8ec1-29ef7e1f737f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:newDepartment>\r
+         <!--You may enter the following 6 items in any order-->\r
+         <urn:ID>?</urn:ID>\r
+         <urn:DESC>?</urn:DESC>\r
+         <urn:IDPOS>?</urn:IDPOS>\r
+         <urn:IDUPPER>?</urn:IDUPPER>\r
+         <urn:IDCOMPANY>?</urn:IDCOMPANY>\r
+         <urn:FGDEPTTYPE>?</urn:FGDEPTTYPE>\r
+      </urn:newDepartment>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#newDepartment"/></con:call></con:operation><con:operation id="4f4e0763-ff00-41cc-8635-b108ea75382d" isOneWay="false" action="urn:admin#newPosition" name="newPosition" bindingOperationName="newPosition" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="13dd0b74-44ca-463e-a249-6525149d4668" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:newPosition>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <urn:ID>?</urn:ID>\r
+         <urn:DESC>?</urn:DESC>\r
+      </urn:newPosition>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#newPosition"/></con:call></con:operation><con:operation id="e2c0bc44-b82b-477b-a772-18dda740a9c0" isOneWay="false" action="urn:admin#newUser" name="newUser" bindingOperationName="newUser" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0cb87b60-1e08-4989-abdd-def42031a603" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:newUser>\r
+         <!--You may enter the following 9 items in any order-->\r
+         <urn:IDUSER>?</urn:IDUSER>\r
+         <urn:NAME>?</urn:NAME>\r
+         <urn:LOGIN>?</urn:LOGIN>\r
+         <urn:PASS>?</urn:PASS>\r
+         <urn:EMAIL>?</urn:EMAIL>\r
+         <urn:IDAREA>?</urn:IDAREA>\r
+         <urn:IDFUNC>?</urn:IDFUNC>\r
+         <urn:IDACCGROUP>?</urn:IDACCGROUP>\r
+         <!--Optional:-->\r
+         <urn:CDLEADER>?</urn:CDLEADER>\r
+      </urn:newUser>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#newUser"/></con:call></con:operation><con:operation id="9a8f009c-b075-46ae-b79f-625ab911f86d" isOneWay="false" action="urn:admin#synchUser" name="synchUser" bindingOperationName="synchUser" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="cc327a14-3873-4371-bde6-69ed5ab68f41" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:synchUser>\r
+         <!--You may enter the following 16 items in any order-->\r
+         <urn:nmdomainuid>?</urn:nmdomainuid>\r
+         <urn:id>?</urn:id>\r
+         <urn:login>?</urn:login>\r
+         <urn:name>?</urn:name>\r
+         <!--Optional:-->\r
+         <urn:email>?</urn:email>\r
+         <urn:fglanguage>?</urn:fglanguage>\r
+         <urn:fguserenabled>?</urn:fguserenabled>\r
+         <urn:fguserblocked>?</urn:fguserblocked>\r
+         <urn:fgnotice>?</urn:fgnotice>\r
+         <!--Optional:-->\r
+         <urn:idarea>?</urn:idarea>\r
+         <!--Optional:-->\r
+         <urn:nmarea>?</urn:nmarea>\r
+         <!--Optional:-->\r
+         <urn:idfunc>?</urn:idfunc>\r
+         <!--Optional:-->\r
+         <urn:nmfunc>?</urn:nmfunc>\r
+         <!--Optional:-->\r
+         <urn:nmdefsynchfilter>?</urn:nmdefsynchfilter>\r
+         <urn:oidconnection>?</urn:oidconnection>\r
+         <!--Optional:-->\r
+         <urn:cdleader>?</urn:cdleader>\r
+      </urn:synchUser>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#synchUser"/></con:call></con:operation><con:operation id="0a9e83c7-8cf4-4a2e-b64e-b191bed2e234" isOneWay="false" action="urn:admin#updateEmployeeProfile" name="updateEmployeeProfile" bindingOperationName="updateEmployeeProfile" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bcb06574-6d7f-4e4e-85e7-f1ef7f0ce997" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/adm_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:admin">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:updateEmployeeProfile>\r
+         <!--You may enter the following 8 items in any order-->\r
+         <urn:IDUSER>?</urn:IDUSER>\r
+         <urn:IDEDULEVEL>?</urn:IDEDULEVEL>\r
+         <urn:FGEDULEVELSTATUS>?</urn:FGEDULEVELSTATUS>\r
+         <urn:DTBIRTHDAY>?</urn:DTBIRTHDAY>\r
+         <urn:DTADMISSION>?</urn:DTADMISSION>\r
+         <urn:DTDEMISSION>?</urn:DTDEMISSION>\r
+         <urn:DSADDRESS>?</urn:DSADDRESS>\r
+         <urn:DSOBS>?</urn:DSOBS>\r
+      </urn:updateEmployeeProfile>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:admin#updateEmployeeProfile"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

@@ -1,0 +1,1111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="ac84066b-17be-48f9-b88d-5fffe4475dea" activeEnvironment="Default" name="GENeric" soapui-version="5.7.1" abortOnError="false" runType="SEQUENTIAL" resourceRoot="" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="fa89a565-d991-48d5-b7a4-45b9ea601be9" wsaVersion="NONE" name="GenericBinding" type="wsdl" bindingName="{urn:generic}GenericBinding" soapVersion="1_1" anonymous="optional" definition="https://sesuiteqas.uniaoquimica.com.br/se/ws/gn_ws.php?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://sesuiteqas.uniaoquimica.com.br/se/ws/gn_ws.php?wsdl"><con:part><con:url>https://sesuiteqas.uniaoquimica.com.br/se/ws/gn_ws.php?wsdl</con:url><con:content><![CDATA[<definitions targetNamespace="urn:generic" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:generic" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="urn:generic">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/"/>
+      <xsd:complexType name="createTeamByUserRequestType">
+        <xsd:all>
+          <xsd:element name="IDTEAM" type="xsd:string"/>
+          <xsd:element name="NMTEAM" type="xsd:string"/>
+          <xsd:element name="USERS" type="xsd:string"/>
+          <xsd:element name="COMPONENT" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="createTeamByUserResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="createTeamByPositionRequestType">
+        <xsd:all>
+          <xsd:element name="IDTEAM" type="xsd:string"/>
+          <xsd:element name="NMTEAM" type="xsd:string"/>
+          <xsd:element name="POSITIONS" type="xsd:string"/>
+          <xsd:element name="COMPONENT" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="createTeamByPositionResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="createTeamByAreaRequestType">
+        <xsd:all>
+          <xsd:element name="IDTEAM" type="xsd:string"/>
+          <xsd:element name="NMTEAM" type="xsd:string"/>
+          <xsd:element name="AREAS" type="xsd:string"/>
+          <xsd:element name="COMPONENT" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="createTeamByAreaResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newRoleRequestType">
+        <xsd:all>
+          <xsd:element name="IdRole" type="xsd:string"/>
+          <xsd:element name="NmRole" type="xsd:string"/>
+          <xsd:element name="IdRoleOwner" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="Description" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="Components" type="tns:componentsArray"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newRoleResponseType">
+        <xsd:all>
+          <xsd:element name="RecordKey" type="xsd:int"/>
+          <xsd:element name="RecordId" type="xsd:int"/>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="componentsArray">
+        <xsd:sequence>
+          <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="100"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="removeTeamRequestType">
+        <xsd:all>
+          <xsd:element name="IDTEAM" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="removeTeamResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="removeUserFromTeamRequestType">
+        <xsd:all>
+          <xsd:element name="IDTEAM" type="xsd:string"/>
+          <xsd:element name="USERS" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="removeUserFromTeamResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:int"/>
+          <xsd:element name="RecordKey" type="xsd:string"/>
+          <xsd:element name="RecordId" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="removeUserFromRoleRequestType">
+        <xsd:all>
+          <xsd:element name="IdRole" type="xsd:string"/>
+          <xsd:element name="IdUser" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="removeUserFromRoleResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="return" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:int"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addUserToRoleRequestType">
+        <xsd:all>
+          <xsd:element name="IdRole" type="xsd:string"/>
+          <xsd:element name="IdUser" type="xsd:string"/>
+          <xsd:element name="IsDefault" type="xsd:string" minOccurs="0"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addUserToRoleResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addAreaToTeamRequestType">
+        <xsd:all>
+          <xsd:element name="IDTEAM" type="xsd:string"/>
+          <xsd:element name="AREAS" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addAreaToTeamResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addPositionToTeamRequestType">
+        <xsd:all>
+          <xsd:element name="IDTEAM" type="xsd:string"/>
+          <xsd:element name="POSITIONS" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addPositionToTeamResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addUserToTeamRequestType">
+        <xsd:all>
+          <xsd:element name="IDTEAM" type="xsd:string"/>
+          <xsd:element name="USERS" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addUserToTeamResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editTeamByAreaRequestType">
+        <xsd:all>
+          <xsd:element name="IDTEAM_OLD" type="xsd:string"/>
+          <xsd:element name="IDTEAM_NEW" type="xsd:string"/>
+          <xsd:element name="NMTEAM" type="xsd:string"/>
+          <xsd:element name="AREAS" type="xsd:string"/>
+          <xsd:element name="COMPONENT" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editTeamByAreaResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editTeamByPositionRequestType">
+        <xsd:all>
+          <xsd:element name="IDTEAM_OLD" type="xsd:string"/>
+          <xsd:element name="IDTEAM_NEW" type="xsd:string"/>
+          <xsd:element name="NMTEAM" type="xsd:string"/>
+          <xsd:element name="POSITIONS" type="xsd:string"/>
+          <xsd:element name="COMPONENT" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editTeamByPositionResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editTeamByUserRequestType">
+        <xsd:all>
+          <xsd:element name="IDTEAM_OLD" type="xsd:string"/>
+          <xsd:element name="IDTEAM_NEW" type="xsd:string"/>
+          <xsd:element name="NMTEAM" type="xsd:string"/>
+          <xsd:element name="USERS" type="xsd:string"/>
+          <xsd:element name="COMPONENT" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="editTeamByUserResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="removeAreaFromTeamRequestType">
+        <xsd:all>
+          <xsd:element name="IDTEAM" type="xsd:string"/>
+          <xsd:element name="AREAS" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="removeAreaFromTeamResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="removePositionFromTeamRequestType">
+        <xsd:all>
+          <xsd:element name="IDTEAM" type="xsd:string"/>
+          <xsd:element name="POSITIONS" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="removePositionFromTeamResponseType">
+        <xsd:all>
+          <xsd:element name="return" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newTeamRequestType">
+        <xsd:all>
+          <xsd:element name="IDTEAM" type="xsd:string"/>
+          <xsd:element name="NMTEAM" type="xsd:string"/>
+          <xsd:element name="COMPONENT" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newTeamResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:long"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="RecordID" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newTeamMemberRequestType">
+        <xsd:all>
+          <xsd:element name="IDTEAM" type="xsd:string"/>
+          <xsd:element name="FGTYPE" type="xsd:string"/>
+          <xsd:element name="IDDEPARTMENT" type="xsd:string"/>
+          <xsd:element name="SUBLEVELS" type="xsd:string"/>
+          <xsd:element name="IDPOSITION" type="xsd:string"/>
+          <xsd:element name="IDUSER" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="newTeamMemberResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:long"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+          <xsd:element name="RecordID" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="deleteTeamMemberRequestType">
+        <xsd:all>
+          <xsd:element name="IDTEAM" type="xsd:string"/>
+          <xsd:element name="FGTYPE" type="xsd:string"/>
+          <xsd:element name="IDDEPARTMENT" type="xsd:string"/>
+          <xsd:element name="IDPOSITION" type="xsd:string"/>
+          <xsd:element name="IDUSER" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="deleteTeamMemberResponseType">
+        <xsd:all>
+          <xsd:element name="Status" type="xsd:string"/>
+          <xsd:element name="Code" type="xsd:long"/>
+          <xsd:element name="Detail" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:element name="createTeamByUser" type="tns:createTeamByUserRequestType"/>
+      <xsd:element name="createTeamByUserResponse" type="tns:createTeamByUserResponseType"/>
+      <xsd:element name="createTeamByPosition" type="tns:createTeamByPositionRequestType"/>
+      <xsd:element name="createTeamByPositionResponse" type="tns:createTeamByPositionResponseType"/>
+      <xsd:element name="createTeamByArea" type="tns:createTeamByAreaRequestType"/>
+      <xsd:element name="createTeamByAreaResponse" type="tns:createTeamByAreaResponseType"/>
+      <xsd:element name="newRole" type="tns:newRoleRequestType"/>
+      <xsd:element name="newRoleResponse" type="tns:newRoleResponseType"/>
+      <xsd:element name="removeTeam" type="tns:removeTeamRequestType"/>
+      <xsd:element name="removeTeamResponse" type="tns:removeTeamResponseType"/>
+      <xsd:element name="removeUserFromTeam" type="tns:removeUserFromTeamRequestType"/>
+      <xsd:element name="removeUserFromTeamResponse" type="tns:removeUserFromTeamResponseType"/>
+      <xsd:element name="removeUserFromRole" type="tns:removeUserFromRoleRequestType"/>
+      <xsd:element name="removeUserFromRoleResponse" type="tns:removeUserFromRoleResponseType"/>
+      <xsd:element name="addUserToRole" type="tns:addUserToRoleRequestType"/>
+      <xsd:element name="addUserToRoleResponse" type="tns:addUserToRoleResponseType"/>
+      <xsd:element name="addAreaToTeam" type="tns:addAreaToTeamRequestType"/>
+      <xsd:element name="addAreaToTeamResponse" type="tns:addAreaToTeamResponseType"/>
+      <xsd:element name="addPositionToTeam" type="tns:addPositionToTeamRequestType"/>
+      <xsd:element name="addPositionToTeamResponse" type="tns:addPositionToTeamResponseType"/>
+      <xsd:element name="addUserToTeam" type="tns:addUserToTeamRequestType"/>
+      <xsd:element name="addUserToTeamResponse" type="tns:addUserToTeamResponseType"/>
+      <xsd:element name="editTeamByArea" type="tns:editTeamByAreaRequestType"/>
+      <xsd:element name="editTeamByAreaResponse" type="tns:editTeamByAreaResponseType"/>
+      <xsd:element name="editTeamByPosition" type="tns:editTeamByPositionRequestType"/>
+      <xsd:element name="editTeamByPositionResponse" type="tns:editTeamByPositionResponseType"/>
+      <xsd:element name="editTeamByUser" type="tns:editTeamByUserRequestType"/>
+      <xsd:element name="editTeamByUserResponse" type="tns:editTeamByUserResponseType"/>
+      <xsd:element name="removeAreaFromTeam" type="tns:removeAreaFromTeamRequestType"/>
+      <xsd:element name="removeAreaFromTeamResponse" type="tns:removeAreaFromTeamResponseType"/>
+      <xsd:element name="removePositionFromTeam" type="tns:removePositionFromTeamRequestType"/>
+      <xsd:element name="removePositionFromTeamResponse" type="tns:removePositionFromTeamResponseType"/>
+      <xsd:element name="newTeam" type="tns:newTeamRequestType"/>
+      <xsd:element name="newTeamResponse" type="tns:newTeamResponseType"/>
+      <xsd:element name="newTeamMember" type="tns:newTeamMemberRequestType"/>
+      <xsd:element name="newTeamMemberResponse" type="tns:newTeamMemberResponseType"/>
+      <xsd:element name="deleteTeamMember" type="tns:deleteTeamMemberRequestType"/>
+      <xsd:element name="deleteTeamMemberResponse" type="tns:deleteTeamMemberResponseType"/>
+    </xsd:schema>
+  </types>
+  <message name="createTeamByUserRequest">
+    <part name="parameters" element="tns:createTeamByUser"/>
+  </message>
+  <message name="createTeamByUserResponse">
+    <part name="parameters" element="tns:createTeamByUserResponse"/>
+  </message>
+  <message name="createTeamByPositionRequest">
+    <part name="parameters" element="tns:createTeamByPosition"/>
+  </message>
+  <message name="createTeamByPositionResponse">
+    <part name="parameters" element="tns:createTeamByPositionResponse"/>
+  </message>
+  <message name="createTeamByAreaRequest">
+    <part name="parameters" element="tns:createTeamByArea"/>
+  </message>
+  <message name="createTeamByAreaResponse">
+    <part name="parameters" element="tns:createTeamByAreaResponse"/>
+  </message>
+  <message name="newRoleRequest">
+    <part name="parameters" element="tns:newRole"/>
+  </message>
+  <message name="newRoleResponse">
+    <part name="parameters" element="tns:newRoleResponse"/>
+  </message>
+  <message name="removeTeamRequest">
+    <part name="parameters" element="tns:removeTeam"/>
+  </message>
+  <message name="removeTeamResponse">
+    <part name="parameters" element="tns:removeTeamResponse"/>
+  </message>
+  <message name="removeUserFromTeamRequest">
+    <part name="parameters" element="tns:removeUserFromTeam"/>
+  </message>
+  <message name="removeUserFromTeamResponse">
+    <part name="parameters" element="tns:removeUserFromTeamResponse"/>
+  </message>
+  <message name="removeUserFromRoleRequest">
+    <part name="parameters" element="tns:removeUserFromRole"/>
+  </message>
+  <message name="removeUserFromRoleResponse">
+    <part name="parameters" element="tns:removeUserFromRoleResponse"/>
+  </message>
+  <message name="addUserToRoleRequest">
+    <part name="parameters" element="tns:addUserToRole"/>
+  </message>
+  <message name="addUserToRoleResponse">
+    <part name="parameters" element="tns:addUserToRoleResponse"/>
+  </message>
+  <message name="addAreaToTeamRequest">
+    <part name="parameters" element="tns:addAreaToTeam"/>
+  </message>
+  <message name="addAreaToTeamResponse">
+    <part name="parameters" element="tns:addAreaToTeamResponse"/>
+  </message>
+  <message name="addPositionToTeamRequest">
+    <part name="parameters" element="tns:addPositionToTeam"/>
+  </message>
+  <message name="addPositionToTeamResponse">
+    <part name="parameters" element="tns:addPositionToTeamResponse"/>
+  </message>
+  <message name="addUserToTeamRequest">
+    <part name="parameters" element="tns:addUserToTeam"/>
+  </message>
+  <message name="addUserToTeamResponse">
+    <part name="parameters" element="tns:addUserToTeamResponse"/>
+  </message>
+  <message name="editTeamByAreaRequest">
+    <part name="parameters" element="tns:editTeamByArea"/>
+  </message>
+  <message name="editTeamByAreaResponse">
+    <part name="parameters" element="tns:editTeamByAreaResponse"/>
+  </message>
+  <message name="editTeamByPositionRequest">
+    <part name="parameters" element="tns:editTeamByPosition"/>
+  </message>
+  <message name="editTeamByPositionResponse">
+    <part name="parameters" element="tns:editTeamByPositionResponse"/>
+  </message>
+  <message name="editTeamByUserRequest">
+    <part name="parameters" element="tns:editTeamByUser"/>
+  </message>
+  <message name="editTeamByUserResponse">
+    <part name="parameters" element="tns:editTeamByUserResponse"/>
+  </message>
+  <message name="removeAreaFromTeamRequest">
+    <part name="parameters" element="tns:removeAreaFromTeam"/>
+  </message>
+  <message name="removeAreaFromTeamResponse">
+    <part name="parameters" element="tns:removeAreaFromTeamResponse"/>
+  </message>
+  <message name="removePositionFromTeamRequest">
+    <part name="parameters" element="tns:removePositionFromTeam"/>
+  </message>
+  <message name="removePositionFromTeamResponse">
+    <part name="parameters" element="tns:removePositionFromTeamResponse"/>
+  </message>
+  <message name="newTeamRequest">
+    <part name="parameters" element="tns:newTeam"/>
+  </message>
+  <message name="newTeamResponse">
+    <part name="parameters" element="tns:newTeamResponse"/>
+  </message>
+  <message name="newTeamMemberRequest">
+    <part name="parameters" element="tns:newTeamMember"/>
+  </message>
+  <message name="newTeamMemberResponse">
+    <part name="parameters" element="tns:newTeamMemberResponse"/>
+  </message>
+  <message name="deleteTeamMemberRequest">
+    <part name="parameters" element="tns:deleteTeamMember"/>
+  </message>
+  <message name="deleteTeamMemberResponse">
+    <part name="parameters" element="tns:deleteTeamMemberResponse"/>
+  </message>
+  <portType name="GenericPortType">
+    <operation name="createTeamByUser">
+      <documentation><![CDATA[Cria uma equipe informando os usuários que estarão contidos nela<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDTEAM -> Identificador da equipe; <BR>&nbsp;&nbsp;&nbsp;&nbsp;NMTEAM -> Nome da equipe;<BR>&nbsp;&nbsp;&nbsp;&nbsp;USERS -> String separada por "," contendo os identificadores dos usuários Ex: ("User1,User2");<BR>&nbsp;&nbsp;&nbsp;&nbsp;COMPONENT -> String separada com "," com os códigos dos componentes Ex: ("109,107,73");]]]]>><![CDATA[</documentation>
+      <input message="tns:createTeamByUserRequest"/>
+      <output message="tns:createTeamByUserResponse"/>
+    </operation>
+    <operation name="createTeamByPosition">
+      <documentation><![CDATA[Cria uma equipe informando as funções que estarão contidas nela<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDTEAM -> Identificador da equipe; <BR>&nbsp;&nbsp;&nbsp;&nbsp;NMTEAM -> Nome da equipe;<BR>&nbsp;&nbsp;&nbsp;&nbsp;POSITIONS -> String separada por "," contendo os identificadores das funções. Ex: ("Funcao1,Funcao2")<BR>&nbsp;&nbsp;&nbsp;&nbsp;COMPONENT -> String separada com "," com os códigos dos componentes Ex: ("109,107,73");]]]]>><![CDATA[</documentation>
+      <input message="tns:createTeamByPositionRequest"/>
+      <output message="tns:createTeamByPositionResponse"/>
+    </operation>
+    <operation name="createTeamByArea">
+      <documentation><![CDATA[Cria uma equipe informando as áreas que estarão contidas nela<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDTEAM -> Identificador da equipe; <BR>&nbsp;&nbsp;&nbsp;&nbsp;NMTEAM -> Nome da equipe;<BR>&nbsp;&nbsp;&nbsp;&nbsp;AREAS -> String separada por "," contendo os identificadores das áreas Ex: ("Area1,Area2");<BR>&nbsp;&nbsp;&nbsp;&nbsp;COMPONENT -> String separada com "," com os códigos dos componentes Ex: ("109,107,73");]]]]>><![CDATA[</documentation>
+      <input message="tns:createTeamByAreaRequest"/>
+      <output message="tns:createTeamByAreaResponse"/>
+    </operation>
+    <operation name="newRole">
+      <documentation><![CDATA[Adiciona um novo papel funcional<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IdRole                     -> Identificador do papel funcional <BR>&nbsp;&nbsp;&nbsp;&nbsp;NmRole                     -> Nome do papel funcional <BR>Parâmetros não requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IdRoleOwner                -> Identificador do papel funcional superior <BR>&nbsp;&nbsp;&nbsp;&nbsp;Description                -> Descrição do papel funcional <BR>&nbsp;&nbsp;&nbsp;&nbsp;Components                 -> Componentes a serem associados <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso 1:    <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha -1 : Erro inesperado.   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 43 : O identificador não foi preenchido   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 44 : O nome não foi preenchido   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 45 : Registro já existente   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 46 : O papel funcional superior não existe   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 47 : Componente inválido   <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:newRoleRequest"/>
+      <output message="tns:newRoleResponse"/>
+    </operation>
+    <operation name="removeTeam">
+      <documentation><![CDATA[Remover uma equipe<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDTEAM -> Identificador da equipe que deseja remover; <BR>RETORNO: <BR>&nbsp;&nbsp;&nbsp;&nbsp; 1<BR>&nbsp;&nbsp;&nbsp;&nbsp;Identificador da equipe nulo!<BR>&nbsp;&nbsp;&nbsp;&nbsp;Equipe não encontrada<BR>&nbsp;&nbsp;&nbsp;&nbsp;Não é possível excluir o registro Existem dados relacionados<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:removeTeamRequest"/>
+      <output message="tns:removeTeamResponse"/>
+    </operation>
+    <operation name="removeUserFromTeam">
+      <documentation><![CDATA[Remover áreas de uma equipe<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDTEAM -> Identificador da equipe que deseja remover; <BR>&nbsp;&nbsp;&nbsp;&nbsp;USERS -> String separada por "," contendo os identificadores dos usuários Ex: ("User1,User2");]]]]>><![CDATA[</documentation>
+      <input message="tns:removeUserFromTeamRequest"/>
+      <output message="tns:removeUserFromTeamResponse"/>
+    </operation>
+    <operation name="removeUserFromRole">
+      <documentation><![CDATA[Desassocia um usuário de um papel funcional<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IdRole ->Identificador do papel funcional<BR>&nbsp;&nbsp;&nbsp;&nbsp;IdUser ->Identificador do usuário<BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso 1 : Registro desassociado com sucesso.   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha -1 : Erro inesperado.   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 7 : Identificador do usuário nulo   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 12 : Usuário inexistente   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 48 : Papel funcional inexistente   <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 49 : Papel funcional não informado   <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:removeUserFromRoleRequest"/>
+      <output message="tns:removeUserFromRoleResponse"/>
+    </operation>
+    <operation name="addUserToRole">
+      <documentation><![CDATA[Associa um usuário a um papel funcional<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;Identificador do papel funcional<BR>&nbsp;&nbsp;&nbsp;&nbsp;Identificador do usuário<BR>Parâmetros não requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;Utilizar como padrão <BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso 1: Registro inserido<BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 49 : Papel funcional não informado<BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 48 : Papel funcional inexistente<BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 7 : Identificador do usuário nulo<BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 12 : Usuário inexistente<BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha 30 : Valor inválido. Campo: IsDefault<BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:addUserToRoleRequest"/>
+      <output message="tns:addUserToRoleResponse"/>
+    </operation>
+    <operation name="addAreaToTeam">
+      <documentation><![CDATA[Adiciona áreas em uma equipe<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDTEAM -> Identificador da equipe que deseja adicionar áreas.<BR>&nbsp;&nbsp;&nbsp;&nbsp;AREAS -> String separada por "," contendo os identificadores das áreas Ex: ("Area1,Area2");]]]]>><![CDATA[</documentation>
+      <input message="tns:addAreaToTeamRequest"/>
+      <output message="tns:addAreaToTeamResponse"/>
+    </operation>
+    <operation name="addPositionToTeam">
+      <documentation><![CDATA[Adiciona áreas em uma equipe<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDTEAM -> Identificador da equipe que deseja adicionar áreas.<BR>&nbsp;&nbsp;&nbsp;&nbsp;POSITIONS -> String separada por "," contendo os identificadores das funções. Ex: ("Funcao1,Funcao2")]]]]>><![CDATA[</documentation>
+      <input message="tns:addPositionToTeamRequest"/>
+      <output message="tns:addPositionToTeamResponse"/>
+    </operation>
+    <operation name="addUserToTeam">
+      <documentation><![CDATA[Adiciona áreas em uma equipe<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDTEAM -> Identificador da equipe que deseja adicionar áreas.<BR>&nbsp;&nbsp;&nbsp;&nbsp;USERS -> String separada por "," contendo os identificadores dos usuários Ex: ("User1,User2");]]]]>><![CDATA[</documentation>
+      <input message="tns:addUserToTeamRequest"/>
+      <output message="tns:addUserToTeamResponse"/>
+    </operation>
+    <operation name="editTeamByArea">
+      <documentation><![CDATA[Edita uma equipe informando as áreas nela contida<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDTEAM_OLD -> Identificador da equipe que deseja alterar; <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDTEAM_NEW -> Identificador da nova equipe caso deseja alterar. Se o identificador continuar o mesmo deverá ser informado o que está sendo editado.<BR>&nbsp;&nbsp;&nbsp;&nbsp;NMTEAM -> Nome da equipe;<BR>&nbsp;&nbsp;&nbsp;&nbsp;AREAS -> String separada por "," contendo os identificadores das áreas Ex: ("Area1,Area2");<BR>&nbsp;&nbsp;&nbsp;&nbsp;COMPONENT -> String separada com "," com os códigos dos componentes Ex: ("109,107,73");]]]]>><![CDATA[</documentation>
+      <input message="tns:editTeamByAreaRequest"/>
+      <output message="tns:editTeamByAreaResponse"/>
+    </operation>
+    <operation name="editTeamByPosition">
+      <documentation><![CDATA[Edita uma equipe informando as funções nela contidas<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDTEAM_OLD -> Identificador da equipe que deseja alterar; <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDTEAM_NEW -> Identificador da nova equipe caso deseja alterar. Se o identificador continuar o mesmo deverá ser informado o que está sendo editado.<BR>&nbsp;&nbsp;&nbsp;&nbsp;NMTEAM -> Nome da equipe;<BR>&nbsp;&nbsp;&nbsp;&nbsp;POSITIONS -> String separada por "," contendo os identificadores das funções. Ex: ("Funcao1,Funcao2")<BR>&nbsp;&nbsp;&nbsp;&nbsp;COMPONENT -> String separada com "," com os códigos dos componentes Ex: ("109,107,73");]]]]>><![CDATA[</documentation>
+      <input message="tns:editTeamByPositionRequest"/>
+      <output message="tns:editTeamByPositionResponse"/>
+    </operation>
+    <operation name="editTeamByUser">
+      <documentation><![CDATA[Edita uma equipe informando quais os usuários estão contidos<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDTEAM_OLD -> Identificador da equipe que deseja alterar; <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDTEAM_NEW -> Identificador da nova equipe caso deseja alterar. Se o identificador continuar o mesmo deverá ser informado o que está sendo editado.<BR>&nbsp;&nbsp;&nbsp;&nbsp;NMTEAM -> Nome da equipe;<BR>&nbsp;&nbsp;&nbsp;&nbsp;USERS -> String separada por "," contendo os identificadores dos usuários Ex: ("User1,User2");<BR>&nbsp;&nbsp;&nbsp;&nbsp;COMPONENT -> String separada com "," com os códigos dos componentes Ex: ("109,107,73");]]]]>><![CDATA[</documentation>
+      <input message="tns:editTeamByUserRequest"/>
+      <output message="tns:editTeamByUserResponse"/>
+    </operation>
+    <operation name="removeAreaFromTeam">
+      <documentation><![CDATA[Remover áreas de uma equipe<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDTEAM -> Identificador da equipe que deseja remover; <BR>&nbsp;&nbsp;&nbsp;&nbsp;AREAS -> String separada por "," contendo os identificadores das áreas Ex: ("Area1,Area2");]]]]>><![CDATA[</documentation>
+      <input message="tns:removeAreaFromTeamRequest"/>
+      <output message="tns:removeAreaFromTeamResponse"/>
+    </operation>
+    <operation name="removePositionFromTeam">
+      <documentation><![CDATA[Remover áreas de uma equipe<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDTEAM -> Identificador da equipe que deseja remover; <BR>&nbsp;&nbsp;&nbsp;&nbsp;POSITIONS -> String separada por "," contendo os identificadores das funções. Ex: ("Funcao1,Funcao2")]]]]>><![CDATA[</documentation>
+      <input message="tns:removePositionFromTeamRequest"/>
+      <output message="tns:removePositionFromTeamResponse"/>
+    </operation>
+    <operation name="newTeam">
+      <documentation><![CDATA[Cadastro de equipes<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDTEAM -> Identificador da equipe; <BR>&nbsp;&nbsp;&nbsp;&nbsp;NMTEAM -> Nome da equipe;<BR>&nbsp;&nbsp;&nbsp;&nbsp;COMPONENT -> String separada com "," com os códigos dos componentes Ex: ("109,107,73");<BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso:   <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Status : SUCCESS  <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Code : Código do registro incluído pelo método  <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Detail : Registro incluído com sucesso  <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RecordID : Identificador do registro incluído pelo método  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha:   <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Status : FAILURE  <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Code : -1  <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Detail : Em caso de FALHA, retorna uma mensagem com o erro ocorrido.  <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:newTeamRequest"/>
+      <output message="tns:newTeamResponse"/>
+    </operation>
+    <operation name="newTeamMember">
+      <documentation><![CDATA[Membros da equipe<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDTEAM -> Identificador da equipe; <BR>&nbsp;&nbsp;&nbsp;&nbsp;FGTYPE -> Identifica tipo do membro da equipe [1 - Área; 2 - Função; 3 - Área/Função; 4 - Usuário];<BR>&nbsp;&nbsp;&nbsp;&nbsp;IDDEPARTMENT -> Identificador da área (obrigatório quando FGTYPE = 1 ou FGTYPE = 3);<BR>&nbsp;&nbsp;&nbsp;&nbsp;IDPOSITION -> Identificador da função (obrigatório quando FGTYPE = 2 ou FGTYPE = 3); <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDUSER -> Identificador do usuário (obrigatório quando FGTYPE = 4);<BR>Parâmetros não requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;SUBLEVELS -> Indica se serão considerados os subníveis da área associada [1 - Sim; 2 - Não] (Valor padrão = 2);<BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso:   <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Status : SUCCESS  <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Code : Código do registro incluído pelo método  <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Detail : Registro incluído com sucesso  <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RecordID : Identificador do registro incluído pelo método  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha:   <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Status : FAILURE  <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Code : -1  <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Detail : Em caso de FALHA, retorna uma mensagem com o erro ocorrido.  <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:newTeamMemberRequest"/>
+      <output message="tns:newTeamMemberResponse"/>
+    </operation>
+    <operation name="deleteTeamMember">
+      <documentation><![CDATA[Excluir&nbsp;Membros da equipe<BR>Parâmetros requeridos: <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDTEAM -> Identificador da equipe; <BR>&nbsp;&nbsp;&nbsp;&nbsp;FGTYPE -> Identifica tipo do membro da equipe [1 - Área; 2 - Função; 3 - Área/Função; 4 - Usuário];<BR>&nbsp;&nbsp;&nbsp;&nbsp;IDDEPARTMENT -> Identificador da área (obrigatório quando FGTYPE = 1 ou FGTYPE = 3);<BR>&nbsp;&nbsp;&nbsp;&nbsp;IDPOSITION -> Identificador da função (obrigatório quando FGTYPE = 2 ou FGTYPE = 3); <BR>&nbsp;&nbsp;&nbsp;&nbsp;IDUSER -> Identificador do usuário (obrigatório quando FGTYPE = 4);<BR>RETORNO:                 <BR>&nbsp;&nbsp;&nbsp;&nbsp;Sucesso:   <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Status : SUCCESS  <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Code : 1  <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Detail : Registro excluído com sucesso  <BR>&nbsp;&nbsp;&nbsp;&nbsp;Falha:   <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Status : FAILURE  <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Code : -1  <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Detail : Em caso de FALHA, retorna uma mensagem com o erro ocorrido.  <BR>]]]]>><![CDATA[</documentation>
+      <input message="tns:deleteTeamMemberRequest"/>
+      <output message="tns:deleteTeamMemberResponse"/>
+    </operation>
+  </portType>
+  <binding name="GenericBinding" type="tns:GenericPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createTeamByUser">
+      <soap:operation soapAction="urn:generic#createTeamByUser" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </output>
+    </operation>
+    <operation name="createTeamByPosition">
+      <soap:operation soapAction="urn:generic#createTeamByPosition" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </output>
+    </operation>
+    <operation name="createTeamByArea">
+      <soap:operation soapAction="urn:generic#createTeamByArea" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </output>
+    </operation>
+    <operation name="newRole">
+      <soap:operation soapAction="urn:generic#newRole" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </output>
+    </operation>
+    <operation name="removeTeam">
+      <soap:operation soapAction="urn:generic#removeTeam" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </output>
+    </operation>
+    <operation name="removeUserFromTeam">
+      <soap:operation soapAction="urn:generic#removeUserFromTeam" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </output>
+    </operation>
+    <operation name="removeUserFromRole">
+      <soap:operation soapAction="urn:generic#removeUserFromRole" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </output>
+    </operation>
+    <operation name="addUserToRole">
+      <soap:operation soapAction="urn:generic#addUserToRole" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </output>
+    </operation>
+    <operation name="addAreaToTeam">
+      <soap:operation soapAction="urn:generic#addAreaToTeam" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </output>
+    </operation>
+    <operation name="addPositionToTeam">
+      <soap:operation soapAction="urn:generic#addPositionToTeam" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </output>
+    </operation>
+    <operation name="addUserToTeam">
+      <soap:operation soapAction="urn:generic#addUserToTeam" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </output>
+    </operation>
+    <operation name="editTeamByArea">
+      <soap:operation soapAction="urn:generic#editTeamByArea" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </output>
+    </operation>
+    <operation name="editTeamByPosition">
+      <soap:operation soapAction="urn:generic#editTeamByPosition" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </output>
+    </operation>
+    <operation name="editTeamByUser">
+      <soap:operation soapAction="urn:generic#editTeamByUser" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </output>
+    </operation>
+    <operation name="removeAreaFromTeam">
+      <soap:operation soapAction="urn:generic#removeAreaFromTeam" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </output>
+    </operation>
+    <operation name="removePositionFromTeam">
+      <soap:operation soapAction="urn:generic#removePositionFromTeam" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </output>
+    </operation>
+    <operation name="newTeam">
+      <soap:operation soapAction="urn:generic#newTeam" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </output>
+    </operation>
+    <operation name="newTeamMember">
+      <soap:operation soapAction="urn:generic#newTeamMember" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </output>
+    </operation>
+    <operation name="deleteTeamMember">
+      <soap:operation soapAction="urn:generic#deleteTeamMember" style="document"/>
+      <input>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:generic"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="Generic">
+    <port name="GenericPort" binding="tns:GenericBinding">
+      <soap:address location="https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:endpoint>https://sesuite.uniaoquimica.com.br/softexpert/webserviceproxy/se/ws/gn_ws.php</con:endpoint><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint></con:endpoints><con:operation id="ab101b59-488b-4065-9668-8210199a298a" isOneWay="false" action="urn:generic#addAreaToTeam" name="addAreaToTeam" bindingOperationName="addAreaToTeam" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e16862b8-c009-489f-a741-4beb17ed8412" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:addAreaToTeam>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+         <urn:AREAS>?</urn:AREAS>\r
+      </urn:addAreaToTeam>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#addAreaToTeam"/></con:call><con:call id="1614caa7-7c27-4ac5-b94c-20194c08fc24" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:addAreaToTeam>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+         <urn:AREAS>?</urn:AREAS>\r
+      </urn:addAreaToTeam>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#addAreaToTeam"/></con:call></con:operation><con:operation id="888c4eaa-90fa-4f44-b413-5a227aab8622" isOneWay="false" action="urn:generic#addPositionToTeam" name="addPositionToTeam" bindingOperationName="addPositionToTeam" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7dde4777-c062-4268-8355-f2018525373c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:addPositionToTeam>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+         <urn:POSITIONS>?</urn:POSITIONS>\r
+      </urn:addPositionToTeam>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#addPositionToTeam"/></con:call><con:call id="8997b1d7-622f-41ac-b64c-579b78f3fc0f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:addPositionToTeam>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+         <urn:POSITIONS>?</urn:POSITIONS>\r
+      </urn:addPositionToTeam>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#addPositionToTeam"/></con:call></con:operation><con:operation id="60e6fbe5-550d-49c0-9561-d6c1749c1969" isOneWay="false" action="urn:generic#addUserToTeam" name="addUserToTeam" bindingOperationName="addUserToTeam" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="93ac2adf-c357-46b4-9421-e6c82a4f9f4e" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:addUserToTeam>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <urn:IDTEAM>ITSM-INCSOL_RSTR-GQ</urn:IDTEAM>\r
+         <urn:USERS>abeck</urn:USERS>\r
+      </urn:addUserToTeam>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>wservice</con:username><con:password>2B807F7278B9BC3#b.e&amp;c*k@1508DCC8737BC8C8B</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#addUserToTeam"/><con:wsrmConfig version="1.2"/></con:call><con:call id="d0ef7fe4-9013-44de-ba20-c26121ea3ff4" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:addUserToTeam>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+         <urn:USERS>?</urn:USERS>\r
+      </urn:addUserToTeam>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#addUserToTeam"/></con:call></con:operation><con:operation id="0a99bf54-5580-47a6-b1af-ebb985fc3c8e" isOneWay="false" action="urn:generic#createTeamByArea" name="createTeamByArea" bindingOperationName="createTeamByArea" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="edb83976-8ad9-43ac-a7f2-c15814bf005a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:createTeamByArea>\r
+         <!--You may enter the following 4 items in any order-->\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+         <urn:NMTEAM>?</urn:NMTEAM>\r
+         <urn:AREAS>?</urn:AREAS>\r
+         <urn:COMPONENT>?</urn:COMPONENT>\r
+      </urn:createTeamByArea>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#createTeamByArea"/></con:call><con:call id="35a3881f-52a3-4773-b2bf-fdb85ee2a621" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:createTeamByArea>\r
+         <!--You may enter the following 4 items in any order-->\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+         <urn:NMTEAM>?</urn:NMTEAM>\r
+         <urn:AREAS>?</urn:AREAS>\r
+         <urn:COMPONENT>?</urn:COMPONENT>\r
+      </urn:createTeamByArea>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#createTeamByArea"/></con:call></con:operation><con:operation id="7e06ef1f-9760-4e6e-9154-c71fc739c84a" isOneWay="false" action="urn:generic#createTeamByPosition" name="createTeamByPosition" bindingOperationName="createTeamByPosition" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="dff3dee0-6199-4705-ba3b-2bcb2e27e2cf" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:createTeamByPosition>\r
+         <!--You may enter the following 4 items in any order-->\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+         <urn:NMTEAM>?</urn:NMTEAM>\r
+         <urn:POSITIONS>?</urn:POSITIONS>\r
+         <urn:COMPONENT>?</urn:COMPONENT>\r
+      </urn:createTeamByPosition>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#createTeamByPosition"/></con:call><con:call id="defacef9-996f-459c-91e6-23524639b674" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:createTeamByPosition>\r
+         <!--You may enter the following 4 items in any order-->\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+         <urn:NMTEAM>?</urn:NMTEAM>\r
+         <urn:POSITIONS>?</urn:POSITIONS>\r
+         <urn:COMPONENT>?</urn:COMPONENT>\r
+      </urn:createTeamByPosition>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#createTeamByPosition"/></con:call></con:operation><con:operation id="a5bca5d4-bdb7-4129-aef4-637ccc7d4ba9" isOneWay="false" action="urn:generic#createTeamByUser" name="createTeamByUser" bindingOperationName="createTeamByUser" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f2169f61-79a0-476c-9ae3-2e9886e5adac" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:createTeamByUser>\r
+         <!--You may enter the following 4 items in any order-->\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+         <urn:NMTEAM>?</urn:NMTEAM>\r
+         <urn:USERS>?</urn:USERS>\r
+         <urn:COMPONENT>?</urn:COMPONENT>\r
+      </urn:createTeamByUser>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#createTeamByUser"/></con:call><con:call id="735ee776-fa6e-4c34-af65-b190f5908666" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:createTeamByUser>\r
+         <!--You may enter the following 4 items in any order-->\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+         <urn:NMTEAM>?</urn:NMTEAM>\r
+         <urn:USERS>?</urn:USERS>\r
+         <urn:COMPONENT>?</urn:COMPONENT>\r
+      </urn:createTeamByUser>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#createTeamByUser"/></con:call></con:operation><con:operation id="0664b02c-4ef4-4267-98ab-4a0ab24ebbf5" isOneWay="false" action="urn:generic#deleteTeamMember" name="deleteTeamMember" bindingOperationName="deleteTeamMember" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="28d597e0-d5f5-4a4c-bc98-ee019cb4e358" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:deleteTeamMember>\r
+         <!--You may enter the following 5 items in any order-->\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+         <urn:FGTYPE>?</urn:FGTYPE>\r
+         <urn:IDDEPARTMENT>?</urn:IDDEPARTMENT>\r
+         <urn:IDPOSITION>?</urn:IDPOSITION>\r
+         <urn:IDUSER>?</urn:IDUSER>\r
+      </urn:deleteTeamMember>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#deleteTeamMember"/></con:call><con:call id="7cd7acc4-a362-4c91-9c2b-409501849de1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:deleteTeamMember>\r
+         <!--You may enter the following 5 items in any order-->\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+         <urn:FGTYPE>?</urn:FGTYPE>\r
+         <urn:IDDEPARTMENT>?</urn:IDDEPARTMENT>\r
+         <urn:IDPOSITION>?</urn:IDPOSITION>\r
+         <urn:IDUSER>?</urn:IDUSER>\r
+      </urn:deleteTeamMember>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#deleteTeamMember"/></con:call></con:operation><con:operation id="b9b949ad-f2eb-4746-b047-5ccceec3d4ae" isOneWay="false" action="urn:generic#editTeamByArea" name="editTeamByArea" bindingOperationName="editTeamByArea" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b3b0fdd5-8a32-4120-abe3-2a549d7a351e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:editTeamByArea>\r
+         <!--You may enter the following 5 items in any order-->\r
+         <urn:IDTEAM_OLD>?</urn:IDTEAM_OLD>\r
+         <urn:IDTEAM_NEW>?</urn:IDTEAM_NEW>\r
+         <urn:NMTEAM>?</urn:NMTEAM>\r
+         <urn:AREAS>?</urn:AREAS>\r
+         <urn:COMPONENT>?</urn:COMPONENT>\r
+      </urn:editTeamByArea>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#editTeamByArea"/><con:wsrmConfig version="1.2"/></con:call><con:call id="f04528f1-f3ee-4056-a058-8edb4dbe3d2c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:editTeamByArea>\r
+         <!--You may enter the following 5 items in any order-->\r
+         <urn:IDTEAM_OLD>?</urn:IDTEAM_OLD>\r
+         <urn:IDTEAM_NEW>?</urn:IDTEAM_NEW>\r
+         <urn:NMTEAM>?</urn:NMTEAM>\r
+         <urn:AREAS>?</urn:AREAS>\r
+         <urn:COMPONENT>?</urn:COMPONENT>\r
+      </urn:editTeamByArea>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#editTeamByArea"/></con:call></con:operation><con:operation id="cc8aa8cb-fe23-46ab-b56e-982144c5fd5b" isOneWay="false" action="urn:generic#editTeamByPosition" name="editTeamByPosition" bindingOperationName="editTeamByPosition" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="442b8503-9b39-4033-bf40-a5efb0a5806e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:editTeamByPosition>\r
+         <!--You may enter the following 5 items in any order-->\r
+         <urn:IDTEAM_OLD>?</urn:IDTEAM_OLD>\r
+         <urn:IDTEAM_NEW>?</urn:IDTEAM_NEW>\r
+         <urn:NMTEAM>?</urn:NMTEAM>\r
+         <urn:POSITIONS>?</urn:POSITIONS>\r
+         <urn:COMPONENT>?</urn:COMPONENT>\r
+      </urn:editTeamByPosition>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#editTeamByPosition"/></con:call><con:call id="ccbf0716-7aaa-4710-9212-cc2336df3374" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:editTeamByPosition>\r
+         <!--You may enter the following 5 items in any order-->\r
+         <urn:IDTEAM_OLD>?</urn:IDTEAM_OLD>\r
+         <urn:IDTEAM_NEW>?</urn:IDTEAM_NEW>\r
+         <urn:NMTEAM>?</urn:NMTEAM>\r
+         <urn:POSITIONS>?</urn:POSITIONS>\r
+         <urn:COMPONENT>?</urn:COMPONENT>\r
+      </urn:editTeamByPosition>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#editTeamByPosition"/></con:call></con:operation><con:operation id="5f6700cd-d7ab-4a8b-a58c-802a32c2486b" isOneWay="false" action="urn:generic#editTeamByUser" name="editTeamByUser" bindingOperationName="editTeamByUser" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0b504d84-dd46-4b56-915f-519883e86237" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:editTeamByUser>\r
+         <!--You may enter the following 5 items in any order-->\r
+         <urn:IDTEAM_OLD>?</urn:IDTEAM_OLD>\r
+         <urn:IDTEAM_NEW>?</urn:IDTEAM_NEW>\r
+         <urn:NMTEAM>?</urn:NMTEAM>\r
+         <urn:USERS>?</urn:USERS>\r
+         <urn:COMPONENT>?</urn:COMPONENT>\r
+      </urn:editTeamByUser>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#editTeamByUser"/></con:call><con:call id="2145f533-b4eb-4311-961a-f7db4a1fc477" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:editTeamByUser>\r
+         <!--You may enter the following 5 items in any order-->\r
+         <urn:IDTEAM_OLD>?</urn:IDTEAM_OLD>\r
+         <urn:IDTEAM_NEW>?</urn:IDTEAM_NEW>\r
+         <urn:NMTEAM>?</urn:NMTEAM>\r
+         <urn:USERS>?</urn:USERS>\r
+         <urn:COMPONENT>?</urn:COMPONENT>\r
+      </urn:editTeamByUser>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#editTeamByUser"/></con:call></con:operation><con:operation id="52581fd1-5a0c-4f03-9786-a1bf249a1b8e" isOneWay="false" action="urn:generic#newTeam" name="newTeam" bindingOperationName="newTeam" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bbe33f84-2a38-4c16-bd28-7b6c7fd070c7" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:newTeam>\r
+         <!--You may enter the following 3 items in any order-->\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+         <urn:NMTEAM>?</urn:NMTEAM>\r
+         <urn:COMPONENT>?</urn:COMPONENT>\r
+      </urn:newTeam>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#newTeam"/><con:wsrmConfig version="1.2"/></con:call><con:call id="a335610f-2c80-46a4-bc09-92b10b526914" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:newTeam>\r
+         <!--You may enter the following 3 items in any order-->\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+         <urn:NMTEAM>?</urn:NMTEAM>\r
+         <urn:COMPONENT>?</urn:COMPONENT>\r
+      </urn:newTeam>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#newTeam"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="677abccd-884b-4ff5-a323-067f62608fee" isOneWay="false" action="urn:generic#newTeamMember" name="newTeamMember" bindingOperationName="newTeamMember" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f7b3ba85-bcb8-49b9-96fe-7653f61c045c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:newTeamMember>\r
+         <!--You may enter the following 6 items in any order-->\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+         <urn:FGTYPE>?</urn:FGTYPE>\r
+         <urn:IDDEPARTMENT>?</urn:IDDEPARTMENT>\r
+         <urn:SUBLEVELS>?</urn:SUBLEVELS>\r
+         <urn:IDPOSITION>?</urn:IDPOSITION>\r
+         <urn:IDUSER>?</urn:IDUSER>\r
+      </urn:newTeamMember>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#newTeamMember"/></con:call><con:call id="d01e6584-e3bc-4923-8092-42233ab3926c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:newTeamMember>\r
+         <!--You may enter the following 6 items in any order-->\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+         <urn:FGTYPE>?</urn:FGTYPE>\r
+         <urn:IDDEPARTMENT>?</urn:IDDEPARTMENT>\r
+         <urn:SUBLEVELS>?</urn:SUBLEVELS>\r
+         <urn:IDPOSITION>?</urn:IDPOSITION>\r
+         <urn:IDUSER>?</urn:IDUSER>\r
+      </urn:newTeamMember>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#newTeamMember"/></con:call></con:operation><con:operation id="ecf82ee1-7758-4007-bbf5-805017c5c979" isOneWay="false" action="urn:generic#removeAreaFromTeam" name="removeAreaFromTeam" bindingOperationName="removeAreaFromTeam" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="9ac1bc39-d2f8-47f6-9012-89da925b73f8" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:removeAreaFromTeam>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+         <urn:AREAS>?</urn:AREAS>\r
+      </urn:removeAreaFromTeam>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#removeAreaFromTeam"/></con:call><con:call id="8578fa0f-3829-4480-9c2b-f5bb289c7e9a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:removeAreaFromTeam>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+         <urn:AREAS>?</urn:AREAS>\r
+      </urn:removeAreaFromTeam>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#removeAreaFromTeam"/></con:call></con:operation><con:operation id="4f828623-38ed-4e2a-a307-5b459dae3c9b" isOneWay="false" action="urn:generic#removePositionFromTeam" name="removePositionFromTeam" bindingOperationName="removePositionFromTeam" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c902ec19-0423-4c39-9538-8d817e37f5a2" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:removePositionFromTeam>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+         <urn:POSITIONS>?</urn:POSITIONS>\r
+      </urn:removePositionFromTeam>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#removePositionFromTeam"/></con:call><con:call id="17694020-d770-41bb-af6a-eb2198e3d3b7" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:removePositionFromTeam>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+         <urn:POSITIONS>?</urn:POSITIONS>\r
+      </urn:removePositionFromTeam>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#removePositionFromTeam"/></con:call></con:operation><con:operation id="533df1c9-a3f9-46e0-95d7-2d9852d124cc" isOneWay="false" action="urn:generic#removeTeam" name="removeTeam" bindingOperationName="removeTeam" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="649e329a-0dc8-4b0c-a690-3f996d07f239" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:removeTeam>\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+      </urn:removeTeam>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#removeTeam"/></con:call><con:call id="884f16e4-a281-4781-a099-290605498506" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:removeTeam>\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+      </urn:removeTeam>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#removeTeam"/></con:call></con:operation><con:operation id="43b3aab7-253f-4e04-bd73-a10657f73d89" isOneWay="false" action="urn:generic#removeUserFromTeam" name="removeUserFromTeam" bindingOperationName="removeUserFromTeam" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="cab5645b-0b20-4991-980c-c3d6a82dfd83" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:removeUserFromTeam>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+         <urn:USERS>?</urn:USERS>\r
+      </urn:removeUserFromTeam>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#removeUserFromTeam"/></con:call><con:call id="db6bbffd-904b-4b95-bcfa-e9c25258acf1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:removeUserFromTeam>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <urn:IDTEAM>?</urn:IDTEAM>\r
+         <urn:USERS>?</urn:USERS>\r
+      </urn:removeUserFromTeam>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#removeUserFromTeam"/></con:call></con:operation><con:operation id="d4dc9960-09f4-4dd2-8d09-a1ae2415bd0e" isOneWay="false" action="urn:generic#newRole" name="newRole" bindingOperationName="newRole" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="41ee550f-ce55-42fe-888b-afd9389d8ef6" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:newRole>\r
+         <!--You may enter the following 5 items in any order-->\r
+         <urn:IdRole>AN-CM_AVD-106</urn:IdRole>\r
+         <urn:NmRole>Produção - Embalagem (Antibióticos)</urn:NmRole>\r
+         <!--Optional:-->\r
+         <urn:IdRoleOwner>AN-CM_AVD</urn:IdRoleOwner>\r
+         <urn:Components>\r
+            <urn:item>PM</urn:item>\r
+         </urn:Components>\r
+      </urn:newRole>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>wservice</con:username><con:password>Ws#$%678</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#newRole"/><con:wsrmConfig version="1.2"/></con:call><con:call id="6f4bbb40-b107-4bab-bc86-0e4ea9351cf5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:newRole>\r
+         <!--You may enter the following 5 items in any order-->\r
+         <urn:IdRole>?</urn:IdRole>\r
+         <urn:NmRole>?</urn:NmRole>\r
+         <!--Optional:-->\r
+         <urn:IdRoleOwner>?</urn:IdRoleOwner>\r
+         <!--Optional:-->\r
+         <urn:Description>?</urn:Description>\r
+         <urn:Components>\r
+            <!--1 to 100 repetitions:-->\r
+            <urn:item>?</urn:item>\r
+         </urn:Components>\r
+      </urn:newRole>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#newRole"/></con:call></con:operation><con:operation id="0717187f-b8df-42c8-89c7-7e423454e2b1" isOneWay="false" action="urn:generic#removeUserFromRole" name="removeUserFromRole" bindingOperationName="removeUserFromRole" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="fc1762b0-1ff1-4b30-adcf-e01635e3749e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:removeUserFromRole>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <urn:IdRole>?</urn:IdRole>\r
+         <urn:IdUser>?</urn:IdUser>\r
+      </urn:removeUserFromRole>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#removeUserFromRole"/></con:call><con:call id="218bbef4-e69d-4c11-9a55-ec2a4b53c3cf" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:removeUserFromRole>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <urn:IdRole>?</urn:IdRole>\r
+         <urn:IdUser>?</urn:IdUser>\r
+      </urn:removeUserFromRole>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#removeUserFromRole"/></con:call></con:operation><con:operation id="4f3fde1e-904f-4038-8f01-cc158f234f0e" isOneWay="false" action="urn:generic#addUserToRole" name="addUserToRole" bindingOperationName="addUserToRole" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="92072f84-e0f2-4e8b-807c-2c6b74164c68" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjA1NjA5NjUsImV4cCI6MTc2NzIyNTU0MCwiaWRsb2dpbiI6IndzZXJ2aWNlIiwicmF0ZWxpbWl0IjoxMjAsInF1b3RhbGltaXQiOjEwMDAwMH0.8kfE0gjtlPPb9JtKtODiS2ns0cbC48KrLiidldAraw8" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:addUserToRole>\r
+         <!--You may enter the following 3 items in any order-->\r
+         <urn:IdRole>ITSM-INCSOL_GOV</urn:IdRole>\r
+         <urn:IdUser>abeck</urn:IdUser>\r
+         <!--Optional:-->\r
+         <urn:IsDefault>2</urn:IsDefault>\r
+      </urn:addUserToRole>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>wservice</con:username><con:password>Ws#$%678</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#addUserToRole"/><con:wsrmConfig version="1.2"/></con:call><con:call id="ecc0cb74-a306-40c5-97d6-9a60f4fa010b" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuite.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:addUserToRole>\r
+         <!--You may enter the following 3 items in any order-->\r
+         <urn:IdRole>?</urn:IdRole>\r
+         <urn:IdUser>?</urn:IdUser>\r
+         <!--Optional:-->\r
+         <urn:IsDefault>?</urn:IsDefault>\r
+      </urn:addUserToRole>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#addUserToRole"/><con:wsrmConfig version="1.2"/></con:call><con:call id="57a00013-595e-4936-8e75-ffc1128abecb" name="Request 3"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Authorization" value="eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTk5ODc3MjAsImV4cCI6MTc2NzIyNTU0MCwiaWRsb2dpbiI6IndzZXJ2aWNlIiwicmF0ZWxpbWl0IjoxMjAsInF1b3RhbGltaXQiOjEwMDAwMH0.1TBXd-kH52Od2JKA9O058EbWTD5gtOlQMlEIdvfKKlI" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://sesuiteqas.uniaoquimica.com.br/apigateway/se/ws/gn_ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:generic">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:addUserToRole>\r
+         <!--You may enter the following 3 items in any order-->\r
+         <urn:IdRole>AN-CM_AVD-101</urn:IdRole>\r
+         <urn:IdUser>abeck</urn:IdUser>\r
+         <!--Optional:-->\r
+         <urn:IsDefault>2</urn:IsDefault>\r
+      </urn:addUserToRole>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username/><con:password/><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:generic#addUserToRole"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
